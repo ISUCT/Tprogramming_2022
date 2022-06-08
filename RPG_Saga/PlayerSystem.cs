@@ -19,16 +19,20 @@ namespace RpgSaga
 
         public Player CreatePlayer(int number)
         {
+            var rand = new Random();
+            int health = rand.Next(50, 150);
+            int strength = rand.Next(25, 50);
+            string name = Constants.Names[number % Constants.Names.Length];
             if (number % 3 == 0)
             {
-                return new Wheelchair();
+                return new Baranka(health, strength, name);
             }
             if (number % 3 == 1)
             {
-                return new ChupaChups();
+                return new ChupaChups(health, strength, name);
             }
 
-            return new Baranka();
+            return new Wheelchair(health, strength, name);
         }
     }
 }

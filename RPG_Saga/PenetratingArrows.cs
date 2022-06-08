@@ -1,10 +1,7 @@
 namespace RpgSaga
 {
-    public class PenetratingArrows : IAbility
+    public interface PenetratingArrows : Ability
     {
-        public void UseAbility()
-        {
-            return;
-        }
+        public void DoPenetration(Player enemy);
     } 
 }

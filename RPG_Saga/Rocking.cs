@@ -1,10 +1,7 @@
 namespace RpgSaga
 {
-    public class Rocking : IAbility
+    public interface Rocking : Ability
     {
-        public void UseAbility()
-        {
-            return;
-        }
+        public void DoRock(Player entity);
     } 
 }

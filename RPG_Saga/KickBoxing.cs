@@ -1,10 +1,7 @@
 namespace RpgSaga
 {
-    public class KickBoxing : IAbility
+    public interface KickBoxing : Ability
     {
-        public void UseAbility()
-        {
-            return;
-        }
+        public void UseAbility(Player enemy);
     } 
 }

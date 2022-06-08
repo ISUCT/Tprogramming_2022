@@ -1,7 +1,7 @@
 namespace RpgSaga
 {
-    public interface IAbility
+    public interface Ability
     {
-        public void UseAbility();
+        public void UseAbility(Player enemy);
     }
 }

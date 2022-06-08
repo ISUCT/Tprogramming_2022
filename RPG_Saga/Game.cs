@@ -4,24 +4,25 @@ namespace RpgSaga
     {
         private int _numberOfPlayers;
         private List<Player> _players;
-        PlayerSystem playerSystem = new PlayerSystem();
+        private PlayerSystem _playerSystem;
+        private BattleSystem _battleSystem;
 
-        public void Run()
+        public Game()
         {
-            while (_players.Count > 1)
-            {
-                System.Console.WriteLine("Hi!");
-            }
-        }
-
-        public void Init()
-        {
-            _numberOfPlayers = playerSystem.EnterNumberOfPlayers();
+            _playerSystem = new PlayerSystem();
+            _numberOfPlayers = _playerSystem.EnterNumberOfPlayers();
             _players = new List<Player>(_numberOfPlayers);
             for (int i = 0; i < _players.Capacity; i++)
             {
-                _players.Add(playerSystem.CreatePlayer(i));
+                _players.Add(_playerSystem.CreatePlayer(i));
             }
+
+            _battleSystem = new BattleSystem();
+        }
+
+        public void Run()
+        {
+            _battleSystem.Battle(_players);
         }
     } 
 }
