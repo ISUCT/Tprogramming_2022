@@ -2,6 +2,6 @@ namespace RpgSaga
 {
     public interface KickBoxing : Ability
     {
-        public void UseAbility(Player enemy);
+        public void DoKickBox(Player enemy);
     } 
 }

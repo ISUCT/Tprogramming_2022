@@ -2,9 +2,16 @@ namespace RpgSaga
 {
     public class PlayerSystem
     {
+        private Logger _playerLog;
+
+        public PlayerSystem(Logger logger)
+        {
+            _playerLog = logger;
+        }
+
         public int EnterNumberOfPlayers()
         {
-            Console.WriteLine("Enter the even number of players");
+            _playerLog.EnterTheNumber();
             if (int.TryParse(Console.ReadLine(), out int number))
             {
                 if (number % 2 == 0 && number > 0)
@@ -13,7 +20,7 @@ namespace RpgSaga
                 }
             }
             
-            Console.WriteLine("The number of players must be even integer");
+            _playerLog.NumberIsEven();
             return 0;
         }
 
@@ -23,6 +30,9 @@ namespace RpgSaga
             int health = rand.Next(50, 150);
             int strength = rand.Next(25, 50);
             string name = Constants.Names[number % Constants.Names.Length];
+            
+            _playerLog.ShowName(name);
+
             if (number % 3 == 0)
             {
                 return new Baranka(health, strength, name);

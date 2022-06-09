@@ -2,46 +2,35 @@ namespace RpgSaga
 {
     public abstract class Player : Ability
     {
-        private bool _isBurning;
+        public abstract string AbilityName { get; set; }
+        public bool CanUseAbility { get; protected set; }
+        public bool IsBurning { get; private set; }
         public string PlayerClass { get; protected set;}
-        public int Health { get; private set;}
-        public int Strength { get; private set; }
+        public int Health { get; set;}
+        public int Strength { get; protected set; }
         public string Name { get; }
+
         public Player(int health, int strength, string name)
         {
             PlayerClass = "Игрок без класса";
             Health = health;
             Strength = strength;
             Name = name;
-            _isBurning = false;
+            IsBurning = false;
+            CanUseAbility = true;
         }
 
-        public virtual void MakeStep(Player enemy)
+        public virtual int Attack(Player enemy)
         {
-            if (IsAlive())
-            {
-                var rand = new Random();
-                if (rand.Next(0, 2) == 0)
-                {
-                    Attack(enemy);
-                    return;
-                }
-
-                UseAbility(enemy);
-            }
-        }
-
-        public virtual void Attack(Player enemy)
-        {
-            Console.WriteLine($"({PlayerClass}) {Name} атакует и наносит {Strength} единиц урона противнику {enemy.Name} ({enemy.PlayerClass})");
             enemy.GetDamage(Strength);
+            return Strength;
         }
 
         public virtual void UseAbility(Player enemy) {}
 
         public void GetDamage(int damage)
         {
-            if (_isBurning)
+            if (IsBurning)
             {
                 System.Console.WriteLine($"{Name} горит и получает 2 единицы урона");
                 Health -= 2;
@@ -52,7 +41,7 @@ namespace RpgSaga
 
         public void Burn()
         {
-            _isBurning = true;
+            IsBurning = true;
             GetDamage(0);
         }
 
