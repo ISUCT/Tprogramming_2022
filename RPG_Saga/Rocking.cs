@@ -1,7 +1,20 @@
 namespace RpgSaga
 {
-    public interface Rocking : Ability
+    public class Rocking : Ability
     {
-        public void DoRock(Player enemy);
+        public override string AbilityName { get; set; }
+        public override bool CanUseAbility { get; protected set; }
+
+        public Rocking()
+        {
+            AbilityName = "Качание репом";
+            CanUseAbility = true;
+        }
+
+        public override void UseAbility(Player player, Player enemy)
+        {
+            enemy.Blind();
+            enemy.GetDamage(0);
+        }
     } 
 }

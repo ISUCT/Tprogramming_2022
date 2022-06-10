@@ -1,30 +1,10 @@
 namespace RpgSaga
 {
-    public class Baranka : Player, PenetratingArrows
+    public class Baranka : Player
     {
-        public override string AbilityName { get; set; }
-        public Baranka(int health, int strength, string name) : base(health, strength, name)
+        public Baranka(int health, int strength, string name, Ability ability) : base(health, strength, name, ability)
         {
-            AbilityName = "Проникающие стрелы";
             PlayerClass = "Баранка";
-        }
-
-        public override void UseAbility(Player enemy)
-        {
-            if (!CanUseAbility)
-            {
-                Attack(enemy);
-                return;
-            }
-
-            DoPenetration(enemy);
-        }
-
-        public void DoPenetration(Player enemy)
-        {
-            System.Console.WriteLine($"({PlayerClass}) {Name} стреляет подожёнными проникающими стрелами в {enemy.Name}");
-            CanUseAbility = false;
-            enemy.Burn();
         }
     } 
 }

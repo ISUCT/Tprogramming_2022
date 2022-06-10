@@ -1,8 +1,10 @@
 namespace RpgSaga
 {
-    public interface Ability
+    public abstract class Ability
     {
         public abstract string AbilityName { get; set; }
-        public void UseAbility(Player enemy);
+        public virtual bool CanUseAbility { get; protected set; }
+
+        public abstract void UseAbility(Player player, Player enemy);
     }
 }

@@ -1,48 +1,62 @@
 namespace RpgSaga
 {
-    public abstract class Player : Ability
+    public abstract class Player
     {
-        public abstract string AbilityName { get; set; }
-        public bool CanUseAbility { get; protected set; }
-        public bool IsBurning { get; private set; }
+        protected List<Ability> abilities;
+        public Ability ActiveAbility { get; set; }
+        public int GotDamage { get; protected set; }
         public string PlayerClass { get; protected set;}
-        public int Health { get; set;}
+        public int Health { get; protected set;}
         public int Strength { get; protected set; }
+        public bool IsBurning { get; private set; }
+        public bool IsBlind { get; private set; }
+
         public string Name { get; }
 
-        public Player(int health, int strength, string name)
+        public Player(int health, int strength, string name, Ability ability)
         {
+            GotDamage = 0;
+            abilities = new List<Ability>{ ability };
+            ActiveAbility = abilities[0];
             PlayerClass = "Игрок без класса";
             Health = health;
             Strength = strength;
             Name = name;
             IsBurning = false;
-            CanUseAbility = true;
+            IsBlind = false;
         }
 
-        public virtual int Attack(Player enemy)
+        public virtual void Attack(Player enemy, int damage)
         {
-            enemy.GetDamage(Strength);
-            return Strength;
+            if (IsBlind)
+            {
+                enemy.GetDamage(0);
+                IsBlind = false;
+                return;
+            }
+
+            enemy.GetDamage(damage);
         }
 
-        public virtual void UseAbility(Player enemy) {}
-
-        public void GetDamage(int damage)
+        public virtual void GetDamage(int damage)
         {
+            GotDamage = damage;
             if (IsBurning)
             {
-                System.Console.WriteLine($"{Name} горит и получает 2 единицы урона");
                 Health -= 2;
             }
             
-            Health -= damage;
+            Health -= GotDamage;
         }
 
         public void Burn()
         {
             IsBurning = true;
-            GetDamage(0);
+        }
+
+        public void Blind()
+        {
+            IsBlind = true;
         }
 
         public bool IsAlive()

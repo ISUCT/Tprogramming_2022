@@ -2,14 +2,24 @@ namespace RpgSaga
 {
     public class Logger
     {
-        public void KickBoxing(Player player, Player enemy)
+        public void UsesAbility(Player player, Player enemy)
         {
-            Console.WriteLine($"({player.PlayerClass}) {player.Name} атакует и наносит {player.Strength} единиц урона противнику {enemy.Name} ({enemy.PlayerClass})");
+            Console.WriteLine($"({player.PlayerClass}) {player.Name} использует способность {player.ActiveAbility.AbilityName} и наносит {enemy.GotDamage} единиц урона противнику {enemy.Name} ({enemy.PlayerClass})");
+            
+            if (enemy.IsBurning)
+            {
+                System.Console.WriteLine($"{enemy.Name} горит и получает 2 единицы урона");
+            }
         }
 
         public void Attack(Player player, Player enemy)
         {
-            Console.WriteLine($"({player.PlayerClass}) {player.Name} атакует и наносит {player.Strength} единиц урона противнику {enemy.Name} ({enemy.PlayerClass})");
+            Console.WriteLine($"({player.PlayerClass}) {player.Name} атакует и наносит {enemy.GotDamage} единиц урона противнику {enemy.Name} ({enemy.PlayerClass})");
+            
+            if (enemy.IsBurning)
+            {
+                System.Console.WriteLine($"{enemy.Name} горит и получает 2 единицы урона");
+            }
         }
 
         public void Burning(Player player)

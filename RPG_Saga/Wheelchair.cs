@@ -1,17 +1,10 @@
 namespace RpgSaga
 {
-    public class Wheelchair : Player, Rocking
+    public class Wheelchair : Player
     {
-        public override string AbilityName { get; set; }
-        public Wheelchair(int health, int strength, string name) : base(health, strength, name)
+        public Wheelchair(int health, int strength, string name, Ability ability) : base(health, strength, name, ability)
         {
-            AbilityName = "Качание";
             PlayerClass = "Инвалидное кресло";
-        }
-
-        public void DoRock(Player enemy)
-        {
-            //Здесь код 
         }
     }
 }
