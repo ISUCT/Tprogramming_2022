@@ -45,12 +45,12 @@ namespace RpgSaga
 
         public void EnterTheNumber()
         {
-            Console.WriteLine("Enter the even number of players");
+            Console.WriteLine("Введите четное число игроков");
         }
 
         public void NumberIsEven()
         {
-            Console.WriteLine("Enter the even number of players");
+            Console.WriteLine("Число игроков должно быть четным");
         }
 
         public void Dead(Player player)

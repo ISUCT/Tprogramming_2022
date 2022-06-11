@@ -7,7 +7,7 @@ namespace RpgSaga
 
         public Rocking()
         {
-            AbilityName = "Качание репом";
+            AbilityName = "Качание";
             CanUseAbility = true;
         }
 
