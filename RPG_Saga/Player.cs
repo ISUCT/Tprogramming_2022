@@ -59,7 +59,7 @@ namespace RpgSaga
             IsBlind = true;
         }
 
-        public bool IsAlive()
+        public virtual bool IsAlive()
         {
             if (Health <= 0)
             {
@@ -67,6 +67,12 @@ namespace RpgSaga
             }
             
             return true;
+        }
+
+        public virtual void Refresh()
+        {
+            IsBurning = false;
+            IsBlind = false;
         }
     } 
 }

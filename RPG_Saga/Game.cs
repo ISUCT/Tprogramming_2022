@@ -10,7 +10,7 @@ namespace RpgSaga
         public Game()
         {
             _logger = new Logger();
-            
+
             _playerSystem = new PlayerSystem(_logger);
             _numberOfPlayers = _playerSystem.EnterNumberOfPlayers();
             _players = new List<Player>(_numberOfPlayers);

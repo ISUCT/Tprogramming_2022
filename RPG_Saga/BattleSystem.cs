@@ -10,18 +10,25 @@ namespace RpgSaga
             _battleLogger = logger;
         }
 
-        public void Battle(List<Player> _players)
+        public void Battle(List<Player> players)
         {
-            for (int i = 0; i < _players.Count ; i++)
+            for (int round = 1; players.Count > 1; round++)
             {
-                Duel(_players[i], _players[i + 1]);
-                
-                var defeatedPlayer = FreeList(_players[i], _players[i + 1]);
-                _players.Remove(defeatedPlayer);
+                _battleLogger.ShowRound(round);
+                for (int i = 1; i < players.Count ; i++)
+                {
+                    Duel(players[i - 1], players[i]);
+                    _battleLogger.SeparateBattle();
+
+                    var defeatedPlayer = FreeList(players[i - 1], players[i]);
+                    players.Remove(defeatedPlayer);
+                }
+
+                RefreshPlayers(players);
             }
         }
 
-        public Player FreeList(Player player1, Player player2)
+        private Player FreeList(Player player1, Player player2)
         {
             if (!player1.IsAlive())
             {
@@ -31,7 +38,7 @@ namespace RpgSaga
             return player2;
         }
 
-        public void Duel(Player player1, Player player2)
+        private void Duel(Player player1, Player player2)
         {
             for ( ; !_battleFinished; )
             {
@@ -41,7 +48,7 @@ namespace RpgSaga
             _battleFinished = false;
         }
 
-        public void MakeStepBoth(Player player1, Player player2)
+        private void MakeStepBoth(Player player1, Player player2)
         {
             if (!CheckAlive(player1))
             {
@@ -60,7 +67,7 @@ namespace RpgSaga
             MakeStepOne(player2, player1);
         }
 
-        public void MakeStepOne(Player player, Player enemy)
+        private void MakeStepOne(Player player, Player enemy)
         {
             var rand = new Random();
             int randInt = rand.Next(0, 2);
@@ -75,7 +82,7 @@ namespace RpgSaga
             _battleLogger.Attack(player, enemy);
         }
 
-        public bool CheckAlive(Player player)
+        private bool CheckAlive(Player player)
         {
             if (!player.IsAlive())
             {
@@ -84,6 +91,14 @@ namespace RpgSaga
             }
 
             return true;
+        }
+
+        private void RefreshPlayers(List<Player> playerList)
+        {
+            for (int i = 0; i < playerList.Count; i++)
+            {
+                playerList[i].Refresh();
+            }
         }
     }
 }
