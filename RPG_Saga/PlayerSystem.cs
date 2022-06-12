@@ -2,16 +2,16 @@ namespace RpgSaga
 {
     public class PlayerSystem
     {
-        private Logger _playerLog;
+        private PlayerLogger _playerLogger;
 
-        public PlayerSystem(Logger logger)
+        public PlayerSystem(PlayerLogger logger)
         {
-            _playerLog = logger;
+            _playerLogger = logger;
         }
 
         public int EnterNumberOfPlayers()
         {
-            _playerLog.EnterTheNumber();
+            _playerLogger.EnterTheNumberOfPlayers();
             if (int.TryParse(Console.ReadLine(), out int number))
             {
                 if (number % 2 == 0 && number > 0)
@@ -20,7 +20,7 @@ namespace RpgSaga
                 }
             }
             
-            _playerLog.NumberIsEven();
+            _playerLogger.NumberIsEvenWarning();
             return 0;
         }
 
@@ -31,7 +31,7 @@ namespace RpgSaga
             int strength = rand.Next(25, 50);
             string name = Constants.Names[number % Constants.Names.Length];
             
-            _playerLog.ShowName(name);
+            _playerLogger.ShowName(name);
 
             if (number % 3 == 0)
             {

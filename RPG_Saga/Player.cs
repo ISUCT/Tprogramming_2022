@@ -31,7 +31,7 @@ namespace RpgSaga
             if (IsBlind)
             {
                 enemy.GetDamage(0);
-                IsBlind = false;
+                Unblind();
                 return;
             }
 
@@ -52,11 +52,18 @@ namespace RpgSaga
         public void Burn()
         {
             IsBurning = true;
+            GetDamage(0);
         }
 
         public void Blind()
         {
             IsBlind = true;
+            GetDamage(0);
+        }
+
+        public void Unblind()
+        {
+            IsBlind = false;
         }
 
         public virtual bool IsAlive()
@@ -73,6 +80,7 @@ namespace RpgSaga
         {
             IsBurning = false;
             IsBlind = false;
+            GotDamage = 0;
         }
     } 
 }

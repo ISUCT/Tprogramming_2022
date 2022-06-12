@@ -2,11 +2,11 @@ namespace RpgSaga
 {
     public class BattleSystem
     {
-        private bool _battleFinished;
-        private Logger _battleLogger;
-        public BattleSystem(Logger logger)
+        private bool _isBattleFinish;
+        private BattleLogger _battleLogger;
+        public BattleSystem(BattleLogger logger)
         {
-            _battleFinished = false;
+            _isBattleFinish = false;
             _battleLogger = logger;
         }
 
@@ -40,19 +40,19 @@ namespace RpgSaga
 
         private void Duel(Player player1, Player player2)
         {
-            for ( ; !_battleFinished; )
+            for ( ; !_isBattleFinish; )
             {
                 MakeStepBoth(player1, player2); 
             }
 
-            _battleFinished = false;
+            _isBattleFinish = false;
         }
 
         private void MakeStepBoth(Player player1, Player player2)
         {
             if (!CheckAlive(player1))
             {
-                _battleFinished = true;
+                _isBattleFinish = true;
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace RpgSaga
             
             if (!CheckAlive(player2))
             {
-                _battleFinished = true;
+                _isBattleFinish = true;
                 return;
             }
 

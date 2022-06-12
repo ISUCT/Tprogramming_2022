@@ -13,8 +13,13 @@ namespace RpgSaga
 
         public override void UseAbility(Player player, Player enemy)
         {
+            if (player.IsBlind)
+            {
+                player.Unblind();
+                return;
+            }
+
             enemy.Blind();
-            enemy.GetDamage(0);
         }
     } 
 }
