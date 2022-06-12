@@ -13,9 +13,8 @@ namespace RpgSaga
 
         public override void UseAbility(Player player, Player enemy)
         {
-            if (player.IsBlind)
+            if (DoBlindActions(player, enemy))
             {
-                player.Unblind();
                 return;
             }
 

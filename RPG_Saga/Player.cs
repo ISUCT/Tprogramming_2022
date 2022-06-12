@@ -4,31 +4,29 @@ namespace RpgSaga
     {
         protected List<Ability> abilities;
         public Ability ActiveAbility { get; set; }
+        public PlayerConditions playerConditions;
         public int GotDamage { get; protected set; }
         public string PlayerClass { get; protected set;}
         public int Health { get; protected set;}
         public int Strength { get; protected set; }
-        public bool IsBurning { get; private set; }
-        public bool IsBlind { get; private set; }
 
         public string Name { get; }
 
         public Player(int health, int strength, string name, Ability ability)
         {
-            GotDamage = 0;
+            playerConditions = new PlayerConditions();
             abilities = new List<Ability>{ ability };
             ActiveAbility = abilities[0];
-            PlayerClass = "Игрок без класса";
+            GotDamage = 0;
             Health = health;
             Strength = strength;
             Name = name;
-            IsBurning = false;
-            IsBlind = false;
+            PlayerClass = "Игрок без класса";
         }
 
         public virtual void Attack(Player enemy, int damage)
         {
-            if (IsBlind)
+            if (playerConditions.Condition[Conditions.IsBlind])
             {
                 enemy.GetDamage(0);
                 Unblind();
@@ -41,7 +39,7 @@ namespace RpgSaga
         public virtual void GetDamage(int damage)
         {
             GotDamage = damage;
-            if (IsBurning)
+            if (playerConditions.Condition[Conditions.IsBurning])
             {
                 Health -= 2;
             }
@@ -51,19 +49,19 @@ namespace RpgSaga
 
         public void Burn()
         {
-            IsBurning = true;
+            playerConditions.Condition[Conditions.IsBurning] = true;
             GetDamage(0);
         }
 
         public void Blind()
         {
-            IsBlind = true;
+            playerConditions.Condition[Conditions.IsBlind] = true;
             GetDamage(0);
         }
 
         public void Unblind()
         {
-            IsBlind = false;
+            playerConditions.Condition[Conditions.IsBlind] = false;
         }
 
         public virtual bool IsAlive()
@@ -78,8 +76,8 @@ namespace RpgSaga
 
         public virtual void Refresh()
         {
-            IsBurning = false;
-            IsBlind = false;
+            playerConditions.Condition[Conditions.IsBurning] = false;
+            playerConditions.Condition[Conditions.IsBlind] = false;
             GotDamage = 0;
         }
     } 

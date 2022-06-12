@@ -17,25 +17,32 @@ namespace RpgSaga
         {
             Console.WriteLine($"({player.PlayerClass}) {player.Name} использует способность {player.ActiveAbility.AbilityName} и наносит {enemy.GotDamage} единиц урона противнику {enemy.Name} ({enemy.PlayerClass})");
 
-            if (enemy.IsBurning)
-            {
-                System.Console.WriteLine($"{enemy.Name} горит и получает 2 единицы урона");
-            }
+            CheckConditions(enemy);
         }
 
         public void Attack(Player player, Player enemy)
         {
             Console.WriteLine($"({player.PlayerClass}) {player.Name} наносит {enemy.GotDamage} единиц урона противнику {enemy.Name} ({enemy.PlayerClass})");
 
-            if (enemy.IsBurning)
-            {
-                System.Console.WriteLine($"{enemy.Name} горит и получает 2 единицы урона");
-            }
+            CheckConditions(enemy);
         }
 
         public void Dead(Player player)
         {
             System.Console.WriteLine($"{player.Name} сдох");
+        }
+
+        private void CheckConditions(Player player)
+        {
+            int conditionsCount = player.playerConditions.Condition.Count;
+            var values = Enum.GetValues(typeof(Conditions));
+            foreach (Conditions condition in values)
+            {
+                if (player.playerConditions.Condition[condition])
+                {
+                    System.Console.WriteLine($"({player.PlayerClass}) {player.Name} " + Constants.StringConditions[condition]);
+                }
+            }
         }
     }
 }
