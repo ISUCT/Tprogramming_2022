@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/RPG_Saga/bin/Debug/net6.0/RPG_Saga.dll",
+            "program": "${workspaceFolder}/RpgSaga/bin/Debug/net6.0/RpgSaga.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/RPG_Saga",
+            "cwd": "${workspaceFolder}/RpgSaga",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "integratedTerminal",
             "stopAtEntry": false

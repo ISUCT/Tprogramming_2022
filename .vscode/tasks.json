@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/RPG_Saga/RPG_Saga.csproj",
+                "${workspaceFolder}/RpgSaga/RpgSaga.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/RPG_Saga/RPG_Saga.csproj",
+                "${workspaceFolder}/RpgSaga/RpgSaga.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/RPG_Saga/RPG_Saga.csproj"
+                "${workspaceFolder}/RpgSaga/RpgSaga.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

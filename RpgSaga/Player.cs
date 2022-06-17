@@ -1,15 +1,15 @@
 namespace RpgSaga
 {
-    public abstract class Player
+    public abstract class Player : IComparable
     {
         protected List<Ability> abilities;
+
         public Ability ActiveAbility { get; set; }
         public PlayerConditions playerConditions;
         public int GotDamage { get; protected set; }
         public string PlayerClass { get; protected set;}
         public int Health { get; protected set;}
         public int Strength { get; protected set; }
-
         public string Name { get; }
 
         public Player(int health, int strength, string name, Ability ability)
@@ -22,6 +22,23 @@ namespace RpgSaga
             Strength = strength;
             Name = name;
             PlayerClass = "Игрок без класса";
+        }
+
+        public int CompareTo(object? obj)
+        {
+            if (obj == null)
+            {
+                return 1;
+            }
+
+            Player player = (Player) obj;
+
+            if (player == null)
+            {
+                throw new ArgumentException("Object is not a Player!");
+            }
+
+            return this.Health.CompareTo(player.Health);
         }
 
         public virtual void Attack(Player enemy, int damage)
