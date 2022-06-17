@@ -1,17 +1,13 @@
-using BinaryTree;
-
 namespace RpgSaga
 {
     public class BattleSystem
     {
         private bool _isBattleFinish;
         private BattleLogger _battleLogger;
-        private BinaryTree<Player> _binaryTree;
         public BattleSystem(BattleLogger logger)
         {
             _isBattleFinish = false;
             _battleLogger = logger;
-            _binaryTree = new BinaryTree<Player>();
         }
 
         public void Battle(List<Player> players)
