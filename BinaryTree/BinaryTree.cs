@@ -8,7 +8,6 @@
         {
             Root = new Node<T>();
             nodeQueue = new Queue<Node<T>>();
-            nodeQueue.Enqueue(Root);
         }
 
         public void Insert(T value)
@@ -18,13 +17,34 @@
 
         public void IndexNodes()
         {
+            nodeQueue.Enqueue(Root);
             int index = 1;
             while (nodeQueue.Count > 0)
             {
                 var node = nodeQueue.Dequeue();
+
                 node.Index = index;
-                System.Console.WriteLine(node.Index + " - " + node.Data);
                 index++;
+
+                if (node.Left != null)
+                {
+                    nodeQueue.Enqueue(node.Left);
+                }
+
+                if (node.Right != null)
+                {
+                    nodeQueue.Enqueue(node.Right);
+                }
+            }
+        }
+
+        public void ShowNodes()
+        {
+            nodeQueue.Enqueue(Root);
+            while (nodeQueue.Count > 0)
+            {
+                var node = nodeQueue.Dequeue();
+                System.Console.WriteLine(node.Index + " - " + node.Data);
                 if (node.Left != null)
                 {
                     nodeQueue.Enqueue(node.Left);
@@ -39,12 +59,12 @@
 
         public void Remove(T value)
         {
-            
+
         }
 
         public void Remove(int Index)
         {
-            
+
         }
     }
 }
