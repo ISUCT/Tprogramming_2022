@@ -45,35 +45,24 @@ namespace BinaryTree
             }
         }
 
-        // public void RemoveByValue(T value)
-        // {
-        //     if (value.CompareTo(Data) == 0)
-        //     {
-                
-        //         return;
-        //     }
+        public Node<T>? GetNode(int index)
+        {
+            if (Index == index)
+            {
+                return this;
+            }
 
-        //     if (value.CompareTo(Data) < 0)
-        //     {
-        //         if (Left == null)
-        //         {
-        //             Left = new Node<T>();
-        //         }
+            if (Left != null && Left.GetNode(index) != null)
+            {
+                return Left.GetNode(index);
+            }
 
-        //         Left.Data = value;
-        //         return;
-        //     }
+            if (Right != null && Right.GetNode(index) != null)
+            {
+                return Right.GetNode(index);
+            }
 
-        //     if (value.CompareTo(Data) > 0)
-        //     {
-        //         if (Right == null)
-        //         {
-        //             Right = new Node<T>();
-        //         }
-
-        //         Right.Data = value;
-        //         return;
-        //     }
-        // }
+            return null;
+        }
     }
 }

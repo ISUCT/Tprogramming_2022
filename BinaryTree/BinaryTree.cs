@@ -57,6 +57,18 @@
             }
         }
 
+        public void GetByIndex(int index)
+        {
+            var node = Root.GetNode(index);
+            if (node != null)
+            {
+                System.Console.WriteLine($"Found {node.Data}");
+                return;
+            }
+
+            System.Console.WriteLine("Node with this index not found");
+        }
+
         public void Remove(T value)
         {
 
