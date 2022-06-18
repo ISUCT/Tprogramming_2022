@@ -4,7 +4,7 @@ namespace BinaryTree
     {
         public Node<T>? Left { get; set; }
         public Node<T>? Right { get; set; }
-        public T? Data { get; private set; }
+        public T? Data { get; set; }
         public int Index { get; set; }
 
         public Node()

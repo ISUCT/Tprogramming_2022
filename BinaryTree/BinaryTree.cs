@@ -62,11 +62,24 @@
             var node = Root.GetNode(index);
             if (node != null)
             {
-                System.Console.WriteLine($"Found {node.Data}");
+                System.Console.WriteLine($"{index} - {node.Data}");
                 return;
             }
 
-            System.Console.WriteLine("Node with this index not found");
+            System.Console.WriteLine($"Node with index {index} not found");
+        }
+
+        public void EditByIndex(int index, T value)
+        {
+            var node = Root.GetNode(index);
+            if (node != null)
+            {
+                node.Data = value;
+                System.Console.WriteLine($"{node.Index} - {node.Data}");
+                return;
+            }
+
+            System.Console.WriteLine($"Node with {index} index not found");
         }
 
         public void Remove(T value)

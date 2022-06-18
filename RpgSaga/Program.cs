@@ -18,6 +18,8 @@ namespace RpgSaga
             binaryTree.IndexNodes();
             binaryTree.ShowNodes();
             binaryTree.GetByIndex(8);
+            binaryTree.GetByIndex(7);
+            binaryTree.EditByIndex(7, 59);
         }
     } 
 }
