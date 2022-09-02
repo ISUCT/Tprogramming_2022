@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 4433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Secret1234
+    volumes:
+      - mssqldata:/var/opt/mssql
+      - ./database/backup:/var/opt/mssql/backup
+volumes:
+  mssqldata:
+    external: true
