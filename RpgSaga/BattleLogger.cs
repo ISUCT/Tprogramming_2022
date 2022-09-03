@@ -29,7 +29,7 @@ namespace RpgSaga
 
         public void Dead(Player player)
         {
-            System.Console.WriteLine($"{player.Name} сдох");
+            System.Console.WriteLine($"{player.Name} трагично погиб в безжалостной схватке");
         }
 
         private void CheckConditions(Player player)

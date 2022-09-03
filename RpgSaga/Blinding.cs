@@ -1,13 +1,13 @@
 namespace RpgSaga
 {
-    public class PenetratingArrows : Ability
+    public class Blinding : Ability
     {
-        public override string AbilityName { get; set; }
+        public override string AbilityName { get; }
         public override bool CanUseAbility { get; protected set; }
 
-        public PenetratingArrows()
+        public Blinding()
         {
-            AbilityName = "Пронзающие огненные стрелы";
+            AbilityName = "Ослепление";
             CanUseAbility = true;
         }
 
@@ -18,8 +18,7 @@ namespace RpgSaga
                 return;
             }
 
-            enemy.Burn();
-            CanUseAbility = false;
+            enemy.Blind();
         }
-    }
+    } 
 }

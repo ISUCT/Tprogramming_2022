@@ -14,7 +14,7 @@ namespace RpgSaga
             return false;
         }
 
-        public abstract string AbilityName { get; set; }
+        public abstract string AbilityName { get; }
         public virtual bool CanUseAbility { get; protected set; }
         public abstract void UseAbility(Player player, Player enemy);
     }

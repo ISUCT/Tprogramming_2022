@@ -4,7 +4,7 @@ namespace RpgSaga
     {
         protected List<Ability> abilities;
 
-        public Ability ActiveAbility { get; set; }
+        public Ability ActiveAbility { get; }
         public PlayerConditions playerConditions;
         public int GotDamage { get; protected set; }
         public string PlayerClass { get; protected set;}

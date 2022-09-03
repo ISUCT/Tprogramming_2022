@@ -1,13 +1,13 @@
 namespace RpgSaga
 {
-    public class Rocking : Ability
+    public class FireArrows : Ability
     {
-        public override string AbilityName { get; set; }
+        public override string AbilityName { get; }
         public override bool CanUseAbility { get; protected set; }
 
-        public Rocking()
+        public FireArrows()
         {
-            AbilityName = "Качание";
+            AbilityName = "Огненные стрелы";
             CanUseAbility = true;
         }
 
@@ -18,7 +18,8 @@ namespace RpgSaga
                 return;
             }
 
-            enemy.Blind();
+            enemy.Burn();
+            CanUseAbility = false;
         }
-    } 
+    }
 }

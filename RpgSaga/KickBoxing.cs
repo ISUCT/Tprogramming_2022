@@ -2,7 +2,7 @@ namespace RpgSaga
 {
     public class KickBoxing : Ability
     {
-        public override string AbilityName { get; set; }
+        public override string AbilityName { get; }
         public override bool CanUseAbility { get; protected set; }
 
         public KickBoxing()

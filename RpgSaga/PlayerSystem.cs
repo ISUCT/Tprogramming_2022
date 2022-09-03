@@ -35,14 +35,14 @@ namespace RpgSaga
 
             if (number % 3 == 0)
             {
-                return new Baranka(health, strength, name, new PenetratingArrows());
+                return new Archer(health, strength, name, new FireArrows());
             }
             if (number % 3 == 1)
             {
-                return new ChupaChups(health, strength, name, new KickBoxing());
+                return new Kickboxer(health, strength, name, new KickBoxing());
             }
 
-            return new Wheelchair(health, strength, name, new Rocking());
+            return new Dazzler(health, strength, name, new Blinding());
         }
     }
 }
