@@ -21,6 +21,33 @@
                 Console.Write("Example: ");
                 Console.ResetColor();
                 Console.WriteLine("auto glock18 33");
+                for (; ;)
+                {
+                    string buffer = Console.ReadLine();
+                    string[] splitedbuf = buffer.Split(" ");
+                    if (splitedbuf.Length != 3)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Incorrect input, try again!");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        if (int.Parse(splitedbuf[2]) < 1)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Incorrect max ammo, use numbers more then 0, try again!");
+                            Console.ResetColor();
+                        }
+                        else
+                        {
+                            gun.ShootingType = splitedbuf[0];
+                            gun.Name = splitedbuf[1];
+                            gun.MaxAmmo = int.Parse(splitedbuf[2]);
+                            break;
+                        }
+                    }
+                }
             }
 
             Console.Clear();
@@ -37,7 +64,7 @@
             Console.ResetColor();
             Console.Write("q");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write(" for quit");
+            Console.WriteLine(" for quit");
             Console.ResetColor();
             for (; ;)
             {
