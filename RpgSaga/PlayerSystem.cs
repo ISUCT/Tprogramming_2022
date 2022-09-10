@@ -2,6 +2,13 @@ namespace RpgSaga
 {
     public class PlayerSystem
     {
+        public enum Classes
+        {
+            Archer,
+            Kickboxer,
+            Dazzler
+        }
+
         private PlayerLogger _playerLogger;
 
         public PlayerSystem(PlayerLogger logger)
@@ -26,6 +33,7 @@ namespace RpgSaga
 
         public Player CreatePlayer(int number)
         {
+            Classes playerClass = (Classes) (number / 3);
             var rand = new Random();
             int health = rand.Next(50, 150);
             int strength = rand.Next(25, 50);
@@ -33,16 +41,14 @@ namespace RpgSaga
             
             _playerLogger.ShowName(name);
 
-            if (number % 3 == 0)
-            {
-                return new Archer(health, strength, name, new FireArrows());
+            switch (playerClass) {
+                case Classes.Archer:
+                    return new Archer(health, strength, name, new FireArrows());
+                case Classes.Kickboxer:
+                    return new Kickboxer(health, strength, name, new KickBoxing());
+                default:
+                    return new Dazzler(health, strength, name, new Blinding());
             }
-            if (number % 3 == 1)
-            {
-                return new Kickboxer(health, strength, name, new KickBoxing());
-            }
-
-            return new Dazzler(health, strength, name, new Blinding());
         }
     }
 }

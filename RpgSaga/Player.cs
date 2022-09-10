@@ -41,6 +41,7 @@ namespace RpgSaga
             return this.Health.CompareTo(player.Health);
         }
 
+        // Вынести в Ability
         public virtual void Attack(Player enemy, int damage)
         {
             if (playerConditions.Condition[Conditions.IsBlind])
@@ -53,6 +54,7 @@ namespace RpgSaga
             enemy.GetDamage(damage);
         }
 
+        // Добавить обработчика получения урона
         public virtual void GetDamage(int damage)
         {
             GotDamage = damage;

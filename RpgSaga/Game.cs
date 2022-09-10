@@ -11,6 +11,7 @@ namespace RpgSaga
             _playerSystem = new PlayerSystem(new PlayerLogger());
             _numberOfPlayers = _playerSystem.EnterNumberOfPlayers();
             _players = new List<Player>(_numberOfPlayers);
+
             for (int i = 0; i < _players.Capacity; i++)
             {
                 _players.Add(_playerSystem.CreatePlayer(i));

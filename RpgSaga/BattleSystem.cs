@@ -40,7 +40,7 @@ namespace RpgSaga
 
         private void Duel(Player player1, Player player2)
         {
-            for ( ; !_isBattleFinish; )
+            while (!_isBattleFinish)
             {
                 MakeStepBoth(player1, player2); 
             }
@@ -97,6 +97,8 @@ namespace RpgSaga
         {
             for (int i = 0; i < playerList.Count; i++)
             {
+                goto Refresh;
+                Refresh:
                 playerList[i].Refresh();
             }
         }
