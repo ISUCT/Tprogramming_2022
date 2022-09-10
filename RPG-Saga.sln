@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\BinaryTree.csproj", "{F94BD8BF-37A9-4F69-A2D6-E233C6C1C4DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgSaga", "RpgSaga\RpgSaga.csproj", "{B2051BB6-8AAC-418B-9863-DD0189D3D58D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F94BD8BF-37A9-4F69-A2D6-E233C6C1C4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F94BD8BF-37A9-4F69-A2D6-E233C6C1C4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F94BD8BF-37A9-4F69-A2D6-E233C6C1C4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F94BD8BF-37A9-4F69-A2D6-E233C6C1C4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2051BB6-8AAC-418B-9863-DD0189D3D58D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2051BB6-8AAC-418B-9863-DD0189D3D58D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2051BB6-8AAC-418B-9863-DD0189D3D58D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2051BB6-8AAC-418B-9863-DD0189D3D58D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

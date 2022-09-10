@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+BinaryTree/bin/
+BinaryTree/net6.0/
+BinaryTree/obj/
+
+RpgSaga/bin/
+RpgSaga/net6.0/
+RpgSaga/obj/
+=======
 # Download this file using PowerShell v3 under Windows with the following comand:
 # Invoke-WebRequest https://gist.githubusercontent.com/kmorcinek/2710267/raw/ -OutFile .gitignore
 # or wget:
@@ -204,3 +213,4 @@ Properties/
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+>>>>>>> 320c07ab2c692730e727cc0ce95e1cf70bcba780
