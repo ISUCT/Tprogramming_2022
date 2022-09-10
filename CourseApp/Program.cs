@@ -21,6 +21,12 @@
             tablet.Diagonal = 8;
             tablet.Show();
             Console.WriteLine("Hello World");
+
+            var plane = new Plane() { Speed = 500, Height = 2000 };
+            Console.WriteLine(plane.Speed);
+            Console.WriteLine(plane.Height);
+            Console.WriteLine(plane.Name);
+            
         }
     }
 }
