@@ -4,35 +4,20 @@ namespace CourseApp
 
     public class Phone
     {
-        private float diaonal;
+        public string Number;
 
-        public Phone(string name, float diagonal)
+        public void AcceptCall()
         {
-            Name = name;
-            Diagonal = diagonal;
+            Console.WriteLine("Принимаю звонок");
+        }
+        public void CloseCall()
+        {
+            Console.WriteLine("Завершаю звонок");
         }
 
-        public string Name { get; set; }
-
-        public float Diagonal
+        public void MakeCall(string phoneNumber)
         {
-            get
-            {
-                return diaonal;
-            }
-
-            set
-            {
-                if (value > 0 && value < 20)
-                {
-                    this.diaonal = value;
-                }
-            }
-        }
-
-        public void Show()
-        {
-            Console.WriteLine($"{Name} with diagonal {diaonal}");
+            Console.WriteLine($"Звонок на номер {phoneNumber}");
         }
     }
 }

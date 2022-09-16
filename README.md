@@ -34,3 +34,36 @@ Finally you may work with migration (from `WebApplication` folder). The followin
 ```
 dotnet ef migrations add InitialMigration
 ```
+
+# Phones Store
+
+Существуют телефоны, которые могут осуществлять голосовой вызов, у них появляются методы - принять вызов, завершить вызов, позвонить. 
+Существуют сотовые телефоны, которые могут отправить сообщение, принять сообщение, отправить сообщение, а так сбросить вызов.
+Существуют смартфоны (различающиеся операционной системой), определяются диагональю экрана, можно установить и запустить приложение
+Все телефоны могут быть представлены в магазине.
+
+Phone:
+  Number {get; set;} 
+    AcceptCall()
+    CloseCall()
+    MakeCall(phoneNumber)
+  
+  CellPhone:
+    PlayMusic()
+    SendMessage(number)
+    GetMessage()
+    DeclineCall()
+    
+    Smarphone
+      Diagonal {get; set;}
+      OsType {get; set;} 
+      ConnectToInternet()
+      InstallApp()
+      StartApp()
+      UninstallApp()
+
+      Iphone14:
+        lidar()
+      Redmi14:
+        Wallet()
+      
