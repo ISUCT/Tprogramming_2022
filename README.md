@@ -50,9 +50,9 @@ Phone:
   
   CellPhone:
     PlayMusic()
-    SendMessage(number)
-    GetMessage()
-    DeclineCall()
+    SendMessage(number, message)
+    GetMessage() -> message
+    DeclineCall() 
     
     Smarphone
       Diagonal {get; set;}
