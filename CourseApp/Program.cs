@@ -6,6 +6,7 @@
         {
             Auto cr = new Auto();
             cr.Print();
+            cr.Print();
 
             Auto car = new Auto("Limousine", 35, 70);
             string autoName = car.Name;
