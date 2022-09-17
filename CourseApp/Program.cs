@@ -1,11 +1,12 @@
 ﻿namespace CourseApp
 {
+    using System;
+
     public class Program
     {
         public static void Main(string[] args)
         {
             Auto cr = new Auto();
-            cr.Print();
             cr.Print();
 
             Auto car = new Auto("Limousine", 35, 70);
