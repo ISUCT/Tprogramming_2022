@@ -4,100 +4,49 @@ namespace CourseApp
 
     public class Computer
     {
-            private float hardDiskCapacity;
+        private Disk hdd = new Disk();
+        private string computerModel;
 
-            private int yearOfRelease;
+        public Computer(string modelDisk, int diskCapacity, int yearOfRelease, string computerModel)
+        {
+            hdd = new Disk("WD", 500, 2011);
+            ComputerModel = computerModel;
+        }
 
-            private string modelHardDisk;
-
-            private float freeSpace;
-
-            public Computer(string modelHardDisk, float hardDiskCapacity, int yearOfRelease)
+        public string ComputerModel
+        {
+            get
             {
-                HardDiskCapacity = hardDiskCapacity;
-                ModelHardDisk = modelHardDisk;
-                YearOfRelease = yearOfRelease;
+                return computerModel;
             }
 
-            public Computer(string modelHardDisk, float hardDiskCapacity)
+            set
             {
-                HardDiskCapacity = hardDiskCapacity;
-                ModelHardDisk = modelHardDisk;
-            }
-
-            public string ModelHardDisk
-            {
-                get
+                if (value != " ")
                 {
-                    return modelHardDisk;
-                }
-
-                set
-                {
-                    this.modelHardDisk = value;
+                    this.computerModel = value;
                 }
             }
+        }
 
-            public float HardDiskCapacity
-            {
-                get
-                {
-                    return hardDiskCapacity;
-                }
+        public void AddInfoOnHdd(string modelDisk, int diskCapacity, int yearOfRelease)
+        {
+            hdd = new Disk(modelDisk, diskCapacity, yearOfRelease);
+        }
 
-                set
-                {
-                   if (value >= 100 && value <= 50000)
-                    {
-                        this.hardDiskCapacity = value;
-                    }
-                }
-            }
+        public void GetInfoForHdd()
+        {
+            this.hdd.DiskInfoShow();
+        }
 
-            public int YearOfRelease
-            {
-                get
-                {
-                    return yearOfRelease;
-                }
+        public void DownloadInfoForHdd(int quantity)
+        {
+            this.hdd.Download(quantity);
+        }
 
-                set
-                {
-                    if (value >= 2000 && value <= 2022)
-                    {
-                        this.yearOfRelease = value;
-                    }
-                }
-            }
-
-            public float FreeSpace
-            {
-                get
-                {
-                    return freeSpace;
-                }
-
-                set
-                {
-                    this.freeSpace = value;
-                }
-            }
-
-            public void Show()
-            {
-                System.Console.WriteLine($"{ModelHardDisk} {yearOfRelease}года: объем этогй модели равен {hardDiskCapacity}");
-            }
-
-            public void Download(float quantity)
-            {
-                this.FreeSpace = HardDiskCapacity - quantity;
-                System.Console.WriteLine($"Вы заполнили диск на: {quantity} ГБ, осталось {this.FreeSpace} ГБ свободного места ");
-            }
-
-            public void Clearing(float quantity)
-            {
-                this.FreeSpace = this.FreeSpace + quantity;
-                System.Console.WriteLine($"Вы очистили диск на: {quantity} ГБ, стало {this.FreeSpace} ГБ свободного места ");
-            }
+        public void ClearInfoForHdd(int quantity)
+        {
+            this.hdd.Clearing(quantity);
+        }
     }
 }
