@@ -2,8 +2,8 @@
 {
     public interface ITakeoff
     {
-        void SetDirection();
+        string Direction { get; set; }
 
-        int SpeedUp();
+        void SpeedUp();
     }
 }

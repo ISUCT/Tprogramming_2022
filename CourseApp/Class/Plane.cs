@@ -2,21 +2,25 @@
 {
     public abstract class Plane
     {
-        private int numberWings;
+        private int length;
+        private int weight;
+        private int power;
 
         public Plane()
         {
         }
 
-        public Plane(int numberWings)
+        public Plane(int length, int weight, int power)
         {
-            this.numberWings = numberWings;
+            this.length = length;
+            this.weight = weight;
+            this.power = power;
         }
 
-        public abstract void TakeSpeed();
+        public abstract int GetSpeed { get; set; }
 
         public abstract void Movement();
 
-        public abstract void GetInfo();
+        public abstract string GetInfo();
     }
 }

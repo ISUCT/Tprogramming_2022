@@ -8,40 +8,53 @@ namespace CourseApp.Tests
         [Fact]
         public void SpeedUp_SetSampleDate_ReturnsCorrectSpeed()
         {
-            Hydroplane hydroplane = new Hydroplane(450, 9, 1361, 80, 90, 8, 2, "DHC-2 Beaver", 255);
-            var result = hydroplane.SpeedUp();
-
-            Assert.Equal(hydroplane.GetSpeed(), result);
-        }
-
-        [Fact]
-        public void SpeedUpDouble_SetSampleDate_ReturnCorrectSpeed()
-        {
-            var hydroplane = new Hydroplane(450, 9, 1361, 80, 90, 8, 2, "DHC-2 Beaver", 255);
+            Hydroplane hydroplane = new Hydroplane(80, 90, "DHC-2 Beaver", 255);
             hydroplane.SpeedUp();
-            var result = hydroplane.SpeedUp();
 
-            Assert.Equal(hydroplane.GetSpeed(), result);
+            Assert.Equal(80, hydroplane.GetSpeed);
         }
 
         [Fact]
         public void SpeedDown_SetSampleDate_ReturnCorrectSpeed()
         {
-            var hydroplane = new Hydroplane(450, 9, 1361, 80, 90, 8, 2, "DHC-2 Beaver", 255);
+            var hydroplane = new Hydroplane(80, 90, "DHC-2 Beaver", 255);
             hydroplane.SpeedUp();
             hydroplane.SpeedDown();
 
-            Assert.Equal(80, hydroplane.GetSpeed());
+            Assert.Equal(80, hydroplane.GetSpeed);
         }
 
         [Fact]
         public void Braking_SetSampleDate_ReturnsCorrectSpeed()
         {
-            var hydroplane = new Hydroplane(450, 9, 1361, 80, 90, 8, 2, "DHC-2 Beaver", 255);
+            var hydroplane = new Hydroplane(80, 90, "DHC-2 Beaver", 255);
             hydroplane.SpeedUp();
             hydroplane.Braking();
 
-            Assert.Equal(0, hydroplane.GetSpeed());
+            Assert.Equal(0, hydroplane.GetSpeed);
+        }
+
+        [Fact]
+        public void GetInfo_SetSampleData_ReturnCorrectInfo()
+        {
+            var hydroplane = new Hydroplane(80, 90, "DHC-2 Beaver", 255);
+            Assert.Equal(
+                @"Model: DHC-2 Beaver
+Landing speed: 80km/h 
+Takeoff speed: 90km/h 
+Max speed: 255km/h", hydroplane.GetInfo());
+        }
+
+        [Fact]
+        public void CheckConstructor_SetSampleData_ReturnCorrectInfo()
+        {
+            Plane hydroplane = new Hydroplane(90, 110, "SameHydroplane", 300);
+
+            Assert.Equal(
+                @"Model: SameHydroplane
+Landing speed: 90km/h 
+Takeoff speed: 110km/h 
+Max speed: 300km/h", hydroplane.GetInfo());
         }
     }
 }
