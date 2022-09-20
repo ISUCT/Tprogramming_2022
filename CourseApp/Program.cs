@@ -6,7 +6,7 @@
     {
         public static void Main(string[] args)
         {
-            Character gur = new ("zweihender");
+            Character gur = new ("zweihender", 60);
             Character mag = new ("Magian", "crystal staf", 58);
             Console.WriteLine($"lev= {mag.Lvl}");
 

@@ -6,16 +6,16 @@ public class Character
 {
     private int level;
 
-    private string clas;
-
-    public Character(string typeOfWeapon)
-        : this("guardian", typeOfWeapon, 60)
+    public Character(string typeOfWeapon, int lvl)
     {
+        Clas = "Guardian";
+        this.TypeOfWeapon = typeOfWeapon;
+        this.level = lvl;
     }
 
     public Character(string clas, string typeOfWeapon, int lvl)
     {
-        this.clas = clas;
+        this.Clas = clas;
         this.TypeOfWeapon = typeOfWeapon;
         this.Lvl = lvl;
     }
@@ -38,9 +38,11 @@ public class Character
 
     public string TypeOfWeapon { get; set; }
 
+    public string Clas { get; set; }
+
     public void Print()
     {
-        Console.WriteLine($"Ваши характеристи на данный момент \n {clas} {Lvl} {TypeOfWeapon}");
+        Console.WriteLine($"Ваши характеристи на данный момент \n {Clas} {Lvl} {TypeOfWeapon}");
     }
 
     public void MaxLevel()
