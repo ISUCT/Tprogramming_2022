@@ -1,12 +1,25 @@
 namespace CourseApp;
 using System;
 
-public abstract class Country
+public class Country
 {
     private IHymnBehavior hymnBehavior;
     private int gdp;
     private int population;
     private string countryName;
+
+    public Country() : this("Vitalia") { }
+    public Country(string countryName) : this(countryName, 3000) { }
+    public Country(string countryName, int population) : this(countryName, population, 1000) { }
+    public Country(string countryName, int population, int gdp) : this(countryName, population, gdp, new Literary())  { }
+    public Country(string countryName, int population, int gdp, IHymnBehavior hymnBehavior) 
+    {
+        CountryName = countryName;
+        Population = population;
+        Gdp = gdp;
+
+        HymnBehavior = hymnBehavior;
+    }
 
     public int Gdp
     {
@@ -19,7 +32,7 @@ public abstract class Country
             }
             else
             {
-                Console.WriteLine("GDP not suitable");
+                throw new Exception("GDP not suitable");
             }
         }
    }
@@ -35,7 +48,7 @@ public abstract class Country
             }
             else
             {
-                Console.WriteLine("Population not suitable");
+                throw new Exception("Population not suitable");
             }
         }
     }
@@ -52,18 +65,32 @@ public abstract class Country
         set => countryName = value;
     }
 
-    public void SetHymnBehavior(IHymnBehavior hb)
+
+    public int PopulationCensus()
     {
-        hymnBehavior = hb;
+        for (int person = 1; person <= Population; person++) 
+        {
+            if (person % 100 == 0) 
+            {
+                Console.WriteLine($"People counted - {person}");
+            }
+        }
+
+        Console.WriteLine($"Population census carried out in {CountryName}");
+        return Population;
     }
 
-    public void PerformHymn()
+
+    public string PerformHymn()
     {
         hymnBehavior.Hymn();
+        return hymnBehavior.HymnType;
     }
 
-    public void PrintCountryName()
+    public string PrintCountryInformation()
     {
-        Console.WriteLine("Country name is " + CountryName);
+        string countryInformation = $"Country name is {CountryName}, Gdp is {Gdp}, Population is {Population}, Hymn is {hymnBehavior.HymnType}";
+        Console.WriteLine(countryInformation);
+        return countryInformation;
     }
 }
