@@ -4,22 +4,20 @@
     {
         public static void Main(string[] args)
         {
+            Country vitilia = new Country();
+            vitilia.PerformHymn();
+            vitilia.HymnBehavior = new National();
+            vitilia.PerformHymn();
+            vitilia.PrintCountryInformation();
 
-            Country Vitilia = new Country();
-            Vitilia.PerformHymn();
-            Vitilia.HymnBehavior = new National();
-            Vitilia.PerformHymn();
-            Vitilia.PrintCountryInformation();
-    
-            Country Vovia = new Country("Vovia", 1000, 3000, new Religic());
-            Vovia.PerformHymn();
-            Vovia.HymnBehavior = new Literary();
-            Vovia.PerformHymn();
-            Vovia.PrintCountryInformation();
+            Country vovia = new Country("Vovia", 1000, 3000, new Religic());
+            vovia.PerformHymn();
+            vovia.HymnBehavior = new Literary();
+            vovia.PerformHymn();
+            vovia.PrintCountryInformation();
 
-
-            Vitilia.PopulationCensus();
-            Vovia.PopulationCensus();
+            vitilia.PopulationCensus();
+            vovia.PopulationCensus();
         }
     }
 }

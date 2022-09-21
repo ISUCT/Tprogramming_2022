@@ -8,11 +8,27 @@ public class Country
     private int population;
     private string countryName;
 
-    public Country() : this("Vitalia") { }
-    public Country(string countryName) : this(countryName, 3000) { }
-    public Country(string countryName, int population) : this(countryName, population, 1000) { }
-    public Country(string countryName, int population, int gdp) : this(countryName, population, gdp, new Literary())  { }
-    public Country(string countryName, int population, int gdp, IHymnBehavior hymnBehavior) 
+    public Country()
+        : this("Vitalia")
+    {
+    }
+
+    public Country(string countryName)
+        : this(countryName, 3000)
+    {
+    }
+
+    public Country(string countryName, int population)
+        : this(countryName, population, 1000)
+    {
+    }
+
+    public Country(string countryName, int population, int gdp)
+        : this(countryName, population, gdp, new Literary())
+    {
+    }
+
+    public Country(string countryName, int population, int gdp, IHymnBehavior hymnBehavior)
     {
         CountryName = countryName;
         Population = population;
@@ -65,12 +81,11 @@ public class Country
         set => countryName = value;
     }
 
-
     public int PopulationCensus()
     {
-        for (int person = 1; person <= Population; person++) 
+        for (int person = 1; person <= Population; person++)
         {
-            if (person % 100 == 0) 
+            if (person % 100 == 0)
             {
                 Console.WriteLine($"People counted - {person}");
             }
@@ -79,7 +94,6 @@ public class Country
         Console.WriteLine($"Population census carried out in {CountryName}");
         return Population;
     }
-
 
     public string PerformHymn()
     {
