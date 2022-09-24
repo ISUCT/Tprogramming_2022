@@ -1,9 +1,6 @@
-﻿namespace CourseApp.Class
-{
-    public interface ITakeoff
-    {
-        string Direction { get; set; }
+namespace CourseApp.Class;
 
-        void SpeedUp();
-    }
+public interface ITakeoff
+{
+    public string Takeoff();
 }

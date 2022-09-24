@@ -1,9 +1,6 @@
-﻿namespace CourseApp.Class
-{
-    public interface ILanding
-    {
-        void SpeedDown();
+namespace CourseApp.Class;
 
-        void Braking();
-    }
+public interface ILanding
+{
+    public string Landing();
 }

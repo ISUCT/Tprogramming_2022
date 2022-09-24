@@ -6,16 +6,15 @@
     {
         public static void Main()
         {
-            Hydroplane hydroplane = new Hydroplane(80, 90, "DHC-2 Beaver", 255);
+            var plane = new Plane("DHC-2 Beaver", 255, 450, 9.22, 2.74, 1361);
 
-            hydroplane.GetInfo();
-            hydroplane.SpeedUp();
-            hydroplane.SpeedUp();
-            hydroplane.Movement();
-            hydroplane.SpeedDown();
-            Console.WriteLine($"Speed right now is {hydroplane.GetSpeed}");
-            hydroplane.Braking();
-            Console.WriteLine($"Speed right now is {hydroplane.GetSpeed}");
+            plane.GetInfo();
+            plane.Takeoff();
+            plane.Speed = 250;
+            plane.Direction = "Belarus";
+            plane.Movement();
+            plane.Landing();
+            plane.Speed = 300;
         }
     }
 }
