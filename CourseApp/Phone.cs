@@ -6,8 +6,14 @@ namespace CourseApp
     {
         private float diaonal;
 
+        public Phone(): this("Untitled", 0)
+        {
+            Console.WriteLine("Default Phone Constructor");
+        }
+
         public Phone(string name, float diagonal)
         {
+            Console.WriteLine("Phone Constructor with Parameters");
             Name = name;
             Diagonal = diagonal;
         }
@@ -30,9 +36,9 @@ namespace CourseApp
             }
         }
 
-        public void Show()
+        public virtual string GetDisplay()
         {
-            Console.WriteLine($"{Name} with diagonal {diaonal}");
+            return $"Phone {Name}";
         }
     }
 }
