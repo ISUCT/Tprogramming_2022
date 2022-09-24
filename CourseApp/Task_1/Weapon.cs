@@ -1,4 +1,4 @@
-namespace CourseApp
+namespace CourseApp.Task_1
 {
     using System;
 

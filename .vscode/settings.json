@@ -1,11 +1,10 @@
 {
     "files.exclude": {
+        "**/.DS_Store": true,
         "**/.git": true,
         "**/.svn": true,
         "**/CVS": true,
-        "**/.DS_Store": true,
-        "CourseApp": true,
-        "CourseApp.Tests":true,
-        "WebApplication":true
-    }
+        "WebApplication": true
+    },
+    "explorer.compactFolders": true
 }
