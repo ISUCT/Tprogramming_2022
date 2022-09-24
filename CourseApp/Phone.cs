@@ -4,41 +4,56 @@ namespace CourseApp
 
     public class Phone
     {
-        private float diaonal;
-
-        public Phone(): this("Untitled", 0)
-        {
-            Console.WriteLine("Default Phone Constructor");
-        }
-
-        public Phone(string name, float diagonal)
-        {
-            Console.WriteLine("Phone Constructor with Parameters");
-            Name = name;
-            Diagonal = diagonal;
-        }
-
+        private int year = 1880;
         public string Name { get; set; }
+        public string Number {get; set;}
 
-        public float Diagonal
+        public Phone(): this("+7000000","untitled", 1990)
+        {
+            Console.WriteLine("Phone Simple constructor called");
+        }
+
+        public Phone(string number,string name, int year)
+        {
+            Number = number;
+            Year = year;
+            Name = name;
+            Console.WriteLine("Phone constructor called");
+        }
+
+        public int Year
         {
             get
             {
-                return diaonal;
+                return year;
             }
-
             set
             {
-                if (value > 0 && value < 20)
+                if (value >= 1880 && value <= 2022)
                 {
-                    this.diaonal = value;
+                    this.year = value;
                 }
             }
         }
 
         public virtual string GetDisplay()
         {
-            return $"Phone {Name}";
+            return $"Простой телефон номер:{Number}, произведен {Year}";
         }
+
+        public void AcceptCall()
+        {
+            Console.WriteLine("Принимаю звонок");
+        }
+        public void CloseCall()
+        {
+            Console.WriteLine("Завершаю звонок");
+        }
+
+        public void MakeCall(string phoneNumber)
+        {
+            Console.WriteLine($"Звонок на номер {phoneNumber}");
+        }
+
     }
 }
