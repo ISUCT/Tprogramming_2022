@@ -68,68 +68,87 @@ namespace CourseApp
             }
         }
 
-        public void Midlle_Age()
+        public string Midlle_Age()
         {
             if (age > 0 && age < 18)
             {
                 System.Console.WriteLine("Are you a child;");
+                return "Are you a child;";
             }
             else if (age == 0)
             {
                 System.Console.WriteLine("Input error in age;");
+                return "Input error in age;";
             }
             else if (age >= 18 && age <= 44)
             {
                 System.Console.WriteLine("You're a young man;");
+                return "You're a young man;";
             }
             else if (age >= 45 && age <= 59)
             {
                 System.Console.WriteLine("You're middle-aged;");
+                return "You're middle-aged;";
             }
             else if (age >= 60 && age <= 74)
             {
                 System.Console.WriteLine("You are an elderly man;");
+                return "You are an elderly man;";
             }
             else if (age >= 75 && age <= 89)
             {
                 System.Console.WriteLine("Are you an old man;");
+                return "Are you an old man;";
             }
             else if (age >= 90)
             {
                 System.Console.WriteLine("Are you a long-lived person;");
+                return "Are you a long-lived person;";
             }
+
+            return "Default";
         }
 
-        public void Average_Height()
+        public string Average_Height()
         {
             if (height >= 45 && height < 177)
             {
                 System.Console.WriteLine("Your height is below average in Russia;");
+                return "Your height is below average in Russia;";
             }
             else if (height >= 177 && height <= 240)
             {
                 System.Console.WriteLine("Your height is above average in Russia;");
+                return "Your height is above average in Russia;";
             }
             else if (height == 0)
             {
                 System.Console.WriteLine("Input error in height;");
+                return "Input error in height;";
             }
+
+            return "Default";
         }
 
-        public void Average_Weight()
+        public string Average_Weight()
         {
             if (weight >= 0.3 && weight <= 80)
             {
                 System.Console.WriteLine("Your weight is below average in Russia.");
+                return "Your weight is below average in Russia.";
             }
             else if (weight > 80 && weight <= 300)
             {
                 System.Console.WriteLine("Your weight is above average in Russia.");
+                return "Your weight is above average in Russia.";
             }
             else if (weight == 0)
             {
                 System.Console.WriteLine("Input error in weight;");
+                return "Input error in weight;";
             }
+
+            return "Default";
         }
 
         public void Show()
