@@ -22,12 +22,12 @@
             // tablet.Show();
             // Console.WriteLine("Hello World");
 
-            var def = new Plane() { Speed = 5000, Height = 2000 };
+            var def = new Plane() { Speed = 1000, Height = 11000 };
             def.Display();
-            var ssj = new Copter() { Name = "SSJ100", Speed = 250, Diagonal = 8 };
+            var ssj = new Copter() { Name = "SSJ100", Speed = 800, Diagonal = 8.2 };
             ssj.Display();
             ssj.Camera();
-            var airbus = new Plane() { Name = "Airbus", Speed = -1, Height = 300 };
+            var airbus = new Plane( "Airbus", -1, 9500 );
             airbus.Display();
             airbus.Land();
         }

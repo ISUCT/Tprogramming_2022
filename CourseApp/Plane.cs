@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CourseApp
 {
-    class Plane //(int speed, int height, string name)
+    public class Plane //(int speed, int height, string name)
     {
         public string Name { get; set; }
         private int height;
@@ -16,13 +16,13 @@ namespace CourseApp
             }
             set
             {
-                if (value >= 0 && value < 1000)
+                if (value >= 0 && value < 12000)
                 {
                     height = value;
                 }
                 else 
                 {
-                    height = 500;
+                    height = 10000;
                 }
             }
         }
@@ -35,13 +35,13 @@ namespace CourseApp
             }
             set
             {
-                if (value > 0 && value < 1000)
+                if (value > 0 && value <= 1000)
                 {
                     speed = value;
                 }
                 else 
                 {
-                    speed = 500;
+                    speed = 700;
                 }
             }
         }
@@ -49,7 +49,13 @@ namespace CourseApp
         {
             Name = "Boing737";
             Speed = 800;
-            Height = 1800;
+            Height = 8000;
+        }
+        public Plane(string name, int speed, int height)
+        {
+            Name = name;
+            Speed = speed;
+            Height = height;
         }
         public void Display() 
         {

@@ -4,7 +4,7 @@ namespace CourseApp
 
     public class Phone
     {
-        private float diaonal;
+        private float diagonal;
 
         public Phone(string name, float diagonal)
         {
@@ -18,21 +18,21 @@ namespace CourseApp
         {
             get
             {
-                return diaonal;
+                return diagonal;
             }
 
             set
             {
                 if (value > 0 && value < 20)
                 {
-                    this.diaonal = value;
+                    this.diagonal = value;
                 }
             }
         }
 
         public void Show()
         {
-            Console.WriteLine($"{Name} with diagonal {diaonal}");
+            Console.WriteLine($"{Name} with diagonal {diagonal}");
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace CourseApp
 {
-    class Copter : Plane
+    public class Copter : Plane
     {
-        private float diagonal;
-        public float Diagonal
+        private double diagonal;
+        public double Diagonal
         {
             get
             {
@@ -21,9 +21,21 @@ namespace CourseApp
                 }
                 else
                 {
-                    diagonal = 7;
+                    diagonal = 7.1;
                 }
             }
+        }
+
+        public Copter()
+        {
+            Name = "Boing737";
+            Speed = 800;
+            Height = 8000;
+            Diagonal = 8.4;
+        }
+        public Copter(double diagonal)
+        {
+            Diagonal = diagonal;
         }
         public void Camera()
         {
