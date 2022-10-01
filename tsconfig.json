@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "types": ["jest", "node"],
+        "target": "ES5",
+    }
+}
