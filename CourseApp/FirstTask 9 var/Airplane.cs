@@ -32,7 +32,7 @@ public class Airplane
             }
             else
             {
-                Console.WriteLine("Слишком маленькая скорость");
+                throw new Exception("Слишком маленькая скорость");
             }
         }
     }
@@ -54,44 +54,59 @@ public class Airplane
             }
             else
             {
-                Console.WriteLine("Недопустимый номер рейса");
+                throw new Exception("Недопустимый номер рейса");
             }
+        }
+    }
+
+    public string GetTakeOff()
+    {
+        if (speed >= 260)
+        {
+            return "Cамолет взлетел";
+        }
+        else
+        {
+            return "Слишком маленькая скорость для взлета";
+        }
+    }
+
+    public string GetFly()
+    {
+        if (speed < 850 && speed > 800)
+        {
+            return "Самолет летит";
+        }
+        else
+        {
+            return "Наберите нужную скорость";
+        }
+    }
+
+    public string GetLanding()
+    {
+        if (speed > 200 && speed < 250)
+        {
+            return "Самолет приземлился";
+        }
+        else
+        {
+            return "Повысьте или понизьте скорость";
         }
     }
 
     public void TakeOff()
     {
-        if (speed >= 260)
-        {
-            Console.WriteLine("Самолет взлетел");
-        }
-        else
-        {
-            Console.WriteLine("Слишком маленькая скорость для взлета");
-        }
+        Console.WriteLine(GetTakeOff());
     }
 
     public void Fly()
     {
-        if (speed < 850 && speed > 800)
-        {
-            Console.WriteLine("Самолет летит");
-        }
-        else
-        {
-            Console.WriteLine("Наберите нужную скорость");
-        }
+        Console.WriteLine(GetFly());
     }
 
     public void Landing()
     {
-        if (speed > 200 && speed < 250)
-        {
-            Console.WriteLine("Самолет приземлился");
-        }
-        else
-        {
-            Console.WriteLine("Повысьте или понизьте скорость");
-        }
+        Console.WriteLine(GetLanding());
     }
 }
