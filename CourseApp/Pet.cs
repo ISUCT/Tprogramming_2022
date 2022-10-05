@@ -5,19 +5,14 @@ namespace CourseApp
     public class Pet
     {
         private int age; // поле
-
         public Pet(string nick, string color, int age) // конструктор 
         {
            Nick = nick;
            Color = color;
            Age = age;
         }
-
-        // свойства
-        public string Nick { get; set; }
-
-        public string Color { get; set; }
-
+        public string Nick { get; set; }   // свойство
+        public string Color { get; set; }   // свойство
         public int Age
         {
             get
@@ -32,10 +27,14 @@ namespace CourseApp
                     this.age = value;
                 }
             }
-        }
-        public void Show()
+        }   // свойство
+        public virtual void Show1()
         {
-            Console.WriteLine($"{Nick} - это {Color} питомец, {Age} лет");
+            Console.WriteLine("бла-бла-бла1");
+        }
+        public virtual void Show2()
+        {
+            Console.WriteLine("бла-бла-бла2");
         }
     }
 }
