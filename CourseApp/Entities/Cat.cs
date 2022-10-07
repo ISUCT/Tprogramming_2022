@@ -12,6 +12,6 @@ public class Cat : Pet
         return $"  {Color} котёнок {Nick}" + @"
        /\_/\
       ( o.o )
-       > ^ < ";
+       > ^ <";
     }
 }
