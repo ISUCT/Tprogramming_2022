@@ -10,7 +10,7 @@ public class Character
     {
         Clas = "Guardian";
         this.TypeOfWeapon = typeOfWeapon;
-        this.level = lvl;
+        this.Lvl = lvl;
     }
 
     public Character(string clas, string typeOfWeapon, int lvl)

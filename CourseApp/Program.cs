@@ -9,6 +9,8 @@
             Character gur = new ("zweihender", 60);
             Character mag = new ("Magian", "crystal staf", 58);
             Console.WriteLine($"lev= {mag.Lvl}");
+            Guardian guardian = new Guardian("zweihender", 90);
+            Archer archer = new Archer("Archer", "Black Onion", 79);
 
             mag.MaxLevel();
             mag.Damag();
@@ -16,6 +18,10 @@
 
             gur.Damag();
             gur.Print();
+            guardian.Print();
+            guardian.Protect(true);
+            
+            archer.Bow("Bow of the erd tree");
         }
     }
 }
