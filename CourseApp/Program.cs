@@ -14,6 +14,12 @@
             var airbus = new Plane("Airbus", -1, 9500);
             airbus.Display();
             airbus.Land();
+            Console.WriteLine("----------------");
+            var pt300 = new Copter("ПТ300", 800, 5000);
+            pt300.Display();
+            Console.WriteLine(def.ToString());
+            Console.WriteLine(ssj);
+            Console.WriteLine(airbus.ToString());
         }
     }
 }

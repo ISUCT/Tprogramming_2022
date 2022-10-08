@@ -21,6 +21,12 @@ namespace CourseApp
             Diagonal = diagonal;
         }
 
+        public Copter(string name, int speed, int height)
+        : base(name, speed, height)
+        {
+            Console.WriteLine("Базовый конструктор переопределён");
+        }
+
         public double Diagonal
         {
             get
@@ -44,6 +50,11 @@ namespace CourseApp
         public void Camera()
         {
             Console.WriteLine($"Камера коптера {Name} составляет {Diagonal}");
+        }
+
+        public override string ToString()
+        {
+            return $"Имя коптера засекречено";
         }
     }
 }
