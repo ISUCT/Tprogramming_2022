@@ -1,27 +1,29 @@
 ﻿namespace CourseApp
 {
     using System;
+    using System.Collections.Generic;
 
     public class Program
     {
         public static void Main(string[] args)
         {
-            Character gur = new ("zweihender", 60);
-            Character mag = new ("Magian", "crystal staf", 58);
-            Console.WriteLine($"lev= {mag.Lvl}");
-            Guardian guardian = new Guardian("zweihender", 90);
-            Archer archer = new Archer("Archer", "Black Onion", 79);
-
-            mag.MaxLevel();
-            mag.Damag();
-            mag.Print();
-
-            gur.Damag();
-            gur.Print();
-            guardian.Print();
-            guardian.Protect(true);
+            Archer archer = new ("Azir", "Black Onion", 79);
+            TheMagian magian = new ("Rise", "CristalStaff", 85);
+            Guardian guard = new ("Leo", "zweihender", 95);
             
-            archer.Bow("Bow of the erd tree");
+            var characterList = new List<Character>
+            {
+                archer,
+                magian,
+                guard,
+            };
+
+            foreach (var Character in characterList)
+            {
+                Character.Print();
+                Console.WriteLine(Character.Guild());
+                Console.WriteLine(Character.GetInfo());
+            }
         }
     }
 }

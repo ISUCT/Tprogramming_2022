@@ -4,14 +4,14 @@ using System;
 
 public class Archer : Character
 {
-    public Archer(string clas, string typeOfWeapon, int lvl)
-        : base(clas, typeOfWeapon, lvl)
+    public Archer(string name, string typeOfWeapon, int lvl)
+        : base(name, typeOfWeapon, lvl)
     {
     }
 
-    private string bw = "Bow of the erd tree";
+    private static string bw = "Bow of the erd tree";
 
-    public void Bow(string bow)
+    public static void Bow(string bow)
     {
         if (bow == bw)
         {
@@ -23,15 +23,32 @@ public class Archer : Character
         }
     }
 
-    public void Ability(int arrows)
+    public static void Ability(int arrows)
     {
         if (arrows < 90)
         {
-            Console.WriteLine("Тебе разрешено защищать только стены города");
+            Console.WriteLine("Azir тебе разрешено защищать только стены города");
+            Console.WriteLine();
         }
         else
         {
-            Console.WriteLine("Тебе разрешено защищать саму принцессу");
+            Console.WriteLine("Azir тебе разрешено защищать саму принцессу");
+            Console.WriteLine();
         }
     }
+
+    public override string Guild()
+    {
+        return "я состою в гильдии Милость Дриады";
+    }
+
+    public override string GetInfo()
+    {
+        return $"Я заступил на службу в 12:00 ";
+    }
+
+    /*public new void Print()
+    {
+        Console.WriteLine($"{Name} {TypeOfWeapon}");
+    }*/
 }

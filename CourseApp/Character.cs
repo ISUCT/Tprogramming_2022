@@ -2,20 +2,13 @@
 
 using System;
 
-public class Character
+public abstract class Character
 {
     private int level;
-
-    public Character(string typeOfWeapon, int lvl)
+    
+    public Character(string name, string typeOfWeapon, int lvl)
     {
-        Clas = "Guardian";
-        this.TypeOfWeapon = typeOfWeapon;
-        this.Lvl = lvl;
-    }
-
-    public Character(string clas, string typeOfWeapon, int lvl)
-    {
-        this.Clas = clas;
+        this.Name = name;
         this.TypeOfWeapon = typeOfWeapon;
         this.Lvl = lvl;
     }
@@ -38,14 +31,19 @@ public class Character
 
     public string TypeOfWeapon { get; set; }
 
-    public string Clas { get; set; }
+    public string Name { get; set; }
 
     public void Print()
     {
-        Console.WriteLine($"Ваши характеристи на данный момент \n {Clas} {Lvl} {TypeOfWeapon}");
+        Console.Write($"{Name} {Lvl} {TypeOfWeapon}");
     }
 
-    public void MaxLevel()
+    public virtual string Guild()
+    {
+        return "";
+    }
+
+    /*public void MaxLevel()
     {
         Console.WriteLine($"Ваш уровень {Lvl} /99");
     }
@@ -53,5 +51,10 @@ public class Character
     public void Damag()
     {
         Console.WriteLine($"Вам выпало легендарный оружие {TypeOfWeapon}");
+    }*/
+
+    public virtual string GetInfo()
+    {
+        return "";
     }
 }

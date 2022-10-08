@@ -4,8 +4,8 @@ using System;
 
 public class Guardian : Character
 {
-    public Guardian(string typeOfWeapon, int lvl)
-        : base(typeOfWeapon, lvl)
+    public Guardian(string name, string typeOfWeapon, int lvl)
+        : base(name, typeOfWeapon, lvl)
     {
     }
 
@@ -14,10 +14,22 @@ public class Guardian : Character
         if (protect != true)
         {
             Console.WriteLine("Я не защищаю принцессу");
+            Console.WriteLine();
         }
         else
         {
             Console.WriteLine("Я защищаю принцессу");
+            Console.WriteLine();
         }
+    }
+
+    public override string Guild()
+    {
+        return "я состою в гильдии Пылающий Вепрь";
+    }
+
+    public override string GetInfo()
+    {
+        return $"Я работаю в элитных войсках короля Людовика 2 ";
     }
 }
