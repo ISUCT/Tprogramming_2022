@@ -6,49 +6,54 @@
     {
         public static void Main(string[] args)
         {
-            Phone phone1 = new Phone("+7000000","iPhone", -7);
-            phone1.AcceptCall();
-            phone1.CloseCall();
-            phone1.MakeCall("+1234567");
-            phone1.CloseCall();
-
+            Phone phone1 = new LandlinePhone("+7000000","Проводной", -7);
             var phone2 = phone1;
-            phone1.GetDisplay();
-
-            Phone tablet = new Phone("+80000000","Android", 6);
-            tablet.GetDisplay();
-            Console.WriteLine(tablet.GetDisplay());
-            Console.WriteLine("--------------");
-
             CellPhone cell1 = new CellPhone();
             cell1.Diagonal = 3;
             cell1.Diagonal = -3;
-            Console.WriteLine(cell1.GetDisplay());
-
+            Console.WriteLine(cell1);
             Phone cell2 = new CellPhone("+90000","ericson", 5);
-            Console.WriteLine(cell2.GetDisplay());
+            Console.WriteLine(cell2);
 
             CellPhone cell3 = (CellPhone)cell2;
-            Console.WriteLine(cell3.GetDisplay());
-            cell3.DeclineCall();
-
+        
             CellPhone nokia = new CellPhone("+99999", "Nokia", 2000);
             nokia.AcceptCall();
             nokia.CloseCall();
             nokia.TrackName = "AAAAAA very good song";
             nokia.PlayMusic();
-            nokia.SendMessage("+700000", "some message");
-
-            CellPhone simens = nokia;
-            simens.Number = "+11111111111111";
-            Console.WriteLine(nokia.GetDisplay());
-            Console.WriteLine(simens.GetDisplay());
-            
+    
             Phone poly = new CellPhone("+876543", "MyPhone", 2000);
             Console.WriteLine("-----------------");
-            Console.WriteLine(poly.GetDisplay());
+            Console.WriteLine(poly);
 
             CellPhone cell = (CellPhone)poly;
+
+            Console.WriteLine(poly);
+
+            var smart = new SmartPhone();
+
+            var pen = new Pen();
+            var store = new Store();
+            store.AddItem(phone1);
+            store.AddItem(cell1);
+            store.AddItem(cell2);
+            store.AddItem(smart);
+            store.AddItem(pen);
+            Console.WriteLine("-------------------------");
+            store.Show();
+            Console.WriteLine("-------------------------");
+
+            var discord = new Application("Discord");
+            smart.InstallApp(discord);
+            smart.StartApp("Discord");
+            smart.StartApp("azaza");
+
+            Console.WriteLine("-------------------------");
+            var pixel = new AndroidPhone("+77777", "GPixel", 2022);
+            var iphone = new IOSPhone("+78888888", "IPhone14", 2022);
+            pixel.InstallApp(discord);
+            iphone.InstallApp(discord);
         }
     }
 }

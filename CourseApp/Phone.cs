@@ -2,18 +2,18 @@ namespace CourseApp
 {
     using System;
 
-    public class Phone
+    public abstract class Phone: IDisplayable
     {
         private int year = 1880;
         public string Name { get; set; }
-        public string Number {get; set;}
+        public string Number { get; set; }
 
-        public Phone(): this("+7000000","untitled", 1990)
+        public Phone() : this("+7000000", "untitled", 1990)
         {
             Console.WriteLine("Phone Simple constructor called");
         }
 
-        public Phone(string number,string name, int year)
+        public Phone(string number, string name, int year)
         {
             Number = number;
             Year = year;
@@ -36,11 +36,6 @@ namespace CourseApp
             }
         }
 
-        public virtual string GetDisplay()
-        {
-            return $"Простой телефон номер:{Number}, произведен {Year}";
-        }
-
         public void AcceptCall()
         {
             Console.WriteLine("Принимаю звонок");
@@ -55,5 +50,6 @@ namespace CourseApp
             Console.WriteLine($"Звонок на номер {phoneNumber}");
         }
 
+        public abstract string Display();
     }
 }

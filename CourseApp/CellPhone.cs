@@ -2,17 +2,16 @@ namespace CourseApp
 {
     using System;
 
-    public class CellPhone: Phone
+    public class CellPhone : Phone
     {
         private float diagonal;
 
-          public float Diagonal
+        public float Diagonal
         {
             get
             {
                 return diagonal;
             }
-
             set
             {
                 if (value > 0 && value < 20)
@@ -22,14 +21,14 @@ namespace CourseApp
             }
         }
 
-        public string TrackName {get; set;}
+        public string TrackName { get; set; }
 
-        public CellPhone():base("+70000000","nokia", 2)
+        public CellPhone() : base("+70000000", "nokia", 2)
         {
             Console.WriteLine("Cell phone without params");
         }
 
-        public CellPhone(string number, string name, int diagonal)
+        public CellPhone(string number, string name, int diagonal) : base(number, name, diagonal)
         {
             Console.WriteLine("Cell phone with params");
         }
@@ -45,25 +44,20 @@ namespace CourseApp
         {
             Console.WriteLine("Sending message");
         }
-        
-        public override string GetDisplay()
-        {
-            return $"Сотовый телефон {Name} номер:{Number}, произведен {Year}";
-        }
 
         public void PlayMusic()
         {
             Console.WriteLine($"Сейчас играет {TrackName}");
         }
 
-        public void SendMessage(string number,string message)
+        public override string ToString()
         {
-            Console.WriteLine($"Отправляем сообщение:{message} на номер {number}");
+            return $"Сотовый телефон {Name} номер:{Number}, произведен {Year}";
         }
 
-        public void ReadMessage(string number)
+        public override string Display()
         {
-            Console.WriteLine($"Читаем сообщение от контакта {number}");
+            return this.ToString();
         }
 
     }
