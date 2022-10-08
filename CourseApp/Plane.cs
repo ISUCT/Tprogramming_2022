@@ -4,10 +4,9 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public class Plane
+    public class Plane : Vehicle
     {
         private int height;
-        private int speed;
 
         public Plane()
         {
@@ -22,8 +21,6 @@
             Speed = speed;
             Height = height;
         }
-
-        public string Name { get; set; }
 
         public int Height
         {
@@ -45,27 +42,7 @@
             }
         }
 
-        public int Speed
-        {
-            get
-            {
-                return speed;
-            }
-
-            set
-            {
-                if (value > 0 && value <= 1000)
-                {
-                    speed = value;
-                }
-                else
-                {
-                    speed = 700;
-                }
-            }
-        }
-
-        public void Display()
+        public override void Display()
         {
             Console.WriteLine($"Название самолёта {Name}, скорость {Speed}, высота полёта {Height}");
         }

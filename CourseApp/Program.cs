@@ -17,6 +17,8 @@
             Console.WriteLine("----------------");
             var pt300 = new Copter("ПТ300", 800, 5000);
             pt300.Display();
+            var vw = new Car("VW Polo", 140);
+            vw.Display();
             Console.WriteLine(def.ToString());
             Console.WriteLine(ssj);
             Console.WriteLine(airbus.ToString());
