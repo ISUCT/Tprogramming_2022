@@ -1,7 +1,7 @@
 namespace CourseApp;
 using System;
 
-public class Disk
+public abstract class Disk
 {
     private int diskCapacity;
 
@@ -11,18 +11,16 @@ public class Disk
 
     private int filledPlace;
 
+    public Disk()
+    : this("WD", 0, 2015)
+    {
+    }
+
     public Disk(string modelDisk, int diskCapacity, int yearOfRelease)
     {
         ModelDisk = modelDisk;
         DiskCapacity = diskCapacity;
         YearOfRelease = yearOfRelease;
-    }
-
-    public Disk()
-    {
-        ModelDisk = " ";
-        DiskCapacity = 0;
-        YearOfRelease = 0;
     }
 
     public string ModelDisk
@@ -70,9 +68,13 @@ public class Disk
         }
     }
 
-    public void DiskInfoShow()
+    public abstract string SpeedStatus();
+
+    public string DiskInfoShow()
     {
-        Console.WriteLine($"{ModelDisk} {yearOfRelease}года: объем этогй модели равен {diskCapacity}");
+        string result = $"{ModelDisk} {yearOfRelease}года: объем этогй модели равен {diskCapacity}";
+        Console.WriteLine(result);
+        return result;
     }
 
     public int Download(int quantity)
