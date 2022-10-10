@@ -90,5 +90,21 @@ namespace CourseApp.Tests
       float result = human.Weight;
       Assert.True(result == 0);
     }
+
+    [Fact]
+    public void TesttoStringMale()
+    {
+      Human human = new Male(22, 155, 50);
+      string result = $"You are a male of {22} years. Your weight is {50} kg and height {155} cm.";
+      Assert.Equal(human.ToString(), result);
+    }
+
+    [Fact]
+    public void TesttoStringFemale()
+    {
+      Human human = new Female(22, 155, 50);
+      string result = $"You are a female of {22} years. Your weight is {50} kg and height {155} cm.";
+      Assert.Equal(human.ToString(), result);
+    }
   }
 }
