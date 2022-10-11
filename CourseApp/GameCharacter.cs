@@ -2,111 +2,136 @@
 {
     using System;
 
-    public class GameCharacter
+    public abstract class GameCharacter
     {
-       private string characterClass;
+        private string skillone;
+        private string skilltwo;
+        private string skillthree;
+        private string ultimate;
+        private string weapon;
+        private int health;
+        private int damage;
 
-       private float characterLevel;
-
-       private string characterWeapon;
-
-       private int characterDamage;
-
-       public GameCharacter(string characterClass, float characterLevel, int characterDamage)
+        public GameCharacter(int health, int damage)
         {
-            CharacterLevel = characterLevel;
-            CharacterClass = characterClass;
-            CharacterDamage = characterDamage;
+            Health = health;
+            Damage = damage;
         }
 
-       public GameCharacter(string characterClass, float characterLevel)
-        {
-            CharacterLevel = characterLevel;
-            CharacterClass = characterClass;
-        }
-
-       public string CharacterClass
+        public int Health
         {
             get
             {
-                return characterClass;
+                return this.health;
             }
 
             set
             {
-                this.characterClass = value;
+                this.health = value;
             }
         }
 
-       public float CharacterLevel
+        public int Damage
         {
             get
             {
-                return characterLevel;
+                return this.damage;
             }
 
             set
             {
-                if (value > 0 && value <= 100)
-                {
-                    this.characterLevel = value;
-                }
+                this.damage = value;
             }
         }
 
-       public string CharacterWeapon
+        public string Skill_One
         {
             get
             {
-                return characterWeapon;
+                return this.skillone;
             }
 
             set
             {
-                this.characterWeapon = value;
+                this.skillone = value;
             }
         }
 
-       public int CharacterDamage
+        public string Skill_Two
         {
             get
             {
-                return characterDamage;
+                return this.skilltwo;
             }
 
             set
             {
-                if (value >= 0 && value <= 15)
-                {
-                    this.characterDamage = value;
-                }
+                this.skilltwo = value;
             }
         }
 
-       public void Show()
+        public string Skill_Three
         {
-            System.Console.WriteLine($"Ваш класс {CharacterClass}, ваш текущий уровень {CharacterLevel}");
-        }
-
-       public void Damage(double buff)
-        {
-            this.CharacterDamage = (int)(CharacterLevel * buff);
-            System.Console.WriteLine($"Ваш уровень {CharacterLevel}, вы наложили бафф {buff}, теперь урон вашего персонажа равен {CharacterDamage}");
-        }
-
-       public void Weapon()
-        {
-            if (characterClass == "Маг")
+            get
             {
-                CharacterWeapon = "Посох";
+                return this.skillthree;
             }
 
-            if (characterClass == "Лучник")
+            set
             {
-                CharacterWeapon = "Лук и стрелы";
+                this.skillthree = value;
+            }
+        }
+
+        public string Ultimate
+        {
+            get
+            {
+                return this.ultimate;
             }
 
-            Console.WriteLine($"Ваш класс {CharacterClass}, вам выдаётся оружие {CharacterWeapon}");
+            set
+            {
+                this.ultimate = value;
+            }
         }
+
+        public string Weapon
+        {
+            get
+            {
+                return this.weapon;
+            }
+
+            set
+            {
+                this.weapon = value;
+            }
+        }
+
+        public void CharacterSkills()
+        {
+            Console.WriteLine($"Первый скилл вашего класса это {Skill_One}");
+            Console.WriteLine($"Второй скилл вашего класса это {Skill_Two}");
+            Console.WriteLine($"Третий скилл вашего класса это {Skill_Three}");
+            Console.WriteLine($"Ульта вашего класса это {Ultimate}");
+        }
+
+        public void CharacterWeapons()
+        {
+            Console.WriteLine($"Ваше оружие - это {Weapon}");
+        }
+
+        public void CharacterHealth()
+        {
+            Console.WriteLine($"Ваше здоровье - {Health}");
+        }
+
+        public void CharacterDamage()
+        {
+            Console.WriteLine($"Ваш урон - {Damage}");
+        }
+
+        public abstract void UseUltimate();
     }
 }
