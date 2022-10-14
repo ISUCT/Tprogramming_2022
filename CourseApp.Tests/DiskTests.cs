@@ -9,45 +9,36 @@ namespace CourseApp.Tests
         [Fact]
         public void Download_Set100and100infoOn500DiskCapacity_200returned()
         {
-            Disk hdd = new HardDisk("WD", 500, 500, 2011);
-            var tmp = hdd.Download(100);
-            var result = hdd.Download(100);
+            Computer cmp = new Laptop("WD", 500, 2011, 500, "PC", 1980);
+            cmp.Download1(100);
+            var result = cmp.Download1(100);
             Assert.True(result == 200);
         }
 
         [Fact]
         public void Clearing_Clear100and50infoOn500DiskCapacity_150returned()
         {
-            Disk hdd = new HardDisk("WD", 500, 500, 2011);
-            hdd.Download(300);
-            hdd.Clearing(100);
-            var result = hdd.Clearing(50);
+            Computer cmp = new Laptop("WD", 500, 2011, 500, "PC", 1980);
+            cmp.Download1(300);
+            cmp.Clearing(100);
+            var result = cmp.Clearing(50);
             Assert.True(result == 150);
         }
 
         [Fact]
         public void Constructor_returnedWD5502012()
         {
-            Disk hdd = new HardDisk("WD", 550, 500, 2012);
-            string result = hdd.DiskInfoShow();
+            Computer cmp = new Laptop("WD", 550, 2012, 500, "PC", 1980);
+            string result = cmp.GetDiskInfoShow();
             Assert.True(result == "WD 2012года: объем этогй модели равен 550");
-        }
-
-        [Fact]
-        public void SpeedStatus()
-        {
-            Disk hdd = new HardDisk("WD", 550, 500, 2012);
-
-            string result = hdd.SpeedStatus();
-            Assert.True(result == "Speed dowanload is 500, slowly!");
         }
 
         [Fact]
         public void SpeedExeption()
         {
-            HardDisk hdd = new HardDisk("WD", 550, 500, 2012);
+            Disk hdd = new Disk("WD", 550, 2012, 500);
             string expectedErrorMessage = "Speed incorrect";
-            var ex = Assert.Throws<ArgumentException>(() => hdd.SpeedDownload = 700);
+            var ex = Assert.Throws<ArgumentException>(() => hdd.DSpeed = 700);
             Assert.Equal(expectedErrorMessage, ex.Message);
         }
     }
