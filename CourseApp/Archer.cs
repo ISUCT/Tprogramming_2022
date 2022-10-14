@@ -46,9 +46,4 @@ public class Archer : Character
     {
         return $"Я заступил на службу в 12:00 ";
     }
-
-    /*public new void Print()
-    {
-        Console.WriteLine($"{Name} {TypeOfWeapon}");
-    }*/
 }
