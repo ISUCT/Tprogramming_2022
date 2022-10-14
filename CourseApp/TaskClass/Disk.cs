@@ -1,7 +1,7 @@
 namespace CourseApp;
 using System;
 
-public abstract class Disk
+public class Disk
 {
     private int diskCapacity;
 
@@ -11,16 +11,19 @@ public abstract class Disk
 
     private int filledPlace;
 
+    private int dSpeed;
+
     public Disk()
-    : this("WD", 0, 2015)
+    : this("WD", 0, 2015, 500)
     {
     }
 
-    public Disk(string modelDisk, int diskCapacity, int yearOfRelease)
+    public Disk(string modelDisk, int diskCapacity, int yearOfRelease, int dSpeed)
     {
         ModelDisk = modelDisk;
         DiskCapacity = diskCapacity;
         YearOfRelease = yearOfRelease;
+        DSpeed = dSpeed;
     }
 
     public string ModelDisk
@@ -33,6 +36,26 @@ public abstract class Disk
         set
         {
             this.modelDisk = value;
+        }
+    }
+
+    public int DSpeed
+    {
+        get
+        {
+            return dSpeed;
+        }
+
+        set
+        {
+             if (value > 100 && value < 600)
+            {
+                  dSpeed = value;
+            }
+            else
+            {
+                throw new ArgumentException("Speed incorrect");
+            }
         }
     }
 
@@ -68,42 +91,16 @@ public abstract class Disk
         }
     }
 
-    public abstract string SpeedStatus();
-
-    public string DiskInfoShow()
+    public int FilledPlace
     {
-        string result = $"{ModelDisk} {yearOfRelease}года: объем этогй модели равен {diskCapacity}";
-        Console.WriteLine(result);
-        return result;
-    }
+        get
+        {
+            return filledPlace;
+        }
 
-    public int Download(int quantity)
-    {
-        if (quantity <= this.diskCapacity - filledPlace)
+        set
         {
-            this.filledPlace = this.filledPlace + quantity;
-            Console.WriteLine($"Вы заполнили диск на: {quantity} ГБ, осталось {this.diskCapacity - this.filledPlace} ГБ свободного места ");
-            return this.filledPlace;
-        }
-        else
-        {
-            Console.WriteLine($"Не хватает места для загрузки");
-            return 0;
-        }
-    }
-
-    public int Clearing(int quantity)
-    {
-        if (quantity <= filledPlace)
-        {
-            this.filledPlace = this.filledPlace - quantity;
-            Console.WriteLine($"Вы очистили диск на: {quantity} ГБ, стало {this.diskCapacity - this.filledPlace} ГБ свободного места ");
-            return this.filledPlace;
-        }
-        else
-        {
-            Console.WriteLine($"Количество очищаемого привышает количество содержимого");
-            return 0;
+            this.filledPlace = value;
         }
     }
 }
