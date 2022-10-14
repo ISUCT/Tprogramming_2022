@@ -4,12 +4,12 @@ using System;
 
 public class Archer : Character
 {
+    private static string bw = "Bow of the erd tree";
+
     public Archer(string name, string typeOfWeapon, int lvl)
         : base(name, typeOfWeapon, lvl)
     {
     }
-
-    private static string bw = "Bow of the erd tree";
 
     public static void Bow(string bow)
     {

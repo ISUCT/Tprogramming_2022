@@ -10,7 +10,7 @@
             Archer archer = new ("Azir", "Black Onion", 79);
             TheMagian magian = new ("Rise", "CristalStaff", 85);
             Guardian guard = new ("Leo", "zweihender", 95);
-            
+
             var characterList = new List<Character>
             {
                 archer,
@@ -18,11 +18,11 @@
                 guard,
             };
 
-            foreach (var Character in characterList)
+            foreach (var character in characterList)
             {
-                Character.Print();
-                Console.WriteLine(Character.Guild());
-                Console.WriteLine(Character.GetInfo());
+                character.Print();
+                Console.WriteLine(character.Guild());
+                Console.WriteLine(character.GetInfo());
             }
         }
     }

@@ -5,7 +5,7 @@ using System;
 public abstract class Character
 {
     private int level;
-    
+
     public Character(string name, string typeOfWeapon, int lvl)
     {
         this.Name = name;
@@ -40,7 +40,7 @@ public abstract class Character
 
     public virtual string Guild()
     {
-        return "";
+        return "1535";
     }
 
     /*public void MaxLevel()
@@ -55,6 +55,6 @@ public abstract class Character
 
     public virtual string GetInfo()
     {
-        return "";
+        return "54891";
     }
 }
