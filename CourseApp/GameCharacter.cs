@@ -117,19 +117,29 @@
             Console.WriteLine($"Ульта вашего класса это {Ultimate}");
         }
 
-        public void CharacterWeapons()
+        public string GetCharacterWeapons()
         {
-            Console.WriteLine($"Ваше оружие - это {Weapon}");
+            string result = $"Ваше оружие - это {Weapon}";
+            return result;
         }
 
-        public void CharacterHealth()
+        public string GetCharacterHealth()
         {
-            Console.WriteLine($"Ваше здоровье - {Health}");
+            string result = $"Ваше здоровье - {Health}";
+            return result;
         }
 
-        public void CharacterDamage()
+        public string GetCharacterDamage()
         {
-            Console.WriteLine($"Ваш урон - {Damage}");
+            string result = $"Ваш урон - {Damage}";
+            return result;
+        }
+
+        public void Character()
+        {
+            Console.WriteLine(GetCharacterWeapons());
+            Console.WriteLine(GetCharacterHealth());
+            Console.WriteLine(GetCharacterDamage());
         }
 
         public abstract void UseUltimate();
