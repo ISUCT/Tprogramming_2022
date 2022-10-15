@@ -5,5 +5,10 @@
         "**/.svn": true,
         "**/CVS": true,
         "WebApplication": true
+<<<<<<< HEAD
     }
+=======
+    },
+    "explorer.compactFolders": true
+>>>>>>> Task_1
 }
