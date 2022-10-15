@@ -24,7 +24,6 @@ namespace CourseApp
         public Copter(string name, int speed, int height)
         : base(name, speed, height)
         {
-        //     return "Базовый конструктор переопределён";
         }
 
         public double Diagonal
