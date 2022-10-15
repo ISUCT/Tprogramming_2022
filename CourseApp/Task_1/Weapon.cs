@@ -4,7 +4,7 @@ namespace CourseApp.Task_1
 
     public abstract class Weapon
     {
-        private int _maxAmmo;
+        private int maxAmmo;
 
         public string WeaponType { get; protected set; }
 
@@ -16,7 +16,7 @@ namespace CourseApp.Task_1
         {
             get
             {
-                return _maxAmmo;
+                return maxAmmo;
             }
 
             set
@@ -27,7 +27,7 @@ namespace CourseApp.Task_1
                 }
                 else
                 {
-                    _maxAmmo = value;
+                    maxAmmo = value;
                 }
             }
         }
