@@ -42,6 +42,6 @@ namespace CourseApp
             }
         }
 
-        public abstract void Display();
+        public abstract string Display();
     }
 }

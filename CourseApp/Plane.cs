@@ -42,9 +42,9 @@
             }
         }
 
-        public override void Display()
+        public override string Display()
         {
-            Console.WriteLine($"Название самолёта {Name}, скорость {Speed}, высота полёта {Height}");
+            return $"Название самолёта {Name}, скорость {Speed}, высота полёта {Height}";
         }
 
         public void Land()

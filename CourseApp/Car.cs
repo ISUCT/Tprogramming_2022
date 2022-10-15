@@ -18,9 +18,14 @@ namespace CourseApp
             Speed = speed;
         }
 
-        public override void Display()
+        public override string Display()
         {
-            Console.WriteLine($"Автомобиль {Name}, скорость {Speed}");
+            return $"Автомобиль {Name}, скорость {Speed}";
+        }
+
+        public override string ToString()
+        {
+            return $"Автомобиль {Name}";
         }
     }
 }
