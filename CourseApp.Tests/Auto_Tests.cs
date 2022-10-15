@@ -32,22 +32,56 @@
         {
             var car = new Auto();
             car.Speed = -26;
-            Assert.Equal(35, car.Speed);
+            Assert.Equal(45, car.Speed);
         }
 
         [Fact]
         public void TestRide()
         {
+            var car = new Auto();
+            car.Speed = 35;
+            car.LoadingCapacity = 70;
+            Assert.Equal($"Поехал автомобиль 35", car.Ride());
         }
 
         [Fact]
         public void TestStop()
         {
+            var car = new Auto();
+            car.Name = "Limousine";
+            car.LoadingCapacity = 70;
+            Assert.Equal("Остановился автомобиль", car.Stop());
         }
 
         [Fact]
         public void TestToString()
         {
+            var car = new Auto();
+            car.Name = "Limousine";
+            car.Speed = 35;
+            car.LoadingCapacity = 70;
+            Assert.Equal($"Название: Limousine  Скорость: 35", car.Print());
+        }
+
+        [Fact]
+        public void TestMinibus()
+        {
+            var car = new Minibus("Маршрутка");
+            Assert.Equal("Маршрутка движется", car.Move());
+        }
+
+        [Fact]
+        public void TestBus()
+        {
+            var car = new Bus("Автобус");
+            Assert.Equal("Автобус движется", car.Move());
+        }
+
+        [Fact]
+        public void TestTrolleybus()
+        {
+            var car = new Trolleybus("Троллейбус");
+            Assert.Equal("Троллейбус движется", car.Move());
         }
     }
 }
