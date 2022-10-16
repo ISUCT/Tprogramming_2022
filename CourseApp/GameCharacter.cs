@@ -109,12 +109,14 @@
             }
         }
 
+        public string GetCharacterSkills()
+        {
+            return $"Первый скилл вашего класса это {Skill_One}\nВторой скилл вашего класса это {Skill_Two}\nТретий скилл вашего класса это {Skill_Three}\nУльта вашего класса это {Ultimate}";
+        }
+
         public void CharacterSkills()
         {
-            Console.WriteLine($"Первый скилл вашего класса это {Skill_One}");
-            Console.WriteLine($"Второй скилл вашего класса это {Skill_Two}");
-            Console.WriteLine($"Третий скилл вашего класса это {Skill_Three}");
-            Console.WriteLine($"Ульта вашего класса это {Ultimate}");
+            Console.WriteLine(GetCharacterSkills());
         }
 
         public string GetCharacterWeapons()
@@ -135,7 +137,7 @@
             return result;
         }
 
-        public void Character()
+        public void CharacterInfo()
         {
             Console.WriteLine(GetCharacterWeapons());
             Console.WriteLine(GetCharacterHealth());

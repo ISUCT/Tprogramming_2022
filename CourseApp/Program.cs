@@ -13,7 +13,7 @@
 
             foreach (var character in characterArray)
             {
-                character.Character();
+                character.CharacterInfo();
                 character.CharacterSkills();
                 character.UseUltimate();
                 Console.WriteLine();

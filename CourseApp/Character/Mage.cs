@@ -16,7 +16,7 @@
 
         public string GetUltimate()
         {
-            return $"Маг использует - {Ultimate} !!!!";
+            return $"Маг использует - {Ultimate}!!!!";
         }
 
         public override void UseUltimate()
