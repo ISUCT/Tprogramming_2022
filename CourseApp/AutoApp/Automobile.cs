@@ -1,7 +1,5 @@
-﻿namespace CourseApp
+﻿namespace AutoApp
 {
-    using System;
-
     public abstract class Automobile
     {
         public Automobile(string name)
@@ -13,9 +11,9 @@
 
         public abstract string Display();
 
-        public void Move()
+        public string Move()
         {
-            Console.WriteLine($"{Name} движется");
+            return $"{Name} движется";
         }
     }
 }

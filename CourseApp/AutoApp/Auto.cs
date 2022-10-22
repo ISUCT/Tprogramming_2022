@@ -1,7 +1,5 @@
-﻿namespace CourseApp
+﻿namespace AutoApp
 {
-    using System;
-
     public class Auto
     {
         private int speed;
@@ -38,19 +36,19 @@
             }
         }
 
-        public void Ride()
+        public string Ride()
         {
-            Console.WriteLine($"Поехал автомобиль {Speed}");
+            return $"Поехал автомобиль {Speed}";
         }
 
-        public void Stop()
+        public string Stop()
         {
-            Console.WriteLine("Остановился автомобиль");
+            return "Остановился автомобиль";
         }
 
-        public void Print()
+        public string Print()
         {
-            Console.WriteLine($"Название: {Name}  Скорость: {speed}");
+            return $"Название: {Name}  Скорость: {speed}";
         }
     }
 }

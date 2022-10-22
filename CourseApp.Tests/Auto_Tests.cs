@@ -1,5 +1,6 @@
-﻿namespace CourseApp.Tests
+﻿namespace AutoApp.Tests
 {
+    using AutoApp;
     using Xunit;
 
     public class Auto_Tests

@@ -1,4 +1,4 @@
-﻿namespace CourseApp
+﻿namespace AutoApp
 {
     public class Trolleybus : Automobile
     {
