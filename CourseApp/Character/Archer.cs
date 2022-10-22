@@ -1,4 +1,4 @@
-namespace CourseApp;
+namespace Character;
 
 using System;
 
@@ -45,5 +45,10 @@ public class Archer : Character
     public override string GetInfo()
     {
         return $"Я заступил на службу в 12:00 ";
+    }
+
+    public override string ToString()
+    {
+        return "Ура у меня всё хорошо!";
     }
 }
