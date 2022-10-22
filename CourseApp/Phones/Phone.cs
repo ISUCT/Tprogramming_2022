@@ -1,14 +1,13 @@
-namespace CourseApp
+namespace Phones
 {
     using System;
 
-    public abstract class Phone: IDisplayable
+    public abstract class Phone : IDisplayable
     {
         private int year = 1880;
-        public string Name { get; set; }
-        public string Number { get; set; }
 
-        public Phone() : this("+7000000", "untitled", 1990)
+        public Phone()
+            : this("+7000000", "untitled", 1990)
         {
             Console.WriteLine("Phone Simple constructor called");
         }
@@ -21,12 +20,17 @@ namespace CourseApp
             Console.WriteLine("Phone constructor called");
         }
 
+        public string Name { get; set; }
+
+        public string Number { get; set; }
+
         public int Year
         {
             get
             {
                 return year;
             }
+
             set
             {
                 if (value >= 1880 && value <= 2022)
@@ -40,6 +44,7 @@ namespace CourseApp
         {
             Console.WriteLine("Принимаю звонок");
         }
+
         public void CloseCall()
         {
             Console.WriteLine("Завершаю звонок");

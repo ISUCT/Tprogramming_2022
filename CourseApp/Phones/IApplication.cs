@@ -1,12 +1,9 @@
-namespace CourseApp
+namespace Phones
 {
-    using System;
-
     public interface IApplication
     {
         public void InstallApp();
-        
-        public void RunApp();
 
+        public void RunApp();
     }
 }

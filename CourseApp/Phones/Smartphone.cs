@@ -1,22 +1,25 @@
-namespace CourseApp
+namespace Phones
 {
     using System;
     using System.Collections.Generic;
 
-    public class SmartPhone : CellPhone, IDisplayable
+    public class SmartPhone<T> : CellPhone, IDisplayable
+        where T : IApplication
     {
-        private List<Application> apps;
+        private List<T> apps;
+
+        public SmartPhone()
+            : this("+70000000", "Pixel", 2022)
+        {
+        }
+
+        public SmartPhone(string number, string name, int diagonal)
+            : base(number, name, diagonal)
+        {
+            apps = new List<T>();
+        }
 
         public string OsType { get; set; }
-
-        public SmartPhone() : this("+70000000", "Pixel", 2022)
-        {    
-        }
-
-        public SmartPhone(string number, string name, int diagonal) : base(number, name, diagonal)
-        {
-            apps = new List<Application>();
-        }
 
         public override string ToString()
         {
@@ -32,22 +35,25 @@ namespace CourseApp
         {
             Console.WriteLine("Connecting to the internet");
         }
-        public virtual void InstallApp(Application app)
+
+        public virtual void AddApp(T app)
         {
+            app.InstallApp();
             apps.Add(app);
         }
 
-        public void StartApp(string appName)
+        public void StartApp(T application)
         {
-            foreach(Application app in apps)
+            foreach (T app in apps)
             {
-                if (app.Name == appName)
+                if (application.Equals(app))
                 {
                     app.RunApp();
                     return;
                 }
             }
-            Console.WriteLine($"No such application {appName}");
+
+            Console.WriteLine($"No such application ");
         }
     }
 }

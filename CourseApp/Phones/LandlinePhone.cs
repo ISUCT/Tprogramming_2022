@@ -1,15 +1,14 @@
-namespace CourseApp
+namespace Phones
 {
-    using System;
-
     public class LandlinePhone : Phone, IDisplayable
     {
-
-        public LandlinePhone() : base("+70000000", "Проводной", 2)
+        public LandlinePhone()
+            : base("+70000000", "Проводной", 2)
         {
         }
 
-        public LandlinePhone(string number, string name, int diagonal) : base(number, name, diagonal)
+        public LandlinePhone(string number, string name, int year)
+            : base(number, name, year)
         {
         }
 
@@ -22,6 +21,5 @@ namespace CourseApp
         {
             return this.ToString();
         }
-
     }
 }

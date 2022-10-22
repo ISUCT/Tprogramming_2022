@@ -1,7 +1,5 @@
-namespace CourseApp
+namespace Phones
 {
-    using System;
-
     public interface IDisplayable
     {
         public string Display();

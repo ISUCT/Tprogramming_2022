@@ -1,7 +1,5 @@
-namespace CourseApp
+namespace Phones
 {
-    using System;
-
     public class Pen : IDisplayable
     {
         public string Display()

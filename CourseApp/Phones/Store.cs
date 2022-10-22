@@ -1,4 +1,4 @@
-namespace CourseApp
+namespace Phones
 {
     using System;
 
@@ -6,10 +6,11 @@ namespace CourseApp
     {
         private IDisplayable[] storage;
         private int index;
+
         public Store()
         {
             storage = new IDisplayable[5];
-        } 
+        }
 
         public void AddItem(IDisplayable item)
         {
@@ -19,11 +20,10 @@ namespace CourseApp
 
         public void Show()
         {
-            for(int i=0; i<index; i++)
+            for (int i = 0; i < index; i++)
             {
                 Console.WriteLine($"item {i} {storage[i].Display()}");
             }
         }
-
     }
 }
