@@ -1,6 +1,7 @@
-﻿namespace AutoApp
+﻿namespace CourseApp
 {
     using System;
+    using AutoApp;
 
     public class Program
     {
