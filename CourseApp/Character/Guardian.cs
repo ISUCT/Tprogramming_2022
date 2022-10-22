@@ -1,4 +1,4 @@
-namespace CourseApp;
+namespace Character;
 
 using System;
 
@@ -31,5 +31,10 @@ public class Guardian : Character
     public override string GetInfo()
     {
         return $"Я работаю в элитных войсках короля Людовика 2 ";
+    }
+
+    public override string ToString()
+    {
+        return "Как хорошо, что меня ещё не уволили)";
     }
 }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Character;
 
     public class Program
     {
@@ -23,6 +24,7 @@
                 character.Print();
                 Console.WriteLine(character.Guild());
                 Console.WriteLine(character.GetInfo());
+                Console.WriteLine(character.ToString());
             }
         }
     }

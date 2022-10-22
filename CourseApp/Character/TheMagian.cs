@@ -1,4 +1,4 @@
-namespace CourseApp;
+namespace Character;
 
 using System;
 
@@ -31,5 +31,10 @@ public class TheMagian : Character
     public override string GetInfo()
     {
         return $"Я служу для защиты нашего прекрасного замка ";
+    }
+
+    public override string ToString()
+    {
+        return "Какой же красивый замок";
     }
 }
