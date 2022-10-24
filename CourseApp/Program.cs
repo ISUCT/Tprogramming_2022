@@ -1,25 +1,28 @@
 ﻿namespace CourseApp
 {
     using System;
+    using System.Collections.Generic;
 
     public class Program
+    {
+        public static void Main(string[] args)
         {
-            public static void Main(string[] args)
+            Russia rus = new ("Russia", "Moskow", 17000);
+            Canada can = new ("Canada", "Ottawa", 9000);
+            USA usa = new ("USA", "Washington", 7000);
+
+            var countryList = new List<Country>
             {
-                Country rus = new Country("Russia", "Moskow", 17000);
-                Country can = new Country("Canada", "Ottawa");
-                Country usa = new Country("USA");
-                rus.Print();
-                rus.TheCapital();
-                rus.Welcome();
+                    rus, can, usa,
+            };
 
-                can.Print();
-                can.TheCapital();
-                can.Welcome();
-
-                usa.Print();
-                usa.TheCapital();
-                usa.Welcome();
+            foreach (var country in countryList)
+            {
+                Console.WriteLine(country.NameOfElement());
+                country.Print();
+                Console.Write(country.CountryAge());
+                Console.WriteLine(country.PresidentsName());
+            }
         }
     }
 }

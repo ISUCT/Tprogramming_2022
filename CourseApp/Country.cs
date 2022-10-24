@@ -2,7 +2,7 @@
 
 using System;
 
-public class Country
+public abstract class Country
 {
     private double square;
 
@@ -11,20 +11,6 @@ public class Country
         this.Name = name;
         this.Capital = capital;
         this.Square = sq;
-    }
-
-    public Country(string n, string cap)
-    {
-        this.Name = n;
-        this.Capital = cap;
-        Square = 1000;
-    }
-
-    public Country(string n)
-    {
-        this.Name = n;
-        Capital = "Moscow";
-        Square = 1000;
     }
 
     public string Name { get; set; }
@@ -46,10 +32,10 @@ public class Country
 
     public void Print()
     {
-        Console.WriteLine($"Название: {Name}  Столица: {Capital}  Площадь: {Square} км^2");
+        Console.Write($"Название: {Name}  Столица: {Capital}  Площадь: {Square} км^2 ");
     }
 
-    public void TheCapital()
+    /*public void TheCapital()
     {
         Console.WriteLine($"The capital of {Name} is {Capital}");
     }
@@ -57,5 +43,20 @@ public class Country
     public void Welcome()
     {
         Console.WriteLine($"Welcome to the {Name}! \n");
+    }*/
+
+    public virtual string CountryAge()
+    {
+        return "2000 years";
+    }
+
+    public virtual string PresidentsName()
+    {
+        return "sss";
+    }
+
+    public virtual string NameOfElement()
+    {
+        return "3";
     }
 }
