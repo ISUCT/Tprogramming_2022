@@ -1,7 +1,7 @@
 ﻿namespace CourseApp;
 using System;
 
-public class Airplane
+public abstract class Airplane
 {
     private int speed;
     private int flight;
@@ -109,4 +109,6 @@ public class Airplane
     {
         Console.WriteLine(GetLanding());
     }
+
+    public abstract string MyRole();
 }

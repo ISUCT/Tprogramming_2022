@@ -12,10 +12,10 @@ namespace CourseApp.Tests
             int flight = 5;
             string model = "Boeing";
 
-            Airplane expected = new Airplane(201, 5, "Boeing");
+            Airplane expected = new Passenger(201, 5, "Boeing");
 
             // Act
-            Airplane airplane = new Airplane(speed, flight, model);
+            Airplane airplane = new Fighter(speed, flight, model);
 
             // Assert
             Assert.Equal(expected.Speed, airplane.Speed);
@@ -29,7 +29,7 @@ namespace CourseApp.Tests
         [InlineData(210, 800, "A320")]
         public void TakeOffTest(int speed, int flight, string model)
         {
-            Airplane plane = new Airplane(speed, flight, model);
+            Airplane plane = new Passenger(speed, flight, model);
 
             string condition;
 
@@ -51,7 +51,7 @@ namespace CourseApp.Tests
         [InlineData(700, 800, "A320")]
         public void FlyTest(int speed, int flight, string model)
         {
-            Airplane plane = new Airplane(speed, flight, model);
+            Airplane plane = new Passenger(speed, flight, model);
 
             string condition;
 
@@ -73,7 +73,7 @@ namespace CourseApp.Tests
         [InlineData(201, 800, "A320")]
         public void LandingTest(int speed, int flight, string model)
         {
-            Airplane plane = new Airplane(speed, flight, model);
+            Airplane plane = new Passenger(speed, flight, model);
 
             string condition;
 
@@ -87,6 +87,34 @@ namespace CourseApp.Tests
             }
 
             Assert.Equal(plane.GetLanding(), condition);
+        }
+
+        [Theory]
+        [InlineData(210, 800, "A320")]
+        [InlineData(260, 800, "A320")]
+        public void ToStringTest(int speed, int flight, string model)
+        {
+            Airplane passenger = new Passenger(speed, flight, model);
+            Airplane fighter = new Fighter(speed, flight, model);
+
+            var conditionPassenger = $"Passenger ( speed: {speed}, flight: {flight}, model: {model})";
+            var conditionFighter = $"Fighter ( speed: {speed}, flight: {flight}, model: {model})";
+
+            Assert.Equal(passenger.ToString(), conditionPassenger);
+            Assert.Equal(fighter.ToString(), conditionFighter);
+        }
+
+        [Fact]
+        public void RoleTest()
+        {
+            Airplane passenger = new Passenger(210, 800, "A320");
+            Airplane fighter = new Fighter(210, 800, "A320");
+
+            var conditionPassenger = "Роль пассажирского самолета - перевозка пассажиров и багажа.";
+            var conditionFighter = "Роль военного самолета - уничтожение противника.";
+
+            Assert.Equal(passenger.MyRole(), conditionPassenger);
+            Assert.Equal(fighter.MyRole(), conditionFighter);
         }
     }
 }
