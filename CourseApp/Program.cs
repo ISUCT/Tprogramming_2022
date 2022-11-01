@@ -1,6 +1,5 @@
-﻿namespace CourseApp
+﻿namespace CourseApp.Task_one
 {
-    using System;
 
     public class Program
     {
