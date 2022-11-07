@@ -4,97 +4,44 @@
 
     public class Plane : Transport, ILanding
     {
-        private string model;
-        private int speed;
-        private string direction;
+        private ActionTypes actionType;
 
         public Plane()
-            : this("No_name", 0, 0, 0, 0, 0)
+            : this(0, 0, 0, 0, 0, "Plane")
         {
         }
 
-        public Plane(string model, int maxSpeed, int power, double length, double height, int weight)
-            : base(length, height, weight, power, maxSpeed)
+        public Plane(double length, double height, int weight, int power, int maxSpeed, string model)
+            : base(length, height, weight, power, maxSpeed, model)
         {
-            this.model = model;
-            direction = "some direction";
         }
 
-        public string Exc { get; set; }
+        public string Direction { get; set; }
 
-        public int Speed
+        public override string ToString()
         {
-            get
-            {
-                return speed;
-            }
-
-            set
-            {
-                try
-                {
-                    if (value > MaxSpeed || value < 0)
-                    {
-                        throw new Exception($"speed is too large or too little for {model}");
-                    }
-                    else
-                    {
-                        speed = value;
-                    }
-                }
-                catch (Exception e)
-                {
-                    Exc = $"Error: {e.Message}";
-                    Console.WriteLine(Exc);
-                }
-            }
+            return $"Plane {Model}";
         }
 
-        public string Direction
+        public ActionTypes Takeoff()
         {
-            get
-            {
-                return direction;
-            }
-
-            set
-            {
-                direction = value;
-            }
+            actionType = ActionTypes.TAkeoff;
+            Console.WriteLine($"{Model} taking off");
+            return actionType;
         }
 
-        public string Takeoff()
+        public ActionTypes Landing()
         {
-            string takeoff = $"{model} taking off";
-            Console.WriteLine(takeoff);
-            return takeoff;
+            actionType = ActionTypes.LAnding;
+            Console.WriteLine($"{Model} going to land");
+            return actionType;
         }
 
-        public string Landing()
+        public override ActionTypes Movement()
         {
-            string landing = $"{model} going to land";
-            Console.WriteLine(landing);
-            return landing;
-        }
-
-        public override string GetInfo()
-        {
-            string info = @$"Info for Plane {model}
-Weight: {Weight}kg
-Length: {Length}m 
-Height: {Height}m
-Power: {Power} horsepower
-Max Speed: {MaxSpeed}km\h";
-
-            Console.WriteLine(info);
-            return info;
-        }
-
-        public override string Movement()
-        {
-            string move = $"{model} is moving at a speed {Speed}km/h in the {Direction}";
-            Console.WriteLine(move);
-            return move;
+            actionType = ActionTypes.Move;
+            Console.WriteLine($"{Model} is moving at a speed {Speed}km/h in the {Direction}");
+            return actionType;
         }
     }
 }

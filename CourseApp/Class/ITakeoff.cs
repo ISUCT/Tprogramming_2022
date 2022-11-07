@@ -2,5 +2,5 @@ namespace CourseApp.Class;
 
 public interface ITakeoff
 {
-    public string Takeoff();
+    public ActionTypes Takeoff();
 }
