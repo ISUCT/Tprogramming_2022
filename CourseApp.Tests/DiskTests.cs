@@ -30,7 +30,7 @@ namespace CourseApp.Tests
         {
             Computer cmp = new Laptop("WD", 550, 2012, 500, "PC", 1980);
             string result = cmp.GetDiskInfoShow();
-            Assert.True(result == "WD 2012года: объем этогй модели равен 550");
+            Assert.True(result == "WD 2012года: объем этой модели равен 550");
         }
 
         [Fact]
