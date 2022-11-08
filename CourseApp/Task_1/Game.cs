@@ -48,7 +48,7 @@ namespace CourseApp.Task_1
                 string action = Console.ReadLine();
                 if (string.IsNullOrEmpty(action))
                 {
-                    if (gun.Shoot())
+                    if (!gun.Shoot())
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("RELOAD IMMEDIATELY!!!");
