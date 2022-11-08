@@ -34,10 +34,10 @@ namespace CourseApp.Task_1
 
         public int CurrentAmmo { get; protected set; }
 
-        public abstract void Info();
+        public abstract string Info();
 
-        public abstract void Shoot();
+        public abstract bool Shoot();
 
-        public abstract void Reload();
+        public abstract bool Reload();
     }
 }

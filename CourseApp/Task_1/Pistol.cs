@@ -20,36 +20,28 @@ namespace CourseApp.Task_1
             MaxAmmo = 15;
         }
 
-        public override void Info()
+        public override string Info()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"You have one {ShootingType} {WeaponType} : {Name}");
-            Console.ResetColor();
+            return $"You have one {ShootingType} {WeaponType} : {Name}";
         }
 
-        public override void Shoot()
+        public override bool Shoot()
         {
             if (CurrentAmmo == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("RELOAD IMMEDIATELY!!!");
-                Console.ResetColor();
+                return false;
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("BANG!");
-                Console.ResetColor();
                 CurrentAmmo--;
+                return true;
             }
         }
 
-        public override void Reload()
+        public override bool Reload()
         {
             CurrentAmmo = MaxAmmo;
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Your pistol reloaded!");
-            Console.ResetColor();
+            return true;
         }
     }
 }
