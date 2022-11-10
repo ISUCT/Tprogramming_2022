@@ -8,7 +8,7 @@
         /// <summary>
         /// No type.
         /// </summary>
-        NotTypes,
+        NotType,
 
         /// <summary>
         /// Type for Knight.
