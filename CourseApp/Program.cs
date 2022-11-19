@@ -1,12 +1,8 @@
-﻿namespace CourseApp
-{
-    using System;
+using System;
+using CourseApp;
 
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World");
-        }
-    }
-}
+Gun pistoletik = new Gun("mocerov", 12.12m, "1934");
+pistoletik.Display();
+
+Gun avtomat = new Gun("Kalash", 7.62m, "1945");
+avtomat.Display();
