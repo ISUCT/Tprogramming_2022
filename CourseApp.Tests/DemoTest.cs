@@ -1,6 +1,7 @@
 namespace CourseApp.Tests
 {
     using Xunit;
+    using Vehicles;
 
     public class DemoTest
     {
