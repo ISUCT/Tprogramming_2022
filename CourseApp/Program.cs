@@ -1,6 +1,7 @@
 ﻿namespace CourseApp
 {
     using System;
+    using System.Collections.Generic;
 
     public class Program
     {
@@ -9,13 +10,14 @@
             GameCharacter archer = new Archer(100, 20);
             GameCharacter mage = new Mage(80, 25);
 
-            var characterArray = new GameCharacter[] { archer, mage };
+            var characterArray = new List<GameCharacter>() { archer, mage };
 
             foreach (var character in characterArray)
             {
-                character.CharacterInfo();
-                character.CharacterSkills();
+                Console.WriteLine(character.ToString());
                 character.UseUltimate();
+                character.DropWeapon();
+                Console.WriteLine(character.ToString());
                 Console.WriteLine();
             }
         }

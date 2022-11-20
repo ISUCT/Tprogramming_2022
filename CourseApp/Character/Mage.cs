@@ -7,26 +7,18 @@
         public Mage(int health, int damage)
             : base(health, damage)
         {
-            Skill_One = "Огненный шар";
-            Skill_Two = "Ледянное копьё";
-            Skill_Three = "Магический щит";
-            Ultimate = "Созвучия пустоты";
+            Skill = "Созвучия пустоты";
             Weapon = "Магический посох";
         }
 
-        public string GetUltimate()
+        public override string GetSkill()
         {
-            return $"Маг использует - {Ultimate}!!!!";
-        }
-
-        public override void UseUltimate()
-        {
-            Console.WriteLine(GetUltimate());
+            return $"Маг использует - {Skill}!!!";
         }
 
         public override string ToString()
         {
-            return $"Archer (Health = {Health} Damage = {Damage} Skill_One = {Skill_One} Skill_Two = {Skill_Two} Skill_Three = {Skill_Three} Ultimate = {Ultimate}";
+            return $"Mage (Health = {Health}, Damage = {Damage}, Skill = {Skill}, Weapon = {Weapon}.)";
         }
     }
 }

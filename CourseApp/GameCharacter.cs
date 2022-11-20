@@ -4,11 +4,6 @@
 
     public abstract class GameCharacter
     {
-        private string skillone;
-        private string skilltwo;
-        private string skillthree;
-        private string ultimate;
-        private string weapon;
         private int health;
         private int damage;
 
@@ -27,7 +22,14 @@
 
             set
             {
-                this.health = value;
+                if (value > 0)
+                {
+                    this.health = value;
+                }
+                else
+                {
+                    throw new Exception("Health below zero");
+                }
             }
         }
 
@@ -40,110 +42,31 @@
 
             set
             {
-                this.damage = value;
+                if (value > 0)
+                {
+                    this.damage = value;
+                }
+                else
+                {
+                    throw new Exception("Damage below zero");
+                }
             }
         }
 
-        public string Skill_One
-        {
-            get
-            {
-                return this.skillone;
-            }
+        public string Skill { get; set; }
 
-            set
-            {
-                this.skillone = value;
-            }
+        public string Weapon { get; set; }
+
+        public void DropWeapon()
+        {
+            Weapon = "Оружие потеряно";
         }
 
-        public string Skill_Two
+        public void UseUltimate()
         {
-            get
-            {
-                return this.skilltwo;
-            }
-
-            set
-            {
-                this.skilltwo = value;
-            }
+            Console.WriteLine(GetSkill());
         }
 
-        public string Skill_Three
-        {
-            get
-            {
-                return this.skillthree;
-            }
-
-            set
-            {
-                this.skillthree = value;
-            }
-        }
-
-        public string Ultimate
-        {
-            get
-            {
-                return this.ultimate;
-            }
-
-            set
-            {
-                this.ultimate = value;
-            }
-        }
-
-        public string Weapon
-        {
-            get
-            {
-                return this.weapon;
-            }
-
-            set
-            {
-                this.weapon = value;
-            }
-        }
-
-        public string GetCharacterSkills()
-        {
-            return $"Первый скилл вашего класса это {Skill_One}\nВторой скилл вашего класса это {Skill_Two}\nТретий скилл вашего класса это {Skill_Three}\nУльта вашего класса это {Ultimate}";
-        }
-
-        public void CharacterSkills()
-        {
-            Console.WriteLine(GetCharacterSkills());
-        }
-
-        public string GetCharacterWeapons()
-        {
-            string result = $"Ваше оружие - это {Weapon}";
-            return result;
-        }
-
-        public string GetCharacterHealth()
-        {
-            string result = $"Ваше здоровье - {Health}";
-            return result;
-        }
-
-        public string GetCharacterDamage()
-        {
-            string result = $"Ваш урон - {Damage}";
-            return result;
-        }
-
-        public void CharacterInfo()
-        {
-            Console.WriteLine(GetCharacterWeapons());
-            Console.WriteLine(GetCharacterHealth());
-            Console.WriteLine(GetCharacterDamage());
-        }
-
-        public abstract void UseUltimate();
+        public abstract string GetSkill();
     }
 }

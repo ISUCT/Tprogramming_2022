@@ -7,26 +7,18 @@
         public Archer(int health, int damage)
             : base(health, damage)
         {
-            Skill_One = "Быстрый выстрел";
-            Skill_Two = "Морозная стрела";
-            Skill_Three = "Крылья защиты";
-            Ultimate = "Удар Грома";
+            Skill = "Удар Грома";
             Weapon = "Лук";
         }
 
-        public string GetUltimate()
+        public override string GetSkill()
         {
-            return $"Лучник использует - {Ultimate}!!!!";
-        }
-
-        public override void UseUltimate()
-        {
-            Console.WriteLine(GetUltimate());
+            return $"Лучник использует - {Skill}!!!";
         }
 
         public override string ToString()
         {
-            return $"Archer (Health = {Health} Damage = {Damage} Skill_One = {Skill_One} Skill_Two = {Skill_Two} Skill_Three = {Skill_Three} Ultimate = {Ultimate}";
+            return $"Archer (Health = {Health}, Damage = {Damage}, Skill = {Skill}, Weapon = {Weapon}.)";
         }
     }
 }
