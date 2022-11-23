@@ -15,8 +15,4 @@
     <GenerateFullPaths>true</GenerateFullPaths>
   </PropertyGroup>
 
-  <ItemGroup>
-    <AdditionalFiles Include="../_stylecop/stylecop.json" />
-  </ItemGroup>
-
 </Project>
