@@ -1,6 +1,6 @@
 namespace CourseApp.Tests
 {
-    using CourseApp.Class;
+    using CourseApp.RPGSaga;
     using Xunit;
 
     public class PlaneMethodsTests

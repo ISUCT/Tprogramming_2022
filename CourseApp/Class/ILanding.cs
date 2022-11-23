@@ -1,4 +1,4 @@
-namespace CourseApp.Class;
+namespace CourseApp.RPGSaga;
 
 public interface ILanding
 {

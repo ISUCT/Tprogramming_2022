@@ -1,7 +1,7 @@
 ﻿namespace CourseApp
 {
     using System;
-    using CourseApp.Class;
+    using CourseApp.RPGSaga;
 
     public abstract class Transport
     {
