@@ -6,5 +6,10 @@
             : base(health, power, name)
         {
         }
+
+        public override string AbilityDisplay()
+        {
+            return $"{Name} использует (Заворожение) и противник пропускает ход";
+        }
     }
 }

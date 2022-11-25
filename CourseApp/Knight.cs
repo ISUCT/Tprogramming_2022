@@ -6,5 +6,11 @@
             : base(health, power, name)
         {
         }
+
+        public override string AbilityDisplay()
+        {
+            Power = Power + 30;
+            return $"{Name} использует (Удар возмездия) и наносит урон {Power}";
+        }
     }
 }
