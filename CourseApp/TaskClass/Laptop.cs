@@ -6,10 +6,10 @@ namespace CourseApp
     {
         private int permissionDisplay;
 
-        public Laptop(string modelDisk, int diskCapacity, int yearOfRelease, int speedDownload, string computerModel, int permission)
-         : base(modelDisk, diskCapacity, yearOfRelease, speedDownload, computerModel)
+        public Laptop(Disk hardDrive, string computerModel, int permissionDisplay)
+         : base(hardDrive, computerModel)
          {
-            PermissionDisplay = permission;
+            PermissionDisplay = permissionDisplay;
          }
 
         public int PermissionDisplay

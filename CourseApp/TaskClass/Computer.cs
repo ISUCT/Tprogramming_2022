@@ -4,13 +4,13 @@ namespace CourseApp
 
     public abstract class Computer
     {
-        private Disk hdd = new Disk();
+        private Disk hdd;
 
         private string computerModel;
 
-        public Computer(string modelDisk, int diskCapacity, int yearOfRelease, int speedDownload, string computerModel)
+        public Computer(Disk hardDrive, string computerModel)
         {
-            hdd = new Disk(modelDisk, diskCapacity, yearOfRelease, speedDownload);
+            hdd = hardDrive;
             ComputerModel = computerModel;
         }
 
@@ -50,7 +50,14 @@ namespace CourseApp
 
         public abstract void AddFreeSpace(int freeSpace);
 
-        public void Showpla()
+        public void SetInfoDisk(string modelDisk, int diskCapacity, int yearOfRelease)
+        {
+            hdd.ModelDisk = modelDisk;
+            hdd.DiskCapacity = diskCapacity;
+            hdd.YearOfRelease = yearOfRelease;
+        }
+
+        public void ShowPla()
         {
             System.Console.WriteLine(hdd.FilledPlace);
         }
@@ -72,7 +79,7 @@ namespace CourseApp
 
         public virtual string GetDiskInfoShow()
         {
-            return $"{this.hdd.ModelDisk} {this.hdd.YearOfRelease}года: объем этогй модели равен {this.hdd.DiskCapacity}";
+            return $"{this.hdd.ModelDisk} {this.hdd.YearOfRelease}года: объем этогй модели равен {hdd.DiskCapacity}";
         }
 
         public void DiskInfoShow()
@@ -80,7 +87,7 @@ namespace CourseApp
             System.Console.WriteLine(GetDiskInfoShow());
         }
 
-        public int Download1(int quantity)
+        public int Download(int quantity)
         {
             if (quantity <= this.hdd.DiskCapacity - this.hdd.FilledPlace)
             {

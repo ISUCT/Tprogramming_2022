@@ -6,11 +6,12 @@
     {
         public static void Main(string[] args)
         {
-            Computer cmp = new Laptop("WD", 550, 2012, 500, "castom", 1980);
+            Disk wd = new Disk("WD", 550, 2012, 500);
+            Computer cmp = new Laptop(wd, "custom", 1024);
             cmp.DiskInfoShow();
-            cmp.Download1(50);
+            cmp.Download(50);
             cmp.DiskInfoShow();
-            cmp.Showpla();
+            cmp.ShowPla();
             cmp.FreeSpace();
             cmp.Clearing(50);
             cmp.ShowSpeedInfo();
