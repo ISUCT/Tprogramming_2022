@@ -4,16 +4,9 @@ using System;
 
 public class Canada : Country
 {
-    private int positionSq = 2;
-
     public Canada(string name, string capital, double sq)
         : base(name, capital, sq)
     {
-    }
-
-    public void PositionSquare()
-    {
-        Console.WriteLine($"{Name} in {positionSq} place in terms of area ");
     }
 
     public override string CountryAge()

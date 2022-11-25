@@ -35,16 +35,6 @@ public abstract class Country
         Console.Write($"Название: {Name}  Столица: {Capital}  Площадь: {Square} км^2 ");
     }
 
-    /*public void TheCapital()
-    {
-        Console.WriteLine($"The capital of {Name} is {Capital}");
-    }
-
-    public void Welcome()
-    {
-        Console.WriteLine($"Welcome to the {Name}! \n");
-    }*/
-
     public virtual string CountryAge()
     {
         return "2000 years";
