@@ -58,16 +58,16 @@
             Console.WriteLine("(Рыцарь) Ричард vs (Лучник) Леголас");
             while ((knight1.Health > 0) && (archer.Health > 0))
             {
-                Console.WriteLine(knight1.Action());
-                archer.Damage();
-                if (archer.Health <= 0)
+                Console.WriteLine(archer.Action());
+                Console.WriteLine(knight1.Damage());
+                if (knight1.Health <= 0)
                 {
                     break;
                 }
 
-                Console.WriteLine(archer.Action());
-                knight1.Damage();
-                if (knight1.Health <= 0)
+                Console.WriteLine(knight1.AbilityDisplay());
+                Console.WriteLine(archer.KnightAbiltiy());
+                if (archer.Health <= 0)
                 {
                     break;
                 }
@@ -112,6 +112,34 @@
 
             Console.WriteLine(" ");
             Console.WriteLine("Кон 2.");
+            Console.WriteLine("(Рыцарь) Ричард vs (Маг) Дамблдор");
+            while ((knight1.Health > 0) && (magician.Health > 0))
+            {
+                Console.WriteLine(magician.AbilityDisplay());
+                Console.WriteLine(knight1.MagicianAbility());
+                Console.WriteLine(magician.Action());
+                knight1.Damage();
+                if (knight1.Health <= 0)
+                {
+                    break;
+                }
+
+                Console.WriteLine(knight1.Action());
+                magician.Damage();
+                if (magician.Health <= 0)
+                {
+                    break;
+                }
+            }
+
+            if (knight1.Health <= 0)
+            {
+                Console.WriteLine("(Рыцарь) Ричард погибает");
+            }
+            else if (magician.Health <= 0)
+            {
+                Console.WriteLine("(Маг) Дамблдор погибает");
+            }
         }
     }
 }

@@ -9,7 +9,7 @@
 
         public override string AbilityDisplay()
         {
-            return $"{Name} использует (Заворожение) и противник пропускает ход";
+            return $"{Name} использует (Заворожение)";
         }
     }
 }
