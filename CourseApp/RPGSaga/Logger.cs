@@ -7,7 +7,7 @@
     {
         public static void WriteWinner(Player winner)
         {
-            Console.WriteLine($"{winner.ToString()} Оказался сильнее всех и побеждает!");
+            Console.WriteLine($"{winner.ToString()} Оказался сильнее всех и побеждает!!!");
         }
 
         public static void WriteRound(int round)
