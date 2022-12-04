@@ -60,6 +60,11 @@ namespace CourseApp
 
                 Tuple<string, float> playerAction = PlayerDoAction(fightMembers[i % 2]);
                 Logger.WriteAction(fightMembers[i % 2], fightMembers[(i + 1) % 2], playerAction);
+                if (playerAction.Item1 != "наносит урон")
+                {
+                    fightMembers[(i + 1) % 2].SetDebaff(playerAction.Item1);
+                }
+
                 checkDeath = fightMembers[(i + 1) % 2].GetDamage(playerAction.Item2);
                 Logger.WriteDeath(fightMembers[(i + 1) % 2], checkDeath);
                 if (checkDeath)
@@ -73,7 +78,7 @@ namespace CourseApp
         private static Tuple<string, float> PlayerDoAction(Player inputP)
         {
             Random rnd = new Random();
-            int chosen = rnd.Next(0, 5);
+            int chosen = rnd.Next(0, 4);
             switch (chosen)
             {
                 case 0:

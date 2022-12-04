@@ -19,7 +19,7 @@ namespace CourseApp
             if (AbilityLeft > 0)
             {
                 AbilityLeft--;
-                return Tuple.Create(AbilityName, Strength * 1.3f);
+                return Tuple.Create(AbilityName, (float)Math.Round(Strength * 1.3f, 2));
             }
             else
             {

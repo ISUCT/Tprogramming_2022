@@ -15,6 +15,7 @@ namespace CourseApp
             this.Name = name;
             this.AbilityName = abilityName;
             this.MaxAbilityUsages = maxAbilityUsages;
+            this.AbilityLeft = maxAbilityUsages;
             this.debaffs = new List<string>();
         }
 
@@ -53,7 +54,9 @@ namespace CourseApp
         public List<Tuple<string, float>> CheckStatus()
         {
             List<Tuple<string, float>> returnedList = new List<Tuple<string, float>>();
-            foreach (string debuffName in debaffs)
+            string[] buffer = new string[debaffs.Count];
+            debaffs.CopyTo(buffer);
+            foreach (string debuffName in buffer)
             {
                 switch (debuffName)
                 {
@@ -68,6 +71,7 @@ namespace CourseApp
                         break;
                     case "Заворожение":
                         returnedList.Add(Tuple.Create("Заворожение", .0f));
+                        debaffs.RemoveAt(debaffs.IndexOf(debuffName));
                         break;
                 }
             }
