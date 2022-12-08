@@ -41,7 +41,7 @@
 
         public bool GetDamage(float damage)
         {
-            CurrentHealth -= damage;
+            CurrentHealth = (float)Math.Round(CurrentHealth - damage, 2);
             return CheckDeath();
         }
 

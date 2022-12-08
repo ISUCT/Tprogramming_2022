@@ -12,6 +12,7 @@
 
         public static void WriteRound(int round)
         {
+            Console.WriteLine("====================================================");
             Console.WriteLine($"Раунд {round}.");
         }
 
@@ -25,16 +26,16 @@
             switch (playerAction.Item1)
             {
                 case "наносит урон":
-                    Console.WriteLine($"{firstP.ToString()} наносит {playerAction.Item2} урона противнику ({secondP.ToString()})");
+                    Console.WriteLine($"{firstP.ToString()} (ХП: {firstP.CurrentHealth}) наносит {playerAction.Item2} урона противнику ({secondP.ToString()} ХП: {secondP.CurrentHealth})");
                     break;
                 case "Ярость":
-                    Console.WriteLine($"{firstP.ToString()} применяет ({playerAction.Item1}) и наносит {playerAction.Item2} урона противнику ({secondP.ToString()}) теряя при этом здоровье");
+                    Console.WriteLine($"{firstP.ToString()} (ХП: {firstP.CurrentHealth}) применяет ({playerAction.Item1}) и наносит {playerAction.Item2} урона противнику ({secondP.ToString()} ХП: {secondP.CurrentHealth}) теряя при этом здоровье");
                     break;
                 case "Кровавый удар":
-                    Console.WriteLine($"{firstP.ToString()} применяет ({playerAction.Item1}) на противника ({secondP.ToString()})");
+                    Console.WriteLine($"{firstP.ToString()} (ХП: {firstP.CurrentHealth}) применяет ({playerAction.Item1}) на противника ({secondP.ToString()} ХП: {secondP.CurrentHealth})");
                     break;
                 case "Удар щитом":
-                    Console.WriteLine($"{firstP.ToString()} применяет ({playerAction.Item1}) на противника ({secondP.ToString()})");
+                    Console.WriteLine($"{firstP.ToString()} (ХП: {firstP.CurrentHealth}) применяет ({playerAction.Item1}) на противника ({secondP.ToString()} ХП: {secondP.CurrentHealth})");
                     break;
             }
         }
@@ -46,10 +47,10 @@
                 switch (debaff.Item1)
                 {
                     case "Кровавый удар":
-                        Console.WriteLine($"{inputP.ToString()} получает периодический урон {debaff.Item2} от ({debaff.Item1})");
+                        Console.WriteLine($"{inputP.ToString()} (ХП: {inputP.CurrentHealth}) получает периодический урон {debaff.Item2} от ({debaff.Item1})");
                         break;
                     case "Удар щитом":
-                        Console.WriteLine($"{inputP.ToString()} пропускает ход из-за ({debaff.Item1})");
+                        Console.WriteLine($"{inputP.ToString()} (ХП: {inputP.CurrentHealth}) пропускает ход из-за ({debaff.Item1})");
                         break;
                     case "PlayerIsDied":
                         Console.WriteLine($"{inputP.ToString()} не выдержал натиска");
