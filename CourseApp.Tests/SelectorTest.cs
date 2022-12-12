@@ -28,9 +28,9 @@ public class SelectorTest
 
         // Act
         bool result = false;
-        List<bool> ListBool = selector.SelectCustomClass();
+        List<bool> listBool = selector.SelectCustomClass();
 
-        foreach (var element in ListBool)
+        foreach (var element in listBool)
         {
             result = element;
 
@@ -55,7 +55,7 @@ public class SelectorTest
         var stringBuilder = new StringBuilder();
         stringBuilder.AppendLine(number);
 
-        if (!(Int32.Parse(number) % 2 == 0))
+        if (!(int.Parse(number) % 2 == 0))
         {
             stringBuilder.AppendLine(secondNumber);
         }

@@ -28,7 +28,6 @@ public class GameTest
         var stringReader = new StringReader(stringBuilder.ToString());
         Console.SetIn(stringReader);
 
-
         Game game = new Game(new GameLogger());
         Selector selector = new Selector(new GameLogger());
         List<bool> newClasses = selector.SelectCustomClass();
@@ -55,7 +54,7 @@ public class GameTest
     {
         // Arrange
         Game game = new Game(new GameLogger());
-        List <IPlayer> players= new List<IPlayer>();
+        List<IPlayer> players = new List<IPlayer>();
         players.Add(new Archer("Max", 10, 30, "Рыцарь"));
         players.Add(new Archer("Max", 10, 30, "Рыцарь"));
         players.Add(new Archer("Max", 10, 30, "Рыцарь"));
@@ -72,7 +71,7 @@ public class GameTest
     {
         // Arrange
         Game game = new Game(new GameLogger());
-        List <IPlayer> players= new List<IPlayer>();
+        List<IPlayer> players = new List<IPlayer>();
         players.Add(new Archer("Max", 40, 30, "Рыцарь"));
 
         // Act

@@ -1,15 +1,13 @@
-﻿namespace CourseApp
+﻿namespace CourseApp.Base
 {
-    namespace Base
+    using CourseApp.Logger;
+
+    public class Program
     {
-        using Logger;
-        public class Program
+        public static void Main(string[] args)
         {
-            public static void Main(string[] args)
-            {
-                Game game = new Game(new GameLogger());
-                game.Run();
-            }
+            Game game = new Game(new GameLogger());
+            game.Run();
         }
     }
 }

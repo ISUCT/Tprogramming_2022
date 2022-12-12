@@ -1,42 +1,40 @@
-namespace CourseApp
+namespace CourseApp.Effects
 {
-    namespace Effects
+    using CourseApp.Players;
+
+    public class Normal : IEffect
     {
-        using Players;
-        public class Normal : IEffect
+        public Normal(int strength, int health)
         {
-            public int Health { get; set; }
-            public int Strength { get; set; }
+            Health = health;
+            Strength = strength;
+        }
 
-            public int LastUsedRound { get; set; }
+        public int Health { get; set; }
 
+        public int Strength { get; set; }
 
-            public Normal(int strength, int health)
-            {
-                Health = health;
-                Strength = strength;
-            }
+        public int LastUsedRound { get; set; }
 
-            public void State(IPlayer myself)
-            {
-                myself.Strength = Strength;
-                myself.Health = Health;
-            }
+        public void State(IPlayer myself)
+        {
+            myself.Strength = Strength;
+            myself.Health = Health;
+        }
 
-            public void RestoreStrength(IPlayer myself)
-            {
-                myself.Strength = Strength;
-            }
+        public void RestoreStrength(IPlayer myself)
+        {
+            myself.Strength = Strength;
+        }
 
-            public void RestoreHealth(IPlayer myself)
-            {
-                myself.Health = Health;
-            }
+        public void RestoreHealth(IPlayer myself)
+        {
+            myself.Health = Health;
+        }
 
-            public void DeleteState(IPlayer Player, int Round, int numberPlayer)
-            {
-                Player.MyEffects = null;
-            }
+        public void DeleteState(IPlayer player, int round, int numberPlayer)
+        {
+            player.MyEffects = null;
         }
     }
 }

@@ -1,40 +1,42 @@
-namespace CourseApp
+namespace CourseApp.Effects
 {
-    namespace Effects
+    using System.Linq;
+    using CourseApp.Players;
+
+    public class Buff : IEffect
     {
-        using System.Linq;
-        using Players;
-        public class Buff : IEffect
+        public Buff(double factor, int round)
         {
-            public double Factor { get; set; }
+            Factor = factor;
+            LastUsedRound = round;
+        }
 
-            public int LastUsedRound { get; set; }
+        public double Factor { get; set; }
 
-            public Buff(double factor, int round)
+        public int LastUsedRound { get; set; }
+
+        public void State(IPlayer player)
+        {
+            player.Strength = (int)((double)player.Strength * Factor);
+        }
+
+        public void DeleteState(IPlayer player, int round, int numberPlayer)
+        {
+            if (round - LastUsedRound == 1)
             {
-                Factor = factor;
-                LastUsedRound = round;
-            }
-
-            public void State(IPlayer Player)
-            {
-                Player.Strength = (int)((double)Player.Strength * Factor);
-            }
-
-            public void DeleteState(IPlayer Player, int Round, int numberPlayer)
-            {
-                if (Round - LastUsedRound == 1)
+                if (player.NormalState is Normal normal)
                 {
-                    if (Player.NormalState is Normal normal) normal.RestoreStrength(Player);
-                    foreach (var effect in Player.MyEffects.ToList())
+                    normal.RestoreStrength(player);
+                }
+
+                foreach (var effect in player.MyEffects.ToList())
+                {
+                    if (effect is Buff buff)
                     {
-                        if (effect is Buff buff)
-                        {
-                            Player.MyEffects.Remove(buff);
-                        }
+                        player.MyEffects.Remove(buff);
                     }
                 }
             }
-        }   
+        }
     }
 }

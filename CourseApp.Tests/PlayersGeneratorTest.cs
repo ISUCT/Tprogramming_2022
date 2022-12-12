@@ -29,7 +29,6 @@ public class PlayersGeneratorTest
         var stringReader = new StringReader(stringBuilder.ToString());
         Console.SetIn(stringReader);
 
-
         Selector selector = new Selector(new GameLogger());
         List<bool> newClasses = selector.SelectCustomClass();
 
@@ -41,10 +40,8 @@ public class PlayersGeneratorTest
 
         var playersGenerator = new PlayersGenerator(playerNumbers, playerNames, newClasses);
 
-
         // Act
         var players = playersGenerator.GeneratePlayersArray();
-
 
         // Assert
         Assert.NotEmpty(players);

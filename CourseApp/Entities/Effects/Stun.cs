@@ -1,33 +1,34 @@
-namespace CourseApp
+namespace CourseApp.Effects
 {
-    namespace Effects
+    using System.Linq;
+    using CourseApp.Players;
+
+    public class Stun : IEffect
     {
-        using System.Linq;
-        using Players;
-        public class Stun : IEffect
+        public Stun(int round)
         {
-            public int LastUsedRound { get; set; }
+            LastUsedRound = round;
+        }
 
-            public Stun(int round)
-            {
-                LastUsedRound = round;
-            }
+        public int LastUsedRound { get; set; }
 
-            public void State(IPlayer Player)
-            {
-                Player.Strength = 0;
-            }
+        public void State(IPlayer player)
+        {
+            player.Strength = 0;
+        }
 
-            public void DeleteState(IPlayer Player, int Round, int numberPlayer)
+        public void DeleteState(IPlayer player, int round, int numberPlayer)
+        {
+            foreach (var effect in player.MyEffects.ToList())
             {
-                foreach (var effect in Player.MyEffects.ToList())
+                if (effect is Stun stun)
                 {
-                    if (effect is Stun stun)
+                    if ((round - effect.LastUsedRound == 1 && numberPlayer == 2) || (round - effect.LastUsedRound == 2 && numberPlayer == 1))
                     {
-                        if ((Round - effect.LastUsedRound == 1 && numberPlayer == 2) || (Round - effect.LastUsedRound == 2 && numberPlayer == 1))
+                        player.MyEffects.Remove(stun);
+                        if (player.NormalState is Normal normal)
                         {
-                            Player.MyEffects.Remove(stun);
-                            if (Player.NormalState is Normal normal) normal.RestoreStrength(Player);
+                            normal.RestoreStrength(player);
                         }
                     }
                 }

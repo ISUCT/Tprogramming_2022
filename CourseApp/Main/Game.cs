@@ -1,98 +1,100 @@
-namespace CourseApp
+namespace CourseApp.Base
 {
-    namespace Base
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text.Json;
+    using CourseApp.Fight;
+    using CourseApp.GeneratePlayers;
+    using CourseApp.Logger;
+    using CourseApp.PlayerNames;
+    using CourseApp.Players;
+    using CourseApp.SelectorGame;
+
+    #nullable enable
+
+    public class Game
     {
-        using System.Text.Json;
-        using Logger;
-        using SelectorGame;
-        using GeneratePlayers;
-        using Players;
-        using Fight;
-        using PlayerNames;
-        using System.Collections.Generic;
-        using System.IO;
-        using System;
-
-        #nullable enable
-
-        public class Game
+        public Game(ILogger gameLogger)
         {
-            private ILogger Logger { get; set; }
-            private int numberTour { get; set; }
-            private List<Names>? playerNames { get; set; }
-            public Game(ILogger GameLogger)
+            Logger = gameLogger;
+            NumberTour = 1;
+
+            const string filepath = @"/home/kiosk/Develop/Tprogramming_2022/CourseApp/Main/Names.json";
+
+            var json = File.ReadAllText(filepath);
+            PlayerNames = JsonSerializer.Deserialize<List<Names>>(json);
+        }
+
+        private ILogger Logger { get; set; }
+
+        private int NumberTour { get; set; }
+
+        private List<Names>? PlayerNames { get; set; }
+
+        public void Run()
+        {
+            Logger.PrintStart();
+
+            Selector selector = new Selector(Logger);
+
+            List<bool> newClasses = selector.SelectCustomClass();
+
+            int playerNumbers = selector.SelectNumbPlayers();
+
+            PlayersGenerator playersGenerator = new PlayersGenerator(playerNumbers, PlayerNames, newClasses);
+
+            List<IPlayer> players = new List<IPlayer>(playersGenerator.GeneratePlayersArray());
+
+            while (true)
             {
-                Logger = GameLogger;
-                numberTour = 1;
+                Logger.PrintTour(NumberTour);
+                NumberTour++;
 
-                const string filepath = @"/home/kiosk/Develop/Tprogramming_2022/CourseApp/Main/Names.json";
-                var json = File.ReadAllText(filepath);
-                playerNames = JsonSerializer.Deserialize<List<Names>>(json);
-            }
-            public void Run()
-            {
-                Logger.PrintStart();
+                Draft(players);
+                Tour(players);
 
-                Selector selector = new Selector(Logger);
-
-                List<bool> newClasses = selector.SelectCustomClass();
-
-                int playerNumbers = selector.SelectNumbPlayers();
-
-                PlayersGenerator playersGenerator = new PlayersGenerator(playerNumbers, playerNames, newClasses);
-
-                List<IPlayer> players = new List<IPlayer>(playersGenerator.GeneratePlayersArray());
-
-                while (true)
+                if (EndGame(players))
                 {
-                    Logger.PrintTour(numberTour);
-                    numberTour++;
-
-                    Draft(players);
-                    Tour(players);
-
-                    if (EndGame(players))
-                    {
-                        break;
-                    }
+                    break;
                 }
             }
+        }
 
-            public void Draft(List <IPlayer> players)
+        public void Draft(List<IPlayer> players)
+        {
+            Random random = new Random();
+            for (int i = players.Count - 1; i >= 1; i--)
             {
-                Random random = new Random();
-                for (int i = players.Count - 1; i >= 1; i--)
+                int j = random.Next(i + 1);
+                var temp = players[j];
+                players[j] = players[i];
+                players[i] = temp;
+            }
+        }
+
+        public void Tour(List<IPlayer> players)
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (i + 1 < players.Count)
                 {
-                    int j = random.Next(i + 1);
-                    var temp = players[j];
-                    players[j] = players[i];
-                    players[i] = temp;
+                    Fight fight = new Fight(players[i], players[i + 1], ref players, Logger);
+                    fight.Battle();
                 }
             }
+        }
 
-            public void Tour(List <IPlayer> players)
+        public bool EndGame(List<IPlayer> players)
+        {
+            if (players.Count == 1)
             {
-                for (int i = 0; i < players.Count; i++)
-                {
-                    if (i + 1 < players.Count)
-                    {
-                        Fight fight = new Fight(players[i], players[i+1], ref players, Logger);
-                        fight.Battle();
-                    }
-                }
+                Logger.PrintEnd(players[0]);
+                return true;
             }
-
-            public bool EndGame(List <IPlayer> players)
+            else
             {
-                if (players.Count == 1)
-                {
-                    Logger.PrintEnd(players[0]);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
         }
     }

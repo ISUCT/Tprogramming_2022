@@ -1,4 +1,4 @@
-namespace PlayerNames
+namespace CourseApp.PlayerNames
 {
     public class Names
     {

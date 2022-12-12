@@ -77,9 +77,9 @@ public class FightTest
         IPlayer secondPlayer = new Mage("Nikita", 20, 40, "Маг");
         IPlayer thirdPlayer = new Knight("Kevin", 20, 40, "Рыцарь");
 
-        int[] firstPlayerUnderUltimate = {firstPlayer.Health, firstPlayer.Strength};
-        int[] secondPlayerUnderUltimate = {secondPlayer.Health, secondPlayer.Strength};
-        int[] thirdPlayerUnderUltimate = {thirdPlayer.Health, thirdPlayer.Strength};
+        int[] firstPlayerUnderUltimate = { firstPlayer.Health, firstPlayer.Strength };
+        int[] secondPlayerUnderUltimate = { secondPlayer.Health, secondPlayer.Strength };
+        int[] thirdPlayerUnderUltimate = { thirdPlayer.Health, thirdPlayer.Strength };
 
         firstPlayer.Ultimate(firstPlayer, secondPlayer, 1);
         secondPlayer.Ultimate(secondPlayer, thirdPlayer, 1);
@@ -114,5 +114,4 @@ public class FightTest
         Assert.True(secondResult);
         Assert.True(thirdResult);
     }
-
 }
