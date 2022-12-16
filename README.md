@@ -1,6 +1,6 @@
 # Tprogramming 2021
 
-Master branch :)
+Polina Fedulova love infa
 
 `docker volume create --name=mssqldata`
 
