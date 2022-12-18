@@ -1,12 +1,13 @@
-﻿namespace CourseApp
+﻿namespace CourseApp.Task_two
 {
-    using System;
-
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            England test = new England();
+            test.Info();
+            test.ChangeArea();
+            test.ChangePopulation();
         }
     }
 }
