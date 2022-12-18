@@ -1,0 +1,92 @@
+namespace CourseApp
+{
+    public abstract class Player
+    {
+        private bool sharpclaws;
+
+        private bool сrimsonlight;
+
+        public Player(int health, int inputS, string name, string ability)
+        {
+            MaxH = health;
+            NowH = health;
+            Strength = inputS;
+            Name = name;
+            AbilityName = ability;
+            AbilityLeft = 1;
+            sharpclaws = false;
+            сrimsonlight = false;
+        }
+
+        public float MaxH { get; protected set; }
+
+        public float NowH { get; protected set; }
+
+        public float Strength { get; protected set; }
+
+        public string Name { get; protected set; }
+
+        public int AbilityLeft { get; protected set; }
+
+        public string AbilityName { get; protected set; }
+
+        public abstract string Ability();
+
+        public float Attack()
+        {
+            return Strength;
+        }
+
+        public bool Damage(float damage)
+        {
+            NowH -= damage;
+            return IsDeath();
+        }
+
+        public void Debaff(string debuffName)
+        {
+            if (debuffName == "Острые коготки")
+            {
+                sharpclaws = true;
+            }
+            else if (debuffName == "Малиновый свет")
+            {
+                сrimsonlight = true;
+            }
+        }
+
+        public string DebaffInfo()
+        {
+            if (sharpclaws)
+            {
+                sharpclaws = false;
+                return "Острые коготки";
+            }
+            else if (сrimsonlight)
+            {
+                Damage(2);
+                return "Малиновый свет";
+            }
+
+            return string.Empty;
+        }
+
+        public bool IsDeath()
+        {
+            if (NowH <= 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void Update()
+        {
+            AbilityLeft = 1;
+            NowH = MaxH;
+            сrimsonlight = false;
+            sharpclaws = false;
+        }
+    }
+}
