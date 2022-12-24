@@ -1,4 +1,4 @@
-namespace CourseApp
+namespace Vehicles
 {
     using System;
     using System.Collections.Generic;
@@ -11,8 +11,8 @@ namespace CourseApp
         public Copter()
         {
             Name = "Boing737";
-            Speed = 800;
-            Height = 8000;
+            Speed = 60;
+            Height = 1000;
             Diagonal = 8.4;
         }
 

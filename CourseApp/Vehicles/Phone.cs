@@ -1,4 +1,4 @@
-namespace CourseApp
+namespace Vehicles
 {
     using System;
 
