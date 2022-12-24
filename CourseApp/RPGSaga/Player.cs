@@ -6,8 +6,9 @@ namespace RPGSaga
 
     public abstract class Player
     {
+        public string Type;
+        public double health;
         private double maxhealth;
-        /* private double health; */
         private double power;
 
         public Player()
@@ -23,7 +24,13 @@ namespace RPGSaga
             Maxhealth = maxhealth;
             Power = power;
         }
-
+        public Player(string type, string name, double maxhealth, double power)
+        {
+            Type = type;
+            Name = name;
+            Maxhealth = maxhealth;
+            Power = power;
+        }
         public string Name { get; set; }
 
         public double Maxhealth

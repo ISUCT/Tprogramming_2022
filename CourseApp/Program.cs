@@ -13,8 +13,8 @@
             artur.Greetings();
             artur.DealDamage();
             artur.VengStrike();
-            var heros = new MultiplyChars();
-            List<Player> twoheros = heros.CreateN(4);
+            var mc = new MultiplyChars();
+            var twoheros = mc.CreateN(2);
             foreach (var player in twoheros)
             {
                 player.Greetings();
