@@ -5,6 +5,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
    <ItemGroup>
@@ -18,10 +19,6 @@
 
   <ItemGroup>
     <AdditionalFiles Include="../_stylecop/stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="RPGSaga" />
   </ItemGroup>
 
 </Project>
