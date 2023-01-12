@@ -52,8 +52,7 @@ namespace CourseApp
                         Console.WriteLine($"{inputP.ToString()} пропускает ход из-за ({debaff.Item1})");
                         break;
                     case "PlayerIsDied":
-                        Console.WriteLine($"{inputP.ToString()} погибает");
-                        Console.WriteLine();
+                        WriteDeath(inputP);
                         break;
                 }
             }

@@ -2,6 +2,7 @@ namespace CourseApp
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public abstract class Player
     {
@@ -62,7 +63,7 @@ namespace CourseApp
                 {
                     case "Огненная стрела":
                         returnedList.Add(Tuple.Create("Огненная стрела", 2.0f));
-                        if (GetDamage(2))
+                        if (GetDamage(returnedList.Last().Item2))
                         {
                             returnedList.Add(Tuple.Create("PlayerIsDied", 1.0f));
                             return returnedList;

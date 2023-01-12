@@ -9,7 +9,6 @@ namespace CourseApp
         {
             int p_number = AskNumber();
             List<Player> playerList = PlayerListGenerator(p_number);
-            RandomizeList(playerList);
             PlayGame(playerList);
         }
 
@@ -18,6 +17,7 @@ namespace CourseApp
             for (int i = 1; playerList.Count != 1; i++)
             {
                 Logger.WriteRound(i);
+                RandomizeList(playerList);
                 PlayRound(playerList);
             }
 
@@ -133,7 +133,7 @@ namespace CourseApp
         {
             string[] names = { "Вальлиикт", "Йоророу", "Бенинэл", "Билелгар", "Вилдровер", "Бреновуд", "Труеон", "Филдис", "Грейнерэл", "Бертэам", "Ирвдес", "Франкернон", "Куртдитор" };
             Random rnd = new Random();
-            int health = (int)rnd.NextInt64(1, 64); 
+            int health = (int)rnd.NextInt64(1, 64);
             int strength = (int)rnd.NextInt64(1, 64);
             int chouse = (int)rnd.NextInt64(0, 3);
             switch (chouse)
