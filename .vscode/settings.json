@@ -4,8 +4,8 @@
         "**/.svn": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "CourseApp": true,
-        "CourseApp.Tests":true,
+        "CourseApp": false,
+        "CourseApp.Tests":false,
         "WebApplication":true
     }
 }
