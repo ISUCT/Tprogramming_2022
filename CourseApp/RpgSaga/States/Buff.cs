@@ -1,7 +1,7 @@
+namespace CourseApp.RpgSaga.States;
+
 using System.Linq;
 using CourseApp.RpgSaga.Players;
-
-namespace CourseApp.RpgSaga.States;
 
 public class Buff : IState
 {

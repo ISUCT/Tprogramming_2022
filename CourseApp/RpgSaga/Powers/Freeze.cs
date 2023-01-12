@@ -1,7 +1,7 @@
+namespace CourseApp.RpgSaga.Powers;
+
 using CourseApp.RpgSaga.States;
 using CourseApp.RpgSaga.Players;
-
-namespace CourseApp.RpgSaga.Powers;
 
 public class Freeze : IPower
 {

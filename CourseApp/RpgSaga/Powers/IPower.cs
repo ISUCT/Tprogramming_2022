@@ -1,6 +1,6 @@
-using CourseApp.RpgSaga.Players;
-
 namespace CourseApp.RpgSaga.Powers;
+
+using CourseApp.RpgSaga.Players;
 
 public interface IPower
 {

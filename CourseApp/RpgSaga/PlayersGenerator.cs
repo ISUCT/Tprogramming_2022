@@ -28,13 +28,13 @@ public class PlayersGenerator
             switch (playerVariant)
             {
                 case 0:
-                        player = new Knight(playerName, playerStrength, playerHealth);
+                    player = new Knight(playerName, playerStrength, playerHealth);
                     break;
                 case 1:
-                        player = new Mage(playerName, playerStrength, playerHealth);
+                    player = new Mage(playerName, playerStrength, playerHealth);
                     break;
                 case 2:
-                        player = new Archer(playerName, playerStrength, playerHealth);
+                    player = new Archer(playerName, playerStrength, playerHealth);
                     break;
                 default:
                     throw new Exception();

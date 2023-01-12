@@ -1,7 +1,8 @@
+namespace CourseApp.RpgSaga.Powers;
+
 using CourseApp.RpgSaga.States;
 using CourseApp.RpgSaga.Players;
 
-namespace CourseApp.RpgSaga.Powers;
 public class VengeanceStrike : IPower
 {
     public int UsedCount { get; set; } = 0;

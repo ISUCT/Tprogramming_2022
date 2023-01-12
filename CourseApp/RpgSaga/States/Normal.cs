@@ -1,6 +1,6 @@
-using CourseApp.RpgSaga.Players;
-
 namespace CourseApp.RpgSaga.States;
+
+using CourseApp.RpgSaga.Players;
 
 public class Normal : IState
 {

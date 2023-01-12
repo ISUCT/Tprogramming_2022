@@ -1,20 +1,21 @@
+namespace CourseApp.RpgSaga.Players;
+
 using System.Collections.Generic;
 using System.Linq;
 using CourseApp.RpgSaga.States;
 using CourseApp.RpgSaga.Powers;
 
-namespace CourseApp.RpgSaga.Players;
-
-public abstract class Player 
+public abstract class Player
 {
-    public Player(string name, int strength, int health) {
+    public Player(string name, int strength, int health)
+    {
         Name = name;
         Strength = strength;
         Health = health;
 
         NormalState = new Normal(Strength, Health);
     }
-    
+
     public string Name { get; set; }
 
     public int Strength { get; set; }

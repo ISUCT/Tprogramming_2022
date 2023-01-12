@@ -4,7 +4,7 @@ using System;
 using CourseApp.RpgSaga.Players;
 using CourseApp.RpgSaga.States;
 
-public class Logger 
+public class Logger
 {
     public void PrintStart()
     {

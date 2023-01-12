@@ -1,9 +1,9 @@
+namespace CourseApp.RpgSaga;
+
 using System;
 using System.Collections.Generic;
 using CourseApp.RpgSaga.Players;
 using CourseApp.RpgSaga.States;
-
-namespace CourseApp.RpgSaga;
 
 public class Fight
 {

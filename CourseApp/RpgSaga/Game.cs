@@ -1,24 +1,25 @@
+namespace CourseApp.RpgSaga;
+
 using System;
 using System.Collections.Generic;
 using CourseApp.RpgSaga.Players;
 
-namespace CourseApp.RpgSaga;
-
-public class Game {
-    public Game(Logger logger) 
+public class Game
+{
+    public Game(Logger logger)
     {
         Log = logger;
     }
 
     private Logger Log { get; set; }
-    
-    public void Run() 
+
+    public void Run()
     {
         Log.PrintStart();
 
         int playerNumbers = GetNumbPlayers();
 
-        List<string> playerNames = new List<string>() {"Nikita", "Danya", "James", "Elton", "Vladimir", "Tom", "Bob", "Sam", "Mike", "Denji"};
+        List<string> playerNames = new List<string>() { "Nikita", "Danya", "James", "Elton", "Vladimir", "Tom", "Bob", "Sam", "Mike", "Denji" };
 
         PlayersGenerator playersGenerator = new PlayersGenerator(playerNumbers, playerNames);
 
@@ -38,7 +39,7 @@ public class Game {
             {
                 break;
             }
-        } 
+        }
     }
 
     private int GetNumbPlayers()
@@ -78,7 +79,7 @@ public class Game {
         }
     }
 
-    public void NewTour(List<Player> players)
+    private void NewTour(List<Player> players)
     {
         for (int i = 0; i < players.Count; i++)
         {
@@ -90,7 +91,7 @@ public class Game {
         }
     }
 
-    public bool EndGame(List<Player> players)
+    private bool EndGame(List<Player> players)
     {
         if (players.Count == 1)
         {
