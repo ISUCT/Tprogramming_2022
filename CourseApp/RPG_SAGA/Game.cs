@@ -8,24 +8,24 @@ namespace CourseApp
   {
     public static void Start()
     {
-      int p_number = AskNumber();
-      List<Player> playerList = PlayerListGenerator(p_number);
-      RandomizeList(ref playerList);
-      PlayGame(ref playerList);
+      int number = AskNumber();
+      List<Player> playerList = PlayerListGenerator(number);
+      RandomizeList(playerList);
+      PlayGame(playerList);
     }
 
-    private static void PlayGame(ref List<Player> playerList)
+    private static void PlayGame(List<Player> playerList)
     {
       for (int i = 1; playerList.Count != 1; i++)
       {
         Logger.WriteRound(i);
-        PlayRound(ref playerList);
+        PlayRound(playerList);
       }
 
       Logger.WriteWinner(playerList[0]);
     }
 
-    private static void PlayRound(ref List<Player> playerList)
+    private static void PlayRound(List<Player> playerList)
     {
       for (int i = 0; i < playerList.Count / 2; i++)
       {
@@ -100,23 +100,23 @@ namespace CourseApp
       while (true)
       {
         Console.WriteLine("Enter an even number of players:");
-        int p_number = Convert.ToInt32(Console.ReadLine());
-        if (p_number <= 0)
+        int number = Convert.ToInt32(Console.ReadLine());
+        if (number <= 0)
         {
           Console.WriteLine("The number of players must be greater than 0!");
         }
-        else if (p_number % 2 != 0)
+        else if (number % 2 != 0)
         {
           Console.WriteLine("The number of players must be even!");
         }
         else
         {
-          return p_number;
+          return number;
         }
       }
     }
 
-    private static void RandomizeList(ref List<Player> input)
+    private static void RandomizeList(List<Player> input)
     {
       Random rnd = new Random();
       var buffer = input.ToArray();
