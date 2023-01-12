@@ -59,13 +59,10 @@ namespace CourseApp
             }
         }
 
-        public static void WriteDeath(Player inputP, bool isDeath)
+        public static void WriteDeath(Player inputP)
         {
-            if (isDeath)
-            {
-                Console.WriteLine($"{inputP.ToString()} погибает");
-                Console.WriteLine();
-            }
+            Console.WriteLine($"{inputP.ToString()} погибает");
+            Console.WriteLine();
         }
     }
 }

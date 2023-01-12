@@ -2,7 +2,6 @@ namespace CourseApp
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     public class Game
     {
@@ -10,22 +9,22 @@ namespace CourseApp
         {
             int p_number = AskNumber();
             List<Player> playerList = PlayerListGenerator(p_number);
-            RandomizeList(ref playerList);
-            PlayGame(ref playerList);
+            RandomizeList(playerList);
+            PlayGame(playerList);
         }
 
-        private static void PlayGame(ref List<Player> playerList)
+        private static void PlayGame(List<Player> playerList)
         {
             for (int i = 1; playerList.Count != 1; i++)
             {
                 Logger.WriteRound(i);
-                PlayRound(ref playerList);
+                PlayRound(playerList);
             }
 
             Logger.WriteWinner(playerList[0]);
         }
 
-        private static void PlayRound(ref List<Player> playerList)
+        private static void PlayRound(List<Player> playerList)
         {
             for (int i = 0; i < playerList.Count / 2; i++)
             {
@@ -60,15 +59,15 @@ namespace CourseApp
 
                 Tuple<string, float> playerAction = PlayerDoAction(fightMembers[i % 2]);
                 Logger.WriteAction(fightMembers[i % 2], fightMembers[(i + 1) % 2], playerAction);
-                if (playerAction.Item1 != "наносит урон")
+                if ((playerAction.Item1 != "наносит урон") && (playerAction.Item1 != "Удар возмездия"))
                 {
                     fightMembers[(i + 1) % 2].SetDebaff(playerAction.Item1);
                 }
 
                 checkDeath = fightMembers[(i + 1) % 2].GetDamage(playerAction.Item2);
-                Logger.WriteDeath(fightMembers[(i + 1) % 2], checkDeath);
                 if (checkDeath)
                 {
+                    Logger.WriteDeath(fightMembers[(i + 1) % 2]);
                     fightMembers[i % 2].Update();
                     return fightMembers[i % 2];
                 }
@@ -109,17 +108,14 @@ namespace CourseApp
             }
         }
 
-        private static void RandomizeList(ref List<Player> input)
+        private static void RandomizeList(List<Player> input)
         {
             Random rnd = new Random();
-            var buffer = input.ToArray();
             for (int i = 0; i < input.Count; i++)
             {
-                int chosen = rnd.Next(i, buffer.Length);
-                (buffer[i], buffer[chosen]) = (buffer[chosen], buffer[i]);
+                int chosen = rnd.Next(i, input.Count);
+                (input[i], input[chosen]) = (input[chosen], input[i]);
             }
-
-            input = buffer.ToList();
         }
 
         private static List<Player> PlayerListGenerator(int count)
@@ -137,7 +133,7 @@ namespace CourseApp
         {
             string[] names = { "Вальлиикт", "Йоророу", "Бенинэл", "Билелгар", "Вилдровер", "Бреновуд", "Труеон", "Филдис", "Грейнерэл", "Бертэам", "Ирвдес", "Франкернон", "Куртдитор" };
             Random rnd = new Random();
-            int health = (int)rnd.NextInt64(1, 64);
+            int health = (int)rnd.NextInt64(1, 64); 
             int strength = (int)rnd.NextInt64(1, 64);
             int chouse = (int)rnd.NextInt64(0, 3);
             switch (chouse)
