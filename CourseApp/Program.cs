@@ -1,12 +1,47 @@
-﻿namespace CourseApp
+﻿/*
+namespace CourseApp
 {
     using System;
+    using System.Collections.Generic;
+    using Character;
+    using CourseApp.RPGSaga;
 
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            Knight knight = new ("Nasus", 300, 5);
+            knight.Print();
+            knight.Ability();
+            /*Archer archer = new ("Azir", "Black Onion", 79);
+            TheMagian magian = new ("Rise", "CristalStaff", 85);
+            Guardian guard = new ("Leo", "zweihender", 95);
+
+            var characterList = new List<Character>
+            {
+                archer,
+                magian,
+                guard,
+            };
+
+            foreach (var character in characterList)
+            {
+                character.Print();
+                Console.WriteLine(character.Guild());
+                Console.WriteLine(character.GetInfo());
+                Console.WriteLine(character.ToString());
+            }#1#
+        }
+    }
+}
+*/
+namespace CourseApp
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Game.Start();
         }
     }
 }
