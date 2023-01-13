@@ -1,7 +1,6 @@
 ﻿namespace CourseApp.RPGSaga
 {
     using System;
-    using CourseApp.RPGSaga;
 
     public static class CreatePlayers
     {

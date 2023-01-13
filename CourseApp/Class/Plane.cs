@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class Plane : Transport, ILanding
+    public class Plane : Transport, ILanding, ITakeoff
     {
         private ActionTypes actionType;
 

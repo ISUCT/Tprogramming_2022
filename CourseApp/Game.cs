@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using CourseApp.RPGSaga;
 
     public class Game
     {
@@ -12,39 +11,18 @@
 
         public static void Main(string[] args)
         {
-            List<Player> players = new List<Player>();
             List<Player> battle = new List<Player>();
             int battleCounter = 0;
             int roundCounter = 0;
 
-            Console.Write("Введите кол-во героев: ");
-            int numberOfPlayers = Convert.ToInt16(Console.ReadLine());
-            Console.WriteLine();
-            if (numberOfPlayers % 2.0 != 0)
+            var numberOfPlayers = GameInitial();
+
+            if (numberOfPlayers == 0)
             {
-                Console.WriteLine("Количество героев нечетное!");
                 return;
             }
 
-            for (int i = 0; i < numberOfPlayers; i++)
-            {
-                var randomName = _names[_random.Next(0, 20)];
-                switch (CreatePlayers.GetHeroType())
-                {
-                    case PlayerTypes.NotType:
-                        new Exception("Player has not type");
-                        break;
-                    case PlayerTypes.Knight:
-                        players.Add(new Knight(randomName));
-                        break;
-                    case PlayerTypes.Archer:
-                        players.Add(new Archer(randomName));
-                        break;
-                    case PlayerTypes.Wizard:
-                        players.Add(new Wizard(randomName));
-                        break;
-                }
-            }
+            var players = HeroFactory(numberOfPlayers, new List<Player> { });
 
             while (players.Count > 1)
             {
@@ -119,6 +97,45 @@
                                   \____/  \____/    |______| |___|\_____|
 
 ");
+        }
+
+        public static int GameInitial()
+        {
+            Console.Write("Введите кол-во героев: ");
+            int numberOfPlayers = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine();
+            if (numberOfPlayers % 2.0 != 0 || numberOfPlayers <= 0)
+            {
+                Console.WriteLine("Количество героев нечетное!");
+                return 0;
+            }
+
+            return numberOfPlayers;
+        }
+
+        public static List<Player> HeroFactory(int numberOfPlayers, List<Player> players)
+        {
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                var randomName = _names[_random.Next(0, 20)];
+                switch (CreatePlayers.GetHeroType())
+                {
+                    case PlayerTypes.NotType:
+                        new Exception("Player has not type");
+                        break;
+                    case PlayerTypes.Knight:
+                        players.Add(new Knight(randomName));
+                        break;
+                    case PlayerTypes.Archer:
+                        players.Add(new Archer(randomName));
+                        break;
+                    case PlayerTypes.Wizard:
+                        players.Add(new Wizard(randomName));
+                        break;
+                }
+            }
+
+            return players;
         }
     }
 }
