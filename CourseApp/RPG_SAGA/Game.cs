@@ -8,10 +8,10 @@ namespace CourseApp
   {
     private enum TypePlayer
     {
-      Archer = 0,
-      Paladin = 1,
-      Warlock = 2,
-      Shaman = 3,
+      Archer,
+      Paladin,
+      Warlock,
+      Shaman,
     }
 
     public static void Start()
