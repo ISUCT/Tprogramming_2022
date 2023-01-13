@@ -33,6 +33,7 @@ namespace CourseApp.RPG_Saga
 
         public override void Ultimate()
         {
+            Ult = true;
             Punch();
             Ult = false;
         }
