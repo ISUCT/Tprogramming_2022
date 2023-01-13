@@ -2,6 +2,7 @@ namespace CourseApp
 {
   using System;
   using System.Collections.Generic;
+  using System.Linq;
 
   public abstract class Player
   {
@@ -61,8 +62,8 @@ namespace CourseApp
         switch (debuffName)
         {
           case "Poison Arrow":
-            returnedList.Add(Tuple.Create("Poison Arrow", 10.0f));
-            if (GetDamage(10))
+            returnedList.Add(Tuple.Create("Poison Arrow", 6.0f));
+            if (GetDamage(returnedList.Last().Item2))
             {
               returnedList.Add(Tuple.Create("PlayerIsDied", 1.0f));
               return returnedList;

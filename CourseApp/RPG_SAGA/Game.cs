@@ -6,32 +6,39 @@ namespace CourseApp
 
   public class Game
   {
-    public static void Start()
+    private enum TypePlayer
     {
-      int number = AskNumber();
-      List<Player> playerList = PlayerListGenerator(number);
-      RandomizeList(playerList);
-      PlayGame(playerList);
+      Archer = 0,
+      Paladin = 1,
+      Warlock = 2,
+      Shaman = 3,
     }
 
-    private static void PlayGame(List<Player> playerList)
+    public static void Start()
+    {
+      int number = Members();
+      List<Player> playerList = GeneratorPlayerList(number);
+      GameProgress(playerList);
+    }
+
+    private static void GameProgress(List<Player> playerList)
     {
       for (int i = 1; playerList.Count != 1; i++)
       {
         Logger.WriteRound(i);
-        PlayRound(playerList);
+        Round(playerList);
       }
 
       Logger.WriteWinner(playerList[0]);
     }
 
-    private static void PlayRound(List<Player> playerList)
+    private static void Round(List<Player> playerList)
     {
       for (int i = 0; i < playerList.Count / 2; i++)
       {
         Player[] fightMembers = { playerList[i * 2], playerList[(i * 2) + 1] };
         Logger.WriteFight(fightMembers);
-        playerList[i * 2] = PlayFight(fightMembers);
+        playerList[i * 2] = Fight(fightMembers);
       }
 
       for (int i = 1; i < playerList.Count; i++)
@@ -40,7 +47,7 @@ namespace CourseApp
       }
     }
 
-    private static Player PlayFight(Player[] fightMembers)
+    private static Player Fight(Player[] fightMembers)
     {
       for (int i = 0; true; i++)
       {
@@ -58,7 +65,7 @@ namespace CourseApp
           continue;
         }
 
-        Tuple<string, float> playerAction = PlayerDoAction(fightMembers[i % 2]);
+        Tuple<string, float> playerAction = RandomAction(fightMembers[i % 2]);
         Logger.WriteAction(fightMembers[i % 2], fightMembers[(i + 1) % 2], playerAction);
         if (playerAction.Item1 != "deals damage")
         {
@@ -72,17 +79,17 @@ namespace CourseApp
           }
         }
 
-        checkDeath = fightMembers[(i + 1) % 2].GetDamage((float)Math.Round(playerAction.Item2, 2));
-        Logger.WriteDeath(fightMembers[(i + 1) % 2], checkDeath);
+        checkDeath = fightMembers[(i + 1) % 2].GetDamage(playerAction.Item2);
         if (checkDeath)
         {
+          Logger.WriteDeath(fightMembers[(i + 1) % 2]);
           fightMembers[i % 2].Update();
           return fightMembers[i % 2];
         }
       }
     }
 
-    private static Tuple<string, float> PlayerDoAction(Player inputP)
+    private static Tuple<string, float> RandomAction(Player inputP)
     {
       Random rnd = new Random();
       int chosen = rnd.Next(0, 4);
@@ -95,7 +102,7 @@ namespace CourseApp
       }
     }
 
-    private static int AskNumber()
+    private static int Members()
     {
       while (true)
       {
@@ -116,49 +123,37 @@ namespace CourseApp
       }
     }
 
-    private static void RandomizeList(List<Player> input)
-    {
-      Random rnd = new Random();
-      var buffer = input.ToArray();
-      for (int i = 0; i < input.Count; i++)
-      {
-        int chosen = rnd.Next(i, buffer.Length);
-        (buffer[i], buffer[chosen]) = (buffer[chosen], buffer[i]);
-      }
-
-      input = buffer.ToList();
-    }
-
-    private static List<Player> PlayerListGenerator(int count)
+    private static List<Player> GeneratorPlayerList(int count)
     {
       List<Player> playerList = new List<Player>();
       for (int i = 0; i < count; i++)
       {
-        playerList.Add(PlayerGenerator());
+        playerList.Add(GenerationPlayers());
       }
 
       return playerList;
     }
 
-    private static Player PlayerGenerator()
+    private static Player GenerationPlayers()
     {
-      string[] names = { "Anakin", "Ben", "Emmett", "Fox", "Gandalf", "Han", "Idris", "Jareth", "Kael", "Ludo", "Marty", "Rory", "Spike", "Zack" };
+      List<Player> members = new List<Player>();
       Random rnd = new Random();
-      int health = (int)rnd.NextInt64(80, 100);
-      int strength = (int)rnd.NextInt64(20, 30);
-      int chouse = (int)rnd.NextInt64(0, 4);
-      switch (chouse)
+      List<string> nameplayers = new List<string> { "Misaki", "Gozgones", "Mimebat", "Keapir", "Brorup", "Ornoenan", "Gavienus", "Khochoids", "Higashi", "Strogek", "Amriel", "Gulheim", "Ibota", "Urgoz", "Acves", "Gartiapal", "Katrina", "Stoveod" };
+      int hp = rnd.Next(80, 101);
+      int power = rnd.Next(20, 31);
+      string name = nameplayers.ElementAt(rnd.Next(nameplayers.Count));
+      switch ((TypePlayer)rnd.Next(0, 4))
       {
-        case 0:
-          return new Shaman(health, strength, names[rnd.Next(names.Length)]);
-        case 1:
-          return new Warlock(health, strength, names[rnd.Next(names.Length)]);
-        case 2:
-          return new Paladin(health, strength, names[rnd.Next(names.Length)]);
-        case 3:
-          return new Archer(health, strength, names[rnd.Next(names.Length)]);
+        case TypePlayer.Archer:
+          return new Archer(hp, power, name);
+        case TypePlayer.Paladin:
+          return new Paladin(hp, power, name);
+        case TypePlayer.Warlock:
+          return new Warlock(hp, power, name);
+        case TypePlayer.Shaman:
+          return new Shaman(hp, power, name);
         default:
-          return new Warlock(health, strength, names[rnd.Next(names.Length)]);
+          return new Shaman(hp, power, name);
       }
     }
   }
