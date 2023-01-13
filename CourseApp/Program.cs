@@ -1,13 +1,10 @@
-﻿namespace CourseApp.Task_two
+﻿namespace CourseApp
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            England test = new England();
-            test.Info();
-            test.ChangeArea();
-            test.ChangePopulation();
+            Game.Play();
         }
     }
 }
