@@ -6,12 +6,9 @@
     public class Program
     {
         private static Random randomizer = new Random();
-        private static string[] names = new string[32] { "Гром", "Кристофер", "Белль", "Диана", "Виктория", "Саймон", "Зерко", "Мариэлла", "Анок", "Мрик", "Вайл", "Кроль", "Оник", "Ева", "Нарри", "Эльза", "Александр", "Мариэль", "Марри ", "Инко", "Зик", "Гроль", "Крайк", "Мраль", "Салли", "Верш", "Пика", "Арик", "Эммо", "Ешка", "Грим", "Викто" };
-
+        private static string[] names = new string[32]  { "Гром", "Кристофер", "Белль", "Диана", "Виктория", "Саймон", "Зерко", "Мариэлла", "Анок", "Мрик", "Вайл", "Кроль", "Оник", "Ева", "Нарри", "Эльза", "Александр", "Мариэль", "Марри ", "Инко", "Зик", "Гроль", "Крайк", "Мраль", "Салли", "Верш", "Пика", "Арик", "Эммо", "Ешка", "Грим", "Викто" };
         public static void Main()
         {
-            List<Players> heroes = new List<Players>();
-            List<Players> arena = new List<Players>();
             bool death = false;
             int counter = 0;
 
@@ -19,29 +16,15 @@
             int numberPlayers = Convert.ToInt16(Console.ReadLine()); // записываем введённое пользователем число в переменную, преобразовав его из string в int16
             Console.WriteLine();
 
-            if (Check(numberPlayers) == false)
+            var heroes = GameGeneration(new List<Players> { }, numberPlayers);
+            if (heroes == null)
             {
-                Console.WriteLine("Введнено нечётное количество игроков!");
                 return;
-            }
-
-            Console.WriteLine("В битве учавствуют:");
-            Console.WriteLine();
-
-            for (int i = 0; i < numberPlayers; i++)
-            {
-                heroes.Add(CreateHeroes());
-                Console.WriteLine(heroes[i]);
             }
 
             while (heroes.Count > 1)
             {
-                for (int i = 0; i < 2; i++)
-                {
-                    var candidate = heroes[randomizer.Next(0, heroes.Count)];
-                    arena.Add(candidate);
-                    heroes.Remove(candidate);
-                }
+                var arena = ArenaGeneraton(heroes, new List<Players> { });
 
                 counter += 1;
 
@@ -114,7 +97,7 @@
             }
 
             Console.WriteLine();
-            Console.WriteLine($"{heroes[0]} становится победителем! Ура!!!");
+            Console.WriteLine($"{heroes[0]} становится победителем!");
         }
 
         public static Players CreateHeroes()
@@ -134,13 +117,13 @@
 
         public static bool Check(int numberPlayers)
         {
-            if (numberPlayers % 2.0 == 0)
+            if (numberPlayers % 2.0 != 0 || numberPlayers <= 0)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -187,6 +170,38 @@
         {
             Logger.WriteLog($"{player} горит и получает урон 2HP");
             player.Health -= 2;
+        }
+
+        public static List<Players> GameGeneration(List<Players> heroes, int numberPlayers)
+        {
+            if (Check(numberPlayers) == false)
+            {
+                Console.WriteLine("Введнено нечётное количество игроков!");
+                return null;
+            }
+
+            Console.WriteLine("В битве учавствуют:");
+            Console.WriteLine();
+
+            for (int i = 0; i < numberPlayers; i++)
+            {
+                heroes.Add(CreateHeroes());
+                Console.WriteLine(heroes[i]);
+            }
+
+            return heroes;
+        }
+
+        public static List<Players> ArenaGeneraton(List<Players> heroes, List<Players> arena)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                var candidate = heroes[randomizer.Next(0, heroes.Count)];
+                arena.Add(candidate);
+                heroes.Remove(candidate);
+            }
+
+            return arena;
         }
     }
 }
