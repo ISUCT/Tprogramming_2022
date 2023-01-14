@@ -54,6 +54,7 @@
             Hero knight2 = new Knight(50, 20, "(Рыцарь) Зигфрид", "Удар возмездия");
             Hero archer = new Archer(50, 20, "(Лучник) Леголас", "Огненные стрелы");
             Hero magician = new Magician(50, 20, "(Маг) Дамблдор", "Заворожение");
+            Console.WriteLine(" ");
         }
     }
 }
