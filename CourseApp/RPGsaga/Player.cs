@@ -1,4 +1,4 @@
-﻿namespace CourseApp.RPGsaga
+namespace CourseApp.RPGsaga;
 
 using System;
 using System.Collections.Generic;
@@ -21,9 +21,39 @@ public abstract class Player
 
     public string AbilityName { get; set; }
 
+    public virtual string ToString()
+    {
+        return "(Герой) " + Name;
+    }
+
+    public bool AbilityUse = false;
+
+    public virtual void Ability(string AbilityUse)
+    {
+        Random rnd = new Random();
+        int prob = (int)rnd.NextInt64(1, 10);
+        switch (prob)
+        {
+            case 1:
+                return AbilityUse = true;                
+            default:
+                return AbilityUse = false;
+        }
+    }
+
+    public void NewHealth(int damage)
+    {
+        health -= damage;
+    }
+
+    public int Damage()
+    {
+        return force;
+    }
+
     public bool Death()
     {
-        if (Health == 0)
+        if (health == 0)
         {
             return true;
         }
