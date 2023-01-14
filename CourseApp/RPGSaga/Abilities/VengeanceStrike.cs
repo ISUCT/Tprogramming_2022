@@ -7,8 +7,8 @@ namespace CourseApp.RPGSaga.Abilities
         public VengeanceStrike(int dmg)
         {
             Name = "Vengeance Strike";
-            Damage_Multiplier = 1.3;
-            Damage = dmg * Damage_Multiplier;
+            DamageMultiplier = 1.3;
+            Damage = dmg * DamageMultiplier;
             UsageLimit = 1;
             SkippingMove = false;
             IsFire = false;
@@ -17,7 +17,7 @@ namespace CourseApp.RPGSaga.Abilities
 
         public string Name { get; }
 
-        public double Damage_Multiplier { get; set; }
+        public double DamageMultiplier { get; set; }
 
         public double Damage { get; set; }
 
@@ -28,18 +28,6 @@ namespace CourseApp.RPGSaga.Abilities
         public bool IsFire { get; }
 
         public int Duration { get; set; }
-
-        public bool СheckUsageLimit()
-        {
-            if (UsageLimit >= 1)
-            {
-                return true;
-            }
-            else
-            {
-                 return false;
-            }
-        }
 
         public override string ToString()
         {

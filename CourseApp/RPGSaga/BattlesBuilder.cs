@@ -43,7 +43,7 @@ namespace CourseApp.RPGSaga
 
         public void StartTournament()
         {
-            System.Console.WriteLine("Начало Турнира!");
+            System.Console.WriteLine("Start of the tournament!");
             tournamentList = tournamentListGenerator.GenerateTournamentList();
             int i = 0;
             while (tournamentList.Count != 1)
@@ -52,7 +52,7 @@ namespace CourseApp.RPGSaga
                 Logger.WriteLog(" ");
                 Logger.WriteLog($"Round: {i}");
                 Logger.WriteLog(" ");
-                Logger.WriteLog("Участники:");
+                Logger.WriteLog("Members:");
                 RunBattle(tournamentList);
             }
 
@@ -80,7 +80,7 @@ namespace CourseApp.RPGSaga
                     for (int i = 0; i < playersList.Count; i += 2)
                     {
                         Logger.WriteLog(" ");
-                        Logger.WriteLog($"Бой между: {playersList[i]}, {playersList[i + 1]}");
+                        Logger.WriteLog($"Fight between: {playersList[i]}, {playersList[i + 1]}");
                         fight = new Fight(playersList[i], playersList[i + 1]);
                         fight.SetOpponent();
                         tournamentList.Add(fight.StartFight());
@@ -91,7 +91,7 @@ namespace CourseApp.RPGSaga
                     for (int i = 0; i < playersList.Count - 1; i += 2)
                     {
                         Logger.WriteLog(" ");
-                        Logger.WriteLog($"Бой между: {playersList[i]}, {playersList[i + 1]}");
+                        Logger.WriteLog($"Fight between: {playersList[i]}, {playersList[i + 1]}");
                         fight = new Fight(playersList[i], playersList[i + 1]);
                         fight.SetOpponent();
                         tournamentList.Add(fight.StartFight());

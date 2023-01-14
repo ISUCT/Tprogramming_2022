@@ -13,7 +13,5 @@ namespace CourseApp.RPGSaga.Interface
         public bool IsFire { get; }
 
         public int Duration { get; set; }
-
-        public bool СheckUsageLimit();
     }
 }

@@ -26,18 +26,6 @@ namespace CourseApp.RPGSaga.Abilities
 
         public int Duration { get; set; }
 
-        public bool СheckUsageLimit()
-        {
-            if (UsageLimit >= 1)
-            {
-                return true;
-            }
-            else
-            {
-                 return false;
-            }
-        }
-
         public override string ToString()
         {
             return $"{Name}";

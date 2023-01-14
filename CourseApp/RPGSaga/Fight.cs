@@ -23,7 +23,7 @@ namespace CourseApp.RPGSaga
 
         public Player StartFight()
         {
-            Logger.WriteLog("Характеристики:");
+            Logger.WriteLog("Characteristics:");
             Logger.WriteLog($"Name: ({player1.Name}), HP: {player1.HP}, Strength: {player1.Strength} VS Name: ({player2.Name}), HP: {player2.HP}, Strength: {player2.Strength}");
             while (!player1.IsDead && !player2.IsDead)
             {

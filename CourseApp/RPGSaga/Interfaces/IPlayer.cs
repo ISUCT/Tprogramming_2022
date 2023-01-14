@@ -11,5 +11,7 @@ namespace CourseApp.RPGSaga.Heroes
         public bool IsDead { get; set; }
 
         public bool IsFire { get; set; }
+
+        public int MaxHP { get; set; }
     }
 }

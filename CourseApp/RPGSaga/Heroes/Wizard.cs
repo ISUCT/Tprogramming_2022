@@ -6,122 +6,20 @@ namespace CourseApp.RPGSaga.Heroes
     using CourseApp.RPGSaga;
     using CourseApp.RPGSaga.Abilities;
     using CourseApp.RPGSaga.Interface;
+    using Logger = System.Console;
 
     public class Wizard : Player
     {
-        private bool isSkip;
-        private Player opponent;
-        private List<IAbility> abilities;
-        private List<IAbility> effectsList;
-
         public Wizard(string name, int hp, int strength)
        : base(name, hp, strength)
        {
-        abilities = new List<IAbility>() { new Hit(strength), new Spellbinding() };
-        effectsList = new List<IAbility>();
+        Abilities = new List<IAbility>() { new Hit(strength), new Spellbinding() };
+        EffectsList = new List<IAbility>();
        }
-
-        public override Player Opponent
-        {
-            get
-            {
-                return opponent;
-            }
-
-            set
-            {
-                opponent = value;
-            }
-        }
-
-        public override void MakeMove()
-        {
-            isSkip = false;
-            List<IAbility> effects = effectsList;
-            foreach (var effect in effectsList.ToList())
-            {
-                if (effect.SkippingMove)
-                {
-                    isSkip = true;
-                    Logger.WriteLog($"{ToString()} is skipping step");
-                }
-
-                if (effect.IsFire)
-                {
-                    IsFire = true;
-                    Logger.WriteLog($"{ToString()} is burning");
-                }
-
-                if (IsFire)
-                {
-                    HP -= 2;
-                }
-
-                HP -= (int)effect.Damage;
-
-                if (HP <= 0)
-                {
-                    IsDead = true;
-                    return;
-                }
-
-                if (HP <= 0)
-                {
-                    IsDead = true;
-                    return;
-                }
-
-                effect.Duration -= 1;
-
-                if (effect.Duration <= 0)
-                {
-                    effectsList.Remove(effect);
-                }
-
-                if (effectsList.Count <= 1)
-                {
-                    break;
-                }
-            }
-
-            Logger.WriteLog($"{ToString()} has {HP} HP");
-            Logger.WriteLog("-------------------------------------------------------");
-
-            if (!isSkip)
-            {
-                DealDamage();
-            }
-        }
 
         public override void Addeffect(IAbility effect)
         {
-            effectsList.Add(effect);
-        }
-
-        public void SetOppnent(Player eOpponent)
-        {
-            opponent = eOpponent;
-        }
-
-        public override void DealDamage()
-        {
-            int index = Random.Shared.Next(0, abilities.Count);
-            opponent.Addeffect(abilities[index]);
-            Logger.WriteLog($"{this.ToString()} применяет {abilities[index].Name} и наносит {(int)abilities[index].Damage}");
-            abilities[index].UsageLimit -= 1;
-            if (abilities[index].UsageLimit == 0)
-            {
-                Logger.WriteLog($"{ToString()} used maximum times of {abilities[index].Name}");
-                abilities.RemoveAt(index);
-            }
-        }
-
-        public override void SetDefaultValues()
-        {
-            HP = 100;
-            IsDead = false;
-            IsFire = false;
-            AddAbilities();
+            EffectsList.Add(effect);
         }
 
         public override string ToString()
@@ -129,12 +27,12 @@ namespace CourseApp.RPGSaga.Heroes
             return $"Wizard: ({Name})";
         }
 
-        protected void AddAbilities()
+        protected override void AddAbilities()
         {
-            abilities.Clear();
-            effectsList.Clear();
-            abilities.Add(new Hit(Strength));
-            abilities.Add(new Spellbinding());
+            Abilities.Clear();
+            EffectsList.Clear();
+            Abilities.Add(new Hit(Strength));
+            Abilities.Add(new Spellbinding());
         }
     }
 }

@@ -10,9 +10,10 @@
     {
         public static void Main(string[] args)
         {
-            var gameBuilder = new BattlesBuilder(10);
-            gameBuilder.StartTournament();
-            gameBuilder.GetWinner();
+            // var gameBuilder = new BattlesBuilder(10);
+            // gameBuilder.StartTournament();
+            // gameBuilder.GetWinner();
+            Game.Start(10);
         }
     }
 }
