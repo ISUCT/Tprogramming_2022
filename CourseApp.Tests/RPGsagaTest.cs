@@ -14,12 +14,12 @@
         [Fact]
         public void TestConstructor()
         {
-            var hero1 = new Knight(50, 20, "(Рыцарь) Ричард");
+            var hero1 = new Knight(50, 20, "(Рыцарь) Ричард", "Удар возмездя");
             Assert.Equal(50, hero1.Health);
             Assert.Equal(20, hero1.Power);
             Assert.Equal("(Рыцарь) Ричард", hero1.Name);
 
-            var hero2 = new Archer(50, 20, "(Лучник) Леголас");
+            var hero2 = new Archer(50, 20, "(Лучник) Леголас", "Огненные стрелы");
             Assert.Equal(50, hero2.Health);
             Assert.Equal(20, hero2.Power);
             Assert.Equal("(Лучник) Леголас", hero2.Name);
@@ -45,12 +45,12 @@
         [Fact]
         public void TestConstructor2()
         {
-            var hero1 = new Knight(50, 20, "(Рыцарь) Зигфрид");
+            var hero1 = new Knight(50, 20, "(Рыцарь) Зигфрид", "Удар возмездя");
             Assert.Equal(50, hero1.Health);
             Assert.Equal(20, hero1.Power);
             Assert.Equal("(Рыцарь) Зигфрид", hero1.Name);
 
-            var hero2 = new Magician(50, 20, "(Маг) Дамблдор");
+            var hero2 = new Magician(50, 20, "(Маг) Дамблдор", "Заворожение");
             Assert.Equal(50, hero2.Health);
             Assert.Equal(20, hero2.Power);
             Assert.Equal("(Маг) Дамблдор", hero2.Name);
