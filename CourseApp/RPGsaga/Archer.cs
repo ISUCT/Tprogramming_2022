@@ -1,4 +1,4 @@
-﻿namespace CourseApp.RPGsaga
+namespace CourseApp.RPGsaga;
 
 using System;
 using System.Collections.Generic;
@@ -12,26 +12,21 @@ public class Archer : Player
 
     public bool AbilityUse = false;
 
-    public string ToString()
+    public override string ToString()
     {
         return "(Лучник) " + Name;
     }
 
-    public void Use()
+    public override int Ability(string AbilityUse)
     {
-        if (AbilityUse == false)
+        Random rnd = new Random();
+        int prob = (int)rnd.NextInt64(1, 10);
+        switch (prob)
         {
-            AbilityUse = true;
+            case 1:
+                return AbilityUse = true;                
+            default:
+                return AbilityUse = false;
         }
-    }
-
-    public int Attack()
-    {
-        if (AbilityUse == true)
-        {
-            return force += 2;
-        }
-        else
-            return force;
     }
 }
