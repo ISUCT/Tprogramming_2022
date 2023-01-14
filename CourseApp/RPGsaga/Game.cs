@@ -29,8 +29,10 @@
             return $"Здоровье: {Health}  Сила: {Power}  Имя: {Name}  Способность: {Ability}";
         }
 
-        public Hero Fight(Hero hero1, Hero hero2, Hero n_round)
+        public Hero Fight(Hero hero1, Hero hero2, Hero n_round, int n_kon)
         {
+            n_round.EnterFight(n_kon);
+            n_round.Advertisement(hero1, hero2);
             hero1.Action();
             hero2.Damage();
             if (hero2.Health <= 0)
