@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseApp", "CourseApp\Cour
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseApp.Tests", "CourseApp.Tests\CourseApp.Tests.csproj", "{3F66714D-FFFA-4512-A62B-4D038AB148AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpgSage", "RpgSage\RpgSage.csproj", "{922CF869-B07C-498A-A5F3-ACAF56C07DFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3F66714D-FFFA-4512-A62B-4D038AB148AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F66714D-FFFA-4512-A62B-4D038AB148AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F66714D-FFFA-4512-A62B-4D038AB148AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{922CF869-B07C-498A-A5F3-ACAF56C07DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922CF869-B07C-498A-A5F3-ACAF56C07DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922CF869-B07C-498A-A5F3-ACAF56C07DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922CF869-B07C-498A-A5F3-ACAF56C07DFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
