@@ -1,4 +1,4 @@
-﻿namespace CourseApp.RPGsaga
+namespace CourseApp.RPGsaga;
 
 using System;
 using System.Collections.Generic;
@@ -15,19 +15,16 @@ public class Wizard : Player
     {
         return "(Волшебник) " + Name;
     }
-    public void Use()
-    {
-        if (AbilityUse == false)
-        {
-            AbilityUse = true;
-        }
-    }
 
-    public int Attack()
+    public override int Ability(string AbilityUse)
     {
-        if (AbilityUse == true)
+        Random rnd = new Random();
+        int prob = (int)rnd.NextInt64(1, 10);
+        switch (prob)
         {
-            damage = 0;
+            case 1:
+                return AbilityUse = true;                
+            default:
+                return AbilityUse = false;
         }
     }
-}
