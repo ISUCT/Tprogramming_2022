@@ -1,5 +1,7 @@
 ﻿namespace RPGsagaApp
 {
+    using System;
+
     public abstract class Hero
     {
         private int defaultHealth;
@@ -23,25 +25,15 @@
 
         public abstract string AbilityDisplay();
 
-        public string EnterFight(int n_kon)
+        public void Action()
         {
-            return $"Кон. {n_kon}";
+            Console.WriteLine($"{Name} наносит урон {Power} противнику");
         }
 
-        public string Advertisement(Hero hero1, Hero hero2)
-        {
-            return $"{hero1.Name} vs {hero2.Name}";
-        }
-
-        public string Action()
-        {
-            return $"{Name} наносит урон {Power} противнику";
-        }
-
-        public string Damage()
+        public void Damage()
         {
             Health = Health - Power;
-            return $"{Name} получил урон {Power} и теряет {Health} единицы жизни";
+            Console.WriteLine($"{Name} получил урон {Power} и теряет {Health} единицы жизни");
         }
     }
 }

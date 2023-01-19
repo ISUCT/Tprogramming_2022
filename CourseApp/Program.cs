@@ -55,6 +55,21 @@
             Hero archer = new Archer(50, 20, "(Лучник) Леголас", "Огненные стрелы");
             Hero magician = new Magician(50, 20, "(Маг) Дамблдор", "Заворожение");
             Console.WriteLine(" ");
+
+            Game fight1 = new Game();
+            Console.WriteLine(fight1.EnterFight(1));
+            Console.WriteLine(fight1.Advertisement(knight1, archer));
+            fight1.Fight(knight1, archer);
+
+            Game fight2 = new Game();
+            fight2.EnterFight(1);
+            fight2.Advertisement(knight2, magician);
+            fight2.Fight(knight2, magician);
+
+            Game fightFinal = new Game();
+            fightFinal.EnterFight(2);
+            fightFinal.Advertisement(knight1, knight2);
+            fightFinal.Fight(knight1, knight2);
         }
     }
 }
