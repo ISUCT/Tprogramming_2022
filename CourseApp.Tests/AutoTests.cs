@@ -3,7 +3,7 @@
     using AutoApp;
     using Xunit;
 
-    public class Auto_Tests
+    public class AutoTests
     {
         [Fact]
         public void Test1()
